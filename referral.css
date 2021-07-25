@@ -1,0 +1,186 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+a{text-decoration: none;}
+li a, a{
+    font-size:16px;
+    font-weight: bold;
+    color:rgb(255, 255, 255);
+}
+nav{display:flex;
+    justify-content: space-around;
+     line-height:60px;
+}
+.rightLinks{
+    display:flex;
+    justify-content: space-evenly;
+}
+.rightLinks{
+    padding-left:10px;
+    margin-left:20%;
+}
+.middleLinks ul{
+    display:flex;
+    justify-content: space-evenly;
+}
+.middleLinks ul li{
+    padding-left:40px;
+    list-style-type: none;
+     margin-top:10px;
+}
+.middleLinks ul li a:hover{
+    color:rgb(69, 156, 255)
+}
+.signing-up{
+    margin-top:10px;
+}
+.signing-up a{ 
+    border: 2px solid #fff;
+    padding:10px;
+}
+.signing-up a:hover{
+    background-color: rgb(69, 156, 255)
+    ; border: 1px solid rgb(24, 24, 24);
+    transition:1.5s;
+    color: rgb(233, 233, 233);
+}
+.referSignup{
+    margin-right:30px;
+}
+
+main{
+    background-image: url(img/ref2.jpg) !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo h2{
+    color:#fff;
+    border-left:2px solid rgb(69, 156, 255);
+    padding:-15px;
+    padding-left:10px;
+    margin-top:15px;
+}
+.inner{
+    height:800px;
+    background-color: rgb(0, 0, 0);
+    opacity:.8;
+}
+.kemon-Logo2{color:#fff;
+    font-size:30px;
+    margin-left:30px;
+    margin-top:250px;
+}
+.main-sec{
+    display: flex;
+    justify-content:space-around;
+}
+.agn-pic{
+    width:200px;
+    width:200px;
+    border-radius:50%;
+    margin-left:-10%;
+     
+}
+.pic-bor{
+    margin-left:-10%;
+    margin-top:-203px;
+    width:206px;
+    height:206px;
+    border-radius:50%;
+    border: 3px solid transparent;
+    border-top-color: #fff ;
+    border-bottom-color: #fff ;
+    animation: spiny 2s linear;
+    animation-iteration-count: infinite;
+}
+@keyframes spiny{
+    0%{transform: rotate(0deg) scale(1);}
+    50%{transform: rotate(45deg) scale(1.2);}
+    100%{transform: rotate(360deg) scale(1);}
+}
+.info-info{font-size:18px;}
+.fa{border: 1px solid rgb(69, 156, 255);}
+.referral-icon i{
+    height:100px;
+    width:100px;
+    border: 2px solid rgb(69, 156, 255);
+    padding:10px;
+    border-radius:50%;
+}
+.getStarted{
+    opacity:1;
+}
+.getStarted a{
+    color:rgb(255, 255, 255) !important;
+    background-color: rgb(0, 119, 255);
+    border-radius:20px;
+    font-size:22px;
+    text-align-last: center;
+    padding:10px 25px;
+    transition:1.5s;
+}
+.getStarted a:hover{
+    background-color:rgb(255, 255, 255) !important;
+    color: rgb(0, 119, 255) !important;
+}
+.fa-flexbox{
+    display:flex;
+    justify-content: center;
+    padding-top:100px;
+    width:70%;
+    margin-left:15%;
+}
+.fa-flexbox div{
+    width:33%;
+    padding-left:30px;
+}
+.middle-up{
+    margin-top:-100px;
+}
+.fa-flexbox div i{
+    text-align: center;
+}
+.fa{
+    margin-left:30%;
+    color:rgb(0, 119, 255);
+}
+.fa-flexbox h5{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:19px;
+}
+.referral-icon{
+    background-color: #eee;
+}
+.relativeOnStart{
+    position: relative;
+}
+.fixedOnScroll{
+    z-index:1000;
+    top:0;
+    position: fixed;
+    width:100%;
+    background-color: rgb(0, 0, 0);
+    color:#000 !important;
+    transition:1s;
+}
+.myUsername{
+    margin-top:-30px;
+    margin-left:0px
+}
+.agentType{
+    text-align:center;
+    margin-left:0px
+}
+@media screen and (max-width:1100px){.fa-flexbox{width:90%; margin-left:5%;}.agn-pic, .pic-bor{margin-left:-15%;}}
+@media screen and (max-width:882px){nav{justify-content: space-between;}.agn-pic, .pic-bor{margin-left:-15%;}.fa-flexbox{width:100%; margin-left:0%;padding;}.fa-flexbox div{padding-left: 15px;}.fa-flexbox div i {margin-left:13%;}
+@media screen and (max-width:750px){.agn-pic, .pic-bor{margin-left:-40%;}.first{width:40%;}}
+@media screen and (max-width:600px){.main-sec{display:block;}.pic-bor,.agn-pic{margin-left:27%;}.agentType{margin-left:0px;}
+.fa-flexbox{padding:140px 10px 160px 0px;margin-bottom:-20px;display: block;width:100%}.fa-flexbox div{width:100%}.myUsername{margin-left:0px;text-align:center;}
+.kemon-Logo2{margin-top:0px;}.first{width:80%;margin-left:10%;margin-top:60px;padding-top:50px;}.getStarted{margin-top:-60px;margin-bottom:100px;}
+.fa-flexbox div i{margin-left:0px;} .fa-flexbox{width:85%;}.fa-flexbox h5{margin-top:-100px;margin-left:120px;}.middle-up{margin-top:0px;}}
+@media screen and (max-width:400px){.agn-pic, .pic-bor{ width:150px;}.logo h2{font-size:25px;}.signing-up a{font-size:15px;}.signing-up{margin-top:0px;}}            
+@media screen and (max-width:350px){.agn-pic, .pic-bor{ margin-left:20%;}.logo h2{font-size:25px;}.signing-up a{font-size:15px;}.signing-up{margin-top:0px;}}

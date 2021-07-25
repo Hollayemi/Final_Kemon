@@ -1,0 +1,289 @@
+body{
+    /* overflow-x: hidden; */
+    width: 100%;
+}
+.main-nav a:hover{
+  color: blue !important;
+}
+.mySearchInput{
+    padding-top:0px;
+    width:60%;
+    margin-left:20%;
+    
+}
+.mySearchInput h3{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+    font-size:30px;
+}
+.Pepepic{
+    position: absolute;
+    width:400px;
+    height:400px;
+    right:18%;
+
+    z-index:903;
+}
+
+.emptyDiv img{
+  position: relative;
+  height:400px;
+  margin-top:-210px;
+}
+.combineSearch{
+display: flex;
+justify-content: space-around;
+}
+
+.genSearchBtn{
+  width:50%
+}
+.searchInput{
+    background-color:rgb(65, 178, 220);
+    width:100% !important;
+    margin-left:10%;
+    margin-top:20px;
+    height:200px;
+    padding-left:5%;
+    padding-top:45px;
+    border-radius:50px;
+    z-index:203;
+}
+.searchInput input{
+    /* position: absolute; */
+    width:80%;
+    height:45px;
+    border:1px solid rgb(65, 178, 220);
+    padding-left:15px;
+    border-radius:20px;
+    margin-left:5%;
+}
+@media screen and (min-width:1300px){.genSearchBtn{width:40%}}
+@media screen and (max-width:1300px){.emptyDiv img{margin-top:-5%; height:350px;}}
+@media screen and (max-width:850px){
+  .combineSearch{ display: flex;flex-direction: column-reverse; }
+  .emptyDiv img{width:80%;margin-left:10%;}
+  .genSearchBtn{width: 100%; margin-left:-10%;}
+}
+.myIons{
+    margin-left:-3%;
+    font-size:30px;
+    color:#fff;
+    margin-top:-10px;
+    background-color: rgb(255, 214, 79);
+    width:60px;
+    height:60px;
+    text-align: center;
+    line-height:70px;
+    border-radius:50%;
+    position: absolute;
+}
+
+.My_src_btn{
+    color: rgb(255, 255, 255) !important;
+    background-color:   rgb(65, 178, 220) !important;
+    border:none !important;
+    height:50px !important;
+    font-size:25px;
+    width:200px;
+    margin-left:calc(50% - 50px);
+    margin-top:-20px;
+    border-radius:20px;
+  }
+  .flexSearched{
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #fff;
+      padding-top:60px;
+      padding-bottom:60px;
+      width:100%  !important;
+      justify-content: center;
+  }
+  .flexSearchedDiv h5{
+      position: relative;
+      text-align: left;
+      margin-left:20px;
+      width:100%;
+      font-size:17px;
+      color:#fff;
+      z-index:300;
+      cursor: pointer;
+  }
+
+.searchedPicFrame{
+    margin:15px;
+    height:300px;
+    width:300px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    border-radius:15px ;
+    transform: scale(4px);
+    overflow: hidden;
+}
+.searchedPicFrame img{
+    height:300px;
+    width:300px;
+    transition:.5s;
+}
+  .blackOverLay{
+      background-color:#000;
+      height:300px;
+      width:300px;
+      opacity:.5;
+      position: absolute;
+      margin-top:0px;
+      border-radius:15px ;
+      overflow: hidden;
+      transition:.5s;
+      z-index:300;
+      cursor: pointer;
+  }
+  .myDesc{
+      position: absolute;
+      margin-top:-130px;
+      transition:1s;
+  }
+  .blackOverLay:hover{
+    opacity:0;
+  }
+  .blackOverLay:hover ~ .myDesc{
+    margin-left:-90px;
+    opacity:0;
+    transform: rotate(-30deg);
+    transform:scale(0,3);
+  }
+  .blackOverLay:hover ~ .scalePic img{
+      transform:scale(1.1);
+  }
+  .browsedShopName h4{
+    color:rgb(12, 177, 242) !important;
+    text-align: center;
+    font-size:20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.browsedShopName a .fa{
+    width:40px;
+    height:40px;
+    line-height:40px;
+    background-color:rgb(12, 177, 242);
+    color:#fff;
+    border-radius:50%;
+    text-align: center;
+    transition:.5s;
+}
+.browsedShopName .first{
+    margin-left:40%;
+    margin-top:-20px;
+}
+.browsedShopName a .fa:hover{
+    background-color:rgb(11, 158, 216);
+}
+
+ 
+.myCategory div div::-webkit-scrollbar{
+    display:none;
+  }
+  .myCategory div::-webkit-scrollbar{
+    display:none;
+  
+  }
+  .myCategory::-webkit-scrollbar-button{
+    background-color: rgb(189, 189, 194);
+    display: none;
+    
+  }
+  .myCategory::-webkit-scrollbar-thumb{
+    background-color: rgb(18, 151, 204);
+    border-radius:30px;
+  }
+  .myCategory{
+    width:100%;
+  }
+  .myCategory div{
+    display:flex;
+    justify-content: center;
+    height:250px;
+    padding-top:0px;
+    background-color: rgb(233, 232, 232);
+    overflow-x:scroll;
+    /* box-shadow: -10px 10px 30px 5px rgba(0, 0, 0, 0.08); */
+  }
+  .myCategory div div{
+    flex-basis:100%;
+    flex-grow:1;
+    min-width:100px;
+    max-width:250px;
+    
+    flex-shrink: 0px;
+    margin:0% 10px;
+    height:90%;
+    margin-top:1%;
+    width:100px !important;
+    text-align: left;
+    border-radius:10px;
+  }
+  .myCategory h2{
+    position: absolute;
+    line-height:80px;
+    height:80px;
+    width:80px;
+    border-radius:50%;
+    margin-top:70px;
+    text-align: center !important;
+    box-shadow: -10px 10px 30px 5px rgba(0, 0, 0, 0.17);
+    transition:1s;
+    background-color: rgb(253, 252, 252);
+    cursor: pointer;
+  }
+  .leftArr{
+    opacity:0;
+  }
+  .myCategory h2:hover{
+    opacity:1;
+    background-color:rgba(143, 140, 140, 0.353);
+    box-shadow: -10px 10px 30px 5px rgba(29, 29, 29, 0.755);
+  }
+  .myCategory h2:first-child{
+    right:0px;
+  }
+  .inif{
+    transition:1s;
+  }
+  .inif div{
+    text-align: left !important ;
+  }
+  .inner_cat{
+    display: flex;
+    flex-direction:column;
+    overflow:hidden;
+    border: 1px solid #eee;
+    box-shadow: -10px 10px 30px 5px rgba(0, 0, 0, 0.17);
+    background-color:#eee !important;
+    transition:.5s;
+  }
+  .inner_cat:hover{
+    transform: scale(1.05) !important;
+  }
+  .inner_cat img{
+    height:100% !important;
+    border-radius:10px;
+    padding-bottom:10px;
+    width:100%;
+  }
+  .inner_cat button{
+    position: relative;
+    margin-bottom:20px;
+    bottom:0px;
+    border:none;
+    width:100%;
+    color:rgb(0, 0, 0);
+    padding-top:20 !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    align-items: center;
+    font-size:15;
+    height:-5%;
+  }
+  .inner_cat button h5{ 
+    align-items: left;
+    font-size:16px;
+  }

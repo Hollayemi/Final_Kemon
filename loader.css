@@ -1,0 +1,103 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    justify-content:center;
+    align-items: center;
+   
+}
+.cover{
+    
+    position: relative;
+    background-image: url(img/play.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    opacity: 1 !important;
+}
+
+
+#loadingFrame{
+    display: flex;
+    margin-top:10%;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width:500px){#loadingFrame{margin-top:20%;}}
+@media screen and (max-width:400px){#loadingFrame{margin-top:22%;}}
+@media screen and (max-width:350px){#loadingFrame{margin-top:25%;}.kemon span .k{font-size:10px;} }
+@media screen and (max-width:280px){#loadingFrame{margin-top:30%;}}
+@media screen and (max-width:240px){#loadingFrame{margin-top:35%;}}
+
+
+.k{
+    position: absolute;
+    animation: k 1s;
+    animation-delay: .5s;
+    animation-iteration-count:infinite;
+}
+.e{
+    margin-left:30px;
+    position: absolute;
+    animation: e 1s;
+    animation-delay: 1s;
+    animation-iteration-count:infinite;
+}
+.m{
+    margin-left:50px;
+    position: absolute;
+    animation: m 1s;
+    animation-delay: 1.5s;
+    animation-iteration-count:infinite;
+    color: red;
+}
+.o{
+    margin-left:80px;
+    position: absolute;
+    animation: o 1s;
+    animation-delay: 2s;
+    animation-iteration-count:infinite;
+}
+.n{
+    margin-left:110px;
+    position: absolute;
+    animation: n 1s;
+    animation-delay: 2s;
+    animation-delay: 2.5s;
+    animation-iteration-count:infinite;
+}
+@keyframes k{
+    20%{ margin-top:-10px;}
+    50%{margin-left:-5px;margin-top:10px;}
+    100%{ margin-top:0px;}
+}
+@keyframes e{
+    20%{ margin-top:-10px;}
+    50%{ margin-left:20px;margin-top:10px}
+    100%{ margin-top:0px;}
+}
+@keyframes m{
+    
+    10%{margin-top:-10px;}
+    50%{margin-left:45px;margin-top:20px; }
+    100%{margin-top:0px; }
+}
+@keyframes o{
+    20%{ margin-top:-10px;}
+    50%{ margin-left:85px;margin-top:10px}
+    100%{ margin-top:0px;}
+}
+@keyframes n{
+    20%{ margin-top:-10px;}
+    50%{ margin-left:115px;margin-top:10px}
+    100%{ margin-top:0px;}
+}
+.loading{
+    margin-top:110px;
+    color:#000;
+}

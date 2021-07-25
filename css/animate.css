@@ -1,0 +1,87 @@
+.bigBox{
+    display:none;
+    position:relative;
+    width:300px;
+    height:300px;
+    /* margin-left:20px; */
+    background-color: #eee;
+    border:5px solid #fff;
+}
+.agentAnimate{
+    display:none;
+    box-shadow: -2px 10px 20px 5px rgba(0, 0, 0, 0.19);
+    width:300px;
+    margin-left:calc(50% - 150px);
+}
+.smallBox{
+    position:absolute;
+    width:50px;
+    height:50px;
+    background-color: transparent;
+    border:5px solid #fff;
+    border-radius:50%;
+    overflow: hidden;
+    z-index:5;
+}
+.smallBox img{  
+    width:100%;
+    height:100%;
+    
+}
+.smallBo1{
+    left:-25px;
+    top:-25px;
+}
+.smallBox1{
+    left:-25px;
+    top:-25px;
+    animation: smallBox1 10s ease-in-out 0s infinite;
+}
+.smallBox2{
+    right:-25px;
+    top:-25px;
+    animation: smallBox2 10s ease-in-out 4.5s infinite;
+}
+.smallBox3{
+    bottom:-25px;
+    left:-25px;
+    animation: smallBox3 10s ease-in-out 7.5s infinite;
+}
+.smallBox4{
+    bottom:-25px;
+    right:-25px;
+    animation: smallBox4 10s ease-in-out 2.5s infinite;
+}
+
+
+@keyframes smallBox1{
+    0%,10%{left:-25px;top:-25px;height: 50px;width: 50px;border-radius:50%;z-index:2;}
+    11%,25%{border-radius:0px;height: 300px;width: 300px;left:-5px;top:-5px;}
+    8%,30%{left:-25px;top:-25px;height: 50px;width: 50px;border-radius:50%;}
+    100%{z-index:5;}
+}
+
+@keyframes smallBox2{
+    0%,10%{right:-25px;top:-25px;height: 50px;width: 50px;border-radius:50%; z-index:5;}
+    11%,25%{border-radius:0px;height: 300px;width: 300px;right:-5px;top:-5px;z-index:2;}
+    8%,35%{right:-25px;top:-25px;height: 50px;width: 50px;border-radius:50%;z-index:2;}
+}
+
+@keyframes smallBox3{
+    0%,10%{margin-left:0px;bottom:-25px;height: 50px;width: 50px;border-radius:50%; z-index:5;}
+    11%,25%{border-radius:0px;height: 300px;width: 300px;margin-left:20px;bottom:-5px;z-index:1;}
+    8%,40%{margin-left:0px;bottom:-25px;height: 50px;width: 50px;border-radius:50%;z-index:2;}
+}
+
+@keyframes smallBox4{
+    0%,10%{right:-25px;bottom:-25px;height: 50px;width: 50px;border-radius:50%; z-index:5;}
+    11%,25%{border-radius:0px;height: 300px;width: 300px;right:-5px;bottom:-5px;z-index:2;}
+    8%,40%{right:-25px;bottom:-25px;height: 50px;width: 50px;border-radius:50%;z-index:2;}
+    100%{z-index:2;}
+}
+
+@media screen and (max-width:889px) {
+    .bigBox, .agentAnimate{
+        display:block;   
+    }
+}
