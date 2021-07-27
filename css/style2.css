@@ -675,6 +675,9 @@ textarea .textarea{
   padding:0px;
   font-size:17px;
 }
+.knownAs:hover{
+  background-color: rgb(32, 36, 46);
+}
 
 .sCro{
   position: relative;
@@ -2400,7 +2403,7 @@ form div p{
   margin-top:50px !important;
   border:5px solid #fff; 
 }
-.formSetting{width:80%;margin-left:10%;}
+.formSetting{width:92%;margin-left:4%;}
 .formSetting div div{
   width:100%;
   display:flex;

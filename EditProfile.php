@@ -44,16 +44,14 @@
 
                     if(isset($_COOKIE['_categoriesEdit'])){ 
                         $category =  $_COOKIE['_categoriesEdit'];
-                        $sqlCategory = "UPDATE category SET id='$user_id',category='$category' WHERE id = '$user_id'";
-                        $runCategory = mysqli_query($mysqli,$sqlCategory);
+                        $runCategory = updateCategory($conn,$myId,$category);
                         if($runCategory){
-                            // setcookie("_categoriesEdit",$category,time()-3600);
-                            // $knwO = "popo";
-                            // echo "<div class='loginStatus'>
-                            //     <h4>Notice,</h4><br>
-                            //     <h5>We noticed a change in your change in your category section.</h5>
-                            //     <p>( Probably a mistake )</p>
-                            // </div>";
+                            echo displayMessage('success',"Updated");
+
+                            $eventType = "Updation";
+                            $myAction = "Granted";
+                            $activity = "Updation in website information";
+                            updateActivite($conn,$eventType,$myAction,$myId,$activity);
                         }                        
                     }
                 }else{

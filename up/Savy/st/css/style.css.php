@@ -1171,7 +1171,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #subscribe {
   padding: 60px;
-  background: url(img/subscribe-bg.jpg) center center no-repeat;
+  background: url("..\img\body-bg.png") center center no-repeat;
   background-size: cover;
   overflow: hidden;
   position: relative;

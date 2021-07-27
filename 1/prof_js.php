@@ -23,6 +23,17 @@
   }
 
 
+  document.querySelector('.advance').addEventListener('click', function(){
+        if(document.querySelector('.advanceCont').style.display=="none"){
+            document.querySelector('.advanceCont').style.display="block"
+            document.querySelector('.adv-angle').style.transform="scale(-1)"
+        }else{
+            document.querySelector('.advanceCont').style.display="none"
+            document.querySelector('.adv-angle').style.transform="scale(1)"
+        }
+        
+    })
+
 
 
 
@@ -248,9 +259,9 @@ function switchPage(PageName) {
       }
       setTimeout(function(){
         document.querySelector('.loadTab').style.display = 'none'; 
-      },000)
+      },1000)
       
-    },000)
+    },1000)
 }
 
 

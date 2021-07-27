@@ -367,6 +367,13 @@
             // }
             
 
+            function updateCategory($conn,$myId,$category)
+            {
+                $sql    = "UPDATE category SET id=?,category=? WHERE id=?";
+                $stmt   = $conn->prepare($sql);
+                $stmt->execute([$myId,$category,$myId]);
+                return true;
+            }
 
     // ///////////Fetch all subscribers (ASSOCICALLY)///////////////
             

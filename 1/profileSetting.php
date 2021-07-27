@@ -236,24 +236,25 @@ if(isset($_POST['faqSub'])){
 
 
                     <div class="settinSec">
-                    <h5>Set Backkground Picture</h5>
-                        <br>
+                    
                         <?php
                             $chkBg = glob('../up/'.$shop_nick.'/homeBg.png');
                            echo (sizeof($chkBg) > 0)?'<center><img src="../up/'.$shop_nick.'/homeBg.png" style="width:100px;height:100px;border-radius:5px"></center>':"";
-                           
+                           if(sizeof($chkBg) > 0){
                         ?>
+                        <h5>Set Backkground Picture</h5>
+                        <br>
                         <form action="" method="POST" enctype="multipart/form-data">                        
                             <div class="flexradioBtn1">
                                 <label class="radioBtn1">
-                                    <input type="radio" name="chooseBgType" id="yes" value="fix" class="bgRadioBtn" <?php echo ($row_page_exist2['bgPic']=="fix") ? "checked":""; ?> >
+                                    <input type="radio" name="chooseBgType" id="yes" value="fix" class="bgRadioBtn" <?php echo ($marketersInfo['bgPic']=="fixed") ? "checked":""; ?> >
                                     <span class="checkmark"></span>
                                 </label>
                                 <h5>Use a Fixed Background Picture</h5>
                             </div>
                             <div class="flexradioBtn1">
                                 <label class="radioBtn1">
-                                    <input type="radio" name="chooseBgType" id="yes" value="rotate" class="bgRadioBtn" <?php echo ($row_page_exist2['bgPic']=="rotate") ? "checked":""; ?> >
+                                    <input type="radio" name="chooseBgType" id="yes" value="rotate" class="bgRadioBtn" <?php echo ($marketersInfo['bgPic']=="rotate") ? "checked":""; ?> >
                                     <span class="checkmark"></span>
                                 </label>
                                 <h5>Select Background Picture at Random</h5>
@@ -261,6 +262,9 @@ if(isset($_POST['faqSub'])){
                             <button type="submit" name="submitBgPicStyle" style="display:block" class="ExecPic "><i class="fa fa-save fa-2x settSaveIcon2 myExecFile2"></i></button>
                         </form>
                         <hr>
+                        <?php
+                           }
+                        ?>
                         <h5 style="text-align:center">Upload Background Picture</h5>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <input type="file" name="bgPicBtn" id="fileInput3" onchange="settingExec(this)" class="new-button" style="padding:10px;"> 
@@ -503,6 +507,7 @@ function chkcontrol(j){
     document.querySelector('.advance').addEventListener('click', function(){
         if(document.querySelector('.advanceCont').style.display=="none"){
             document.querySelector('.advanceCont').style.display="block"
+            console.log(document.querySelector('.advanceCont'));
             document.querySelector('.adv-angle').style.transform="scale(-1)"
         }else{
             document.querySelector('.advanceCont').style.display="none"

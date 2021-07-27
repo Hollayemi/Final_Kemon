@@ -110,11 +110,13 @@
   <!-- <a href="../../../exp.php" class="popLogin "><h4>Login</h4></a> -->
   <?php
   $explod=explode(' ',$row_id['shop_name']);
-  if(isset($explod[2])){
-    // echo $explod[2];
+  if($row_id['bgPic'] == 'rotate'){
+    $myBg = $_SESSION['myHomeBg'];
+  }else{
+    $myBg = 'homeBg.png';
   }
   ?>
-  <section id="intro" style="background-image:url('<?php echo $_SESSION['myHomeBg']?>')">
+  <section id="intro" style="background-image:url('<?php echo $myBg?>')">
     <div class="intro-container wow fadeIn">
       <h1 class="mb-4 pb-0"><span><?php echo $explod[0] ?></span><?php isset($explod[0]) ? $explod[0] :  " r"?></h1>
       <p class="mb-4 pb-0" style='width:60%'><?php echo substr($row_id['our_offer'],0,150)."..." ?></p> 
@@ -267,7 +269,6 @@
       <?php
       $Owl_AllPics = glob('pic/*.*');
         for($i=0; $i< count($Owl_AllPics); $i++){
-
       ?>
         <a href=" <?php echo $Owl_AllPics[$i]?> " class="venobox" data-gall="gallery-carousel"><img src="<?php echo $Owl_AllPics[$i]?>" width="250" height="270" alt=""></a>
       
@@ -314,39 +315,7 @@
     }
 
 ?>
-          <!-- <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-              <img src="<?php echo $ShowTeam[1] ?>" alt="Team" class="img-fluid">
-              </div>
-              <h3><a href="https://mobile.facebook.com/holluwarsussystephenholluwasheunfunmie.thankgod">Oluwasusi Stephen Olayemi</a></h3>
-              <div class="stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-half-full"></i>
-              </div>
-              <p>Website Developer and data analyst</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-              <img src="<?php echo $ShowTeam[2] ?>" alt="Team" class="img-fluid">
-              </div>
-              <h3><a href="https://www.facebook.com/oludamiro.ayomidesamuel">Oludamiro Samuel Ayomide</a></h3>
-              <div class="stars">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div>
-              <p>Graphics Designer</p>
-            </div>
-          </div> -->
-
+          
         </div>
       </div>
 
