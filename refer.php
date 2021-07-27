@@ -21,11 +21,11 @@
             $deriveCode = $_SESSION['referralCookie'];
             // echo $deriveCode;
             
-            $details = allAgentByPic($conn,$agnPic);
+            $details = allAgentById($conn,$myId);
             if(isset($details['agnPic'])){
                 $agnPic = $details['agnPic'];
-                // setcookie('Agent',$agnPic, time()-3600);
-                // setcookie('Agent', "sdFsdgsdf", time() + 3600 );
+                setcookie('Agent',$agnPic, time()-3600);
+                setcookie('Agent', $agnPic, time() + 3600 );
             }else{
                 header('Location:Register.php');
             }
@@ -33,7 +33,7 @@
     }elseif(isset($_SESSION['referralCookie']) && isset($_COOKIE['Agent'])){
              $deriveCode = $_SESSION['referralCookie'];
              
-             $details = allAgentByPic($conn,$agnPic);
+             $details = allAgentById($conn,$myId);
              if(isset($details['agnPic'])){
                 
          }else{

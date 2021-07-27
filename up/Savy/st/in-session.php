@@ -4,6 +4,7 @@ if(!isset($sc)){
 }
 include('configuration/actions.php');
 
+
 // $sql_fetch_pic2 = "SELECT phone,shop_name,our_offer,bustop,junction,city,facebook,whatsapp,linked_in FROM marketers WHERE id='$pap'";
 // $run_fetch_pic2= mysqli_query($mysqli,$sql_fetch_pic2);
 // $row_fetch_pic2 = mysqli_fetch_array($run_fetch_pic2);
@@ -77,7 +78,7 @@ $ShowLink = glob("../tb/*.*");
     }
 
 // print_r($matchName);
-print_r($matchPic);
+// print_r($matchPic);
 $len = sizeof($matchPic);
 $randRange0=rand(1,$len);
 $randRange1=rand(1,$len);

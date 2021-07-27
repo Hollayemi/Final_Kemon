@@ -1,26 +1,18 @@
 <?php
-session_start();
 include('session.php');
-$mysqli = mysqli_connect('localhost','root','','market');
-$mylink = $_SESSION['user_info_id'] + 30;
-$usersId = $_SESSION['user_info_id'];
-// echo $mylink;
+$mylink = $myId+ 30;
+$usersId = $myId;
 
-$sql_upd    =   "SELECT num_Page,num_Tab From users Where id='$usersId'";
-$run_upd    =   mysqli_query($mysqli,$sql_upd);
-$row_upd    =   mysqli_fetch_assoc($run_upd);
-
-
+$_SESSION['myProfLink'] =   $myIdFetch['username'].$mylink.'.php';
 if(isset($_POST['deleteSelectedTabBtn'])){
-    $TabSelect     =  $mysqli->real_escape_string($_POST['deleteSelectedTab']);
+    $TabSelect     =  testInput($_POST['deleteSelectedTab']);
     $TabSelected = strtoupper($TabSelect);
     if($TabSelected != 'select link'){
         echo "</div>";
-        $FetchAllTans = glob("up/".$mylink."/tb/*.php");
+        $FetchAllTans = glob("up/".$shop_nick."/tb/*.php");
         echo "<div class='each_page'>";
         for ($i=0; $i<count($FetchAllTans); $i++){
             $Tabpage = $FetchAllTans[$i];
-            
             $TabpageCheck = explode('.',$Tabpage);
                 if($TabpageCheck[1] ==  'php'){
                 
@@ -28,19 +20,21 @@ if(isset($_POST['deleteSelectedTabBtn'])){
                 
                 $Tabsex = explode('-',$Tabsext[3]);
                 $derived = $Tabsext[3];
-                // echo strtoupper($derived);
+                
                 if(strtoupper($derived) == ($TabSelected)){
                     if(unlink($Tabpage)){
-                        $newNumTab = $row_upd['num_Tab']+1;
-                        $sql="UPDATE users SET num_Tab='$newNumTab' WHERE id='$usersId'";
-                        $run=mysqli_query($mysqli,$sql);
-                        $FetchAllPic = glob("up/".$mylink."/pic/*.png");
+                        $to = $myIdFetch['num_Tab']+1;
+                        $run=update_numTab($conn,$myId,$to);
+                        $FetchAllPic = glob("up/".$shop_nick."/pic/*.png");
                         if($run){
                             for ($a=0; $a<count($FetchAllPic); $a++){
                                 $veri = explode('/',$FetchAllPic[$a]);
-                                $verri = explode('~',$veri[3]);
-                                if(strtoupper($derived) == strtoupper($verri[0])){
+                                $verri0 = explode('~',$veri[3]);
+                                $verri = explode('--',$verri0[0]);
+                                if(strtoupper($derived) == strtoupper($verri[1])){
                                     if (unlink($FetchAllPic[$a])){
+                                        echo $veri[3];
+                                        deleteUploads($conn,$veri[3]);
                                         header('Location: 1/'.$_SESSION['myProfLink'].'?'.strtolower($TabSelected).'_has_been_deleted');
                                     }else{
                                         header('Location: 1/'.$_SESSION['myProfLink']);
@@ -76,10 +70,10 @@ if(isset($_POST['deleteSelectedTabBtn'])){
 
 
 if(isset($_POST['deleteSelectedPageBtn'])){
-    $TabSelected2     =  $mysqli->real_escape_string($_POST['deleteSelectedPage']);
+    $TabSelected2     =  testInput($_POST['deleteSelectedPage']);
     if($TabSelected2 != 'select page'){
         echo "</div>";
-        $FetchAllTans = glob("up/".$mylink."/pg/*.php");
+        $FetchAllTans = glob("up/".$shop_nick."/pg/*.php");
         echo "<div class='each_page'>";
 
         for ($i=0; $i<count($FetchAllTans); $i++){
@@ -92,20 +86,21 @@ if(isset($_POST['deleteSelectedPageBtn'])){
 
                 if(ucwords(strtolower($derived))== ucwords(strtolower($TabSelected2))){
                     if(unlink($Tabpage)){
-                        $newNumPage = $row_upd['num_Page']+1 ;
-                        $sql="UPDATE users SET num_Page='$newNumPage' WHERE id='$usersId'";
-                        $run=mysqli_query($mysqli,$sql);
-                        $FetchAllPic = glob("up/".$mylink."/pic/*.png");
-                        $FetchAllTab = glob("up/".$mylink."/tb/*.php");
+                        $to = $myIdFetch['num_Page']+1 ;
+                        $run=update_numPage($conn,$myId,$to);
+                        $FetchAllPic = glob("up/".$shop_nick."/pic/*.png");
+                        $FetchAllTab = glob("up/".$shop_nick."/tb/*.php");
                         if($run){
                             if(count($FetchAllPic) > 0){
                                 for ($a=0; $a<count($FetchAllPic); $a++){
                                     $veri = explode('/',$FetchAllPic[$a]);
                                     $verri = explode('~',$veri[3]);
-                                    $verrri = explode('-',$verri[0]);
+                                    $verri = explode('--',$verri[0]);
+                                    $verrri = explode('-',$verri[1]);
                                     if(ucfirst($derived)==ucfirst($verrri[0])){
                                         if(unlink($FetchAllPic[$a])){           
-                                                header('Location: 1/'.$_SESSION['myProfLink'].'?'.strtolower($TabpageCheck[0]).'_has_been_deleted');                                 
+                                            deleteUploads($conn,$veri[3]);
+                                            header('Location: 1/'.$_SESSION['myProfLink'].'?'.strtolower($TabpageCheck[0]).'_has_been_deleted');                                 
                                         }else{
                                             header('Location: 1/'.$_SESSION['myProfLink']);
                                         }
@@ -122,9 +117,10 @@ if(isset($_POST['deleteSelectedPageBtn'])){
                                 for ($a=0; $a<count($FetchAllTab); $a++){
                                     $Teri = explode('/',$FetchAllTab[$a]);
                                     $Terrri = explode('-',$Teri[3]);
-                                    echo $derived."oio";
                                     if(ucfirst($derived)==ucfirst($Terrri[0])){
-                                        if(unlink($FetchAllTab[$a])){           
+                                        if(unlink($FetchAllTab[$a])){    
+                                            $to = $myIdFetch['num_Tab']+1;
+                                            update_numTab($conn,$myId,$to);       
                                                 header('Location: 1/'.$_SESSION['myProfLink'].'?'.strtolower($TabpageCheck[0]).'_has_been_deleted');                                 
                                         }else{
                                             header('Location: 1/'.$_SESSION['myProfLink']);

@@ -4,11 +4,17 @@
     $extr               =           explode('/',$curPageName);
     $genId              =           $extr[3];
 
+    
+
     if(!empty(marketersInfo($conn,$genId))){
         $row_id             =           marketersInfo($conn,$genId);
         $market_id          =           $row_id['id'] ;
+        $id                 =           $row_id['id'] ;
     }
 
+    // if(!empty(sellerInfo($conn,$row_id))){
+        $sellerInfo =   sellerInfo($conn,$id);
+    // }
 
     function testInput($data){
         $data = trim($data);
@@ -27,7 +33,7 @@
     }
 
 
-
+    
     function sellerInfo($conn,$id)
     {
         $sql    ="SELECT * FROM users WHERE id=?";

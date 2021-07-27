@@ -35,10 +35,8 @@ if (isset($_POST['post'])){
         //$normProfilePic=$profilePic->resizeImage(100,100,'crop');   
         
         $allowed    =   array('jpg','jpeg','png');
-        echo $fileActualExt;
         if(isset($myPath)){
             if(in_array($fileActualExt,$allowed)){
-                echo "popo";
                 if($fileError === 0){
                     if($fileSize < 10000000){
                             $real_id       =  $myId;
@@ -47,7 +45,7 @@ if (isset($_POST['post'])){
                             $myfileDestination = '../up/'.$shop_nick.'/pic/'.$myfileNewName;
 
                             $run=catchUploads($conn,$myId,$capf,$myfileNewName,$sKey,$amt,$selected);
-
+                            $_SESSION['picUp'] = displayMessage('success',' Product was successfully uploaded');
                             if($run){
                                 if(strlen($capf)>100){
                                     $pagename =  $selected.'-'.$sKey;
@@ -57,7 +55,7 @@ if (isset($_POST['post'])){
                                 $contents2 = str_replace('\r\n', '<br>', $contents);
                             
                                 if(file_put_contents($newFileName,$contents2)){
-                                    //echo "File created(' " . basename($newFileName) .")";
+                                    
                                 }else{
                                     echo "nothing happened";
                                     }

@@ -1,0 +1,3 @@
+Add Listings
+This is your dashboard for selling your products on the marketplace and manage their listings. Create new listings and manage them here. Use the Orders tab to track and process orders from your customers.
+Note: All listing created here will be publicly available on the marketplace<br><br><br><br>Universal Product Code (UPC):*******<br>Electronic Product Code (EPC): *******<br>Product Key (P-Key): *******<br>Marketing Part Number (MPN): *******<br>Part Number (PN): *******<br>_This was uploaded on_26/07/2120         `for`54566<br><br><br><br>

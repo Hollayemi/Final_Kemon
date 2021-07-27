@@ -3,27 +3,36 @@
 ?>
     <main role="man">
     <?php
-        // $discoverErrLinkArray=  array();
-        // $discoverErrLink = glob("../up/".$shop_nick."/tb/*.*");
-        // for($i=0; $i<count($discoverErrLink);$i++){
-        //   $disE  = explode('/',$discoverErrLink[$i]);
-        //   $disEr = explode('.',$disE[4]);
-        //   if(!in_array($disEr[0],$checker)){
-        //     $discoverErrLinkArray[]= $disEr[0];
-        //   }
-        // }
+      
+          $checker  =   allPagesUp($conn,$myId);
+          $discoverErrLinkArray=  array();
+          $discoverErrLink = glob("../up/".$shop_nick."/tb/*.*");
+          for($i=0; $i<count($discoverErrLink);$i++){
+            $disE  = explode('/',$discoverErrLink[$i]);
+            $disEr = explode('.',$disE[4]);
+              $discoverErrLinkArray[]= $disEr[0];
+          }
+      
+      $allErrArr = array();
+
+      for($i=0; $i<count($discoverErrLinkArray);$i++){
+        if(!in_array($discoverErrLinkArray[$i],$checker)){
+           $allErrArr[] = $discoverErrLinkArray[$i];
+        }
+      }
+    
     ?>
       <article>
        <header class="background-dark profDash">
        
           <div class="line">        
             <p class="cla"><br><br><br><br><h3 class="tab-head"></h3></p>
-            
           </div>  
         </header>
       </article>
     </main>
     <i class="questionInfo fa fa-inbox"><span class="spanErr">1</span></i>
+          <div class='is-active'></div>
         </header>
 
 
@@ -226,18 +235,18 @@
                     $real_id       =  $_SESSION['user_info_id'];
                     $fileDestination = '../up/'.$shop_nick.'/profile.png';
                       move_uploaded_file($fileTempName,$fileDestination);
-                      $profileEdited = 'uploaded';
+                      $_SESSION['profileEdited'] =   displayMessage('success',"Businessb picture changed");
                     }else{
-                        echo "pic not uploaded";
+                      $_SESSION['profileEdited'] =   displayMessage('danger',"Picture was not uploaded");
                       }
                 }else{
-                  $profileEdited = "<div class='profileEdited' style='color:red'>This file is too big, try with a lesser file size</div>";
+                  $_SESSION['profileEdited'] =   displayMessage('danger',"This file is too big, try with a lesser file size");
                 }
             }else{
-              $profileEdited = "<div class='profileEdited' style='color:red'>An error has occured, try again with another file</div>";
+              $_SESSION['profileEdited'] =   displayMessage('danger',"An error has occured, try again with another file");
             }
         }else{
-          $profileEdited = "<div class='profileEdited' style='color:red'>Note: File was not changed</div>";
+          $_SESSION['profileEdited'] =   displayMessage('danger',"File was not changed");
         }
     
     $Num_file = array();
@@ -283,48 +292,18 @@
                       <div class="knownAs modify-ee" onclick="switchPage('modify')" id="brandsCreated"><h4><i class="fa fa-files-o"></i> Modify Website </h4> <i class="fa fa-caret-right brandsCreated-fa"></i></div>
                       <div class="knownAs uploadSec-ee" onclick="switchPage('uploadSec')" id="brandsCreated"><h4><i class="fa fa-upload"></i> Upload </h4> <i class="fa fa-caret-right brandsCreated-fa"></i></div>
                       <div class="knownAs portfolio-ee" onclick="switchPage('portfolio')" id="brandsCreated"><h4><i class="fa fa-desktop"></i> Templates </h4> <i class="fa fa-caret-right brandsCreated-fa"></i></div>
-                    <!-- <div class="knownAs" data-toggle="modal" data-target="#activityModal"><h4><i class="fa fa-th"></i> Activities </h4><i class="fa fa-caret-right"></i></div>
-                    <div class="knownAs" data-toggle="modal" data-target="#chances"><h4><i class="fa fa-shopping-bag"></i> Chances </h4> <i class="fa fa-caret-right"></i></div> -->
+                  
 
                     <div class="knownAs Activity-ee" onclick="switchPage('Activity')"><h4><i class="fa fa-th"></i> Activities </h4><i class="fa fa-caret-right"></i></div>
                     <div class="knownAs Chances-ee" onclick="switchPage('Chances')"><h4><i class="fa fa-shopping-bag"></i> Chances </h4> <i class="fa fa-caret-right"></i></div>
                     <br>
-                    <div class="knownAs" onclick="toggle(this)" id="inactiveLinks"><h4><i class="fa fa-exclamation-circle"></i> Inactive pages </h4> <i class="fa fa-caret-right inactiveLinks-fa"></i></div>
-                    <div class="inactiveLinks-d sCro" style="height:0px; overflow:hidden;">
-                        <?php
-                          if(!empty($discoverErrLinkArray)){
-                              foreach($discoverErrLinkArray as $errLinks){
-                                echo "<h5><i class='fa fa-file'></i> ".$errLinks."</h5>";
-                            }
-                          }else{
-                                echo "<h5><i class='fa fa-file'></i> No page is inactive</h5>";
-                          }
-                    ?>
-                    </div>
+                    <div class="knownAs" onclick="switchPage('inactive_page')" id="inactiveLinks"><h4><i class="fa fa-exclamation-circle"></i> Inactive pages </h4> <i class="fa fa-caret-right inactiveLinks-fa"></i></div>
+                                        
+                    <div class="knownAs" onclick="switchPage('Brands_s')" id="brandsCreated"><h4><i class="fa fa-files-o"></i> Brands Created </h4> <i class="fa fa-caret-right brandsCreated-fa"></i></div>
                     
-                    <div class="knownAs" onclick="toggle(this)" id="brandsCreated"><h4><i class="fa fa-files-o"></i> Brands Created </h4> <i class="fa fa-caret-right brandsCreated-fa"></i></div>
-                    <div class="brandsCreated-d sCro" style="height:0px; overflow:hidden">
-
-                    <?php
-                          // echo "<h5>".count($allPages)." Brands</h5>";
-                          foreach($allPages as $allPage){
-                            echo "<h5 onmouseover='shake()'><i class='fa fa-file'></i> ".$allPage."</h5>";
-                          }
-                    ?>
-                    </div>
-
-
-                    <div class="knownAs" onclick="toggle(this)" id="productsCreated"><h4><i class="fa fa-files-o"></i> Products Created </h4> <i class="fa fa-caret-right productsCreated-fa"></i></div>
-                    <div class="productsCreated-d sCro" style="height:0px; overflow:hidden">
-
-                        <?php
-                          foreach($Main_tabs as $Main_tab){
-                            echo "<h5> <i class='fa fa-file'></i> ".$Main_tab."</h5>";
-                          }
-                        ?>
-
-
-                    </div>
+              
+                    <div class="knownAs" onclick="switchPage('Product_s')" id="productsCreated"><h4><i class="fa fa-files-o"></i> Products Created </h4> <i class="fa fa-caret-right productsCreated-fa"></i></div>
+                
                     <div class="knownAs" onclick="toggle(this)" id="ratingStar"><h4><i class="fa fa-star"></i> Rating Star </h4> <i class="fa fa-caret-right ratingStar-fa"></i></div>
                     <div class="ratingStar-d sCro" style="height:0px; overflow:hidden">
                         <h5>Rated by <?php echo count($starArr) ?> people</h5>
@@ -555,7 +534,7 @@
     </section>
 
 
-
+    <?php include('../new_upload.php');?>
     <section class="uploadSec main_side" id="uploadSec" style="display:none;">
       <div >
         <div class="CreateDropdown">
@@ -574,7 +553,6 @@
             </h4>
             <p>Note: All listing created here will be publicly available on the marketplace</p>
         </div>
-        <?php include('../new_upload.php');?>
               <form action="" method="POST" enctype="multipart/form-data" id="uploader">
                   <div class="Basic_info">
                     <h5>Product <i style="color:red">*</i></h5>
@@ -608,7 +586,7 @@
                     </div>
                   </div>
 
-                  <!-- <div class="Other_info">
+                  <div class="Other_info" style="display:none">
                       <h5>optional:</h5><br>
 
                       <div class="myLegend">
@@ -635,19 +613,29 @@
                         <p style="width:150px">PN</p>
                         <input type="text" name="PN" id="amount" placeholder="PN"><br>
                       </div>
-                      -->
+                      </div> 
                       <button type='post' name='post' class="updatePagesBtn addToPage">Upload</button>
-                    </div> 
+                    
               </form>
           </div>
           <br><br><br>
       </div>
     </section>
     </div>
+
+    <?php include('profileSetting.php'); ?>
+
+
     <section id="portfolio" class="section-bg main_side" style="">
       <div class="container">
-
+                   
         <header class="section-header">
+        <?php 
+      
+              if(isset($_SESSION['picUp'])){
+                  echo $_SESSION['picUp'];
+              }
+          ?>
           <h3 class="section-title">Exploy Templates</h3>
         </header>
 
@@ -661,13 +649,6 @@
             </ul>
           </div>
         </div>
-
-        <?php
-
-              
-
-        ?>
-
         <div class="row portfolio-container">
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
@@ -777,7 +758,6 @@
   <?php
     include('./myDetails.php');
   ?>
-<?php include('profileSetting.php'); ?>
  <?php
   include('prof_footer.php')
 ?>

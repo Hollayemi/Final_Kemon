@@ -1,16 +1,30 @@
-<?php 
+<?php
+    include('config/db.php');
     session_start();
     $curPageName = substr($_SERVER["SCRIPT_NAME"],strpos($_SERVER["SCRIPT_NAME"],"/")+1);
     $deriveC = explode('/',$curPageName);
     $deriveCod = explode('.',$deriveC['3']);
     $deriveCode=$deriveCod[0];
 
-    $mysqli=mysqli_connect('sql105.epizy.com','epiz_28257429','BHiMYLgFzV3pjb','epiz_28257429_market');
-    $sql="SELECT * FROM agent WHERE referralLink='$deriveCode'";
-    $run=mysqli_query($mysqli,$sql);
-    $row = mysqli_fetch_assoc($run);
+
+    //---------------------------------------------------------
+    function agnByLink($conn,$deriveCode)
+    {
+        $sql = "SELECT * FROM agent where referralLink=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$deriveCode]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+
+    //---------------------------------------------------------
+
+
+    $row = agnByLink($conn,$deriveCode);
     
     $_SESSION['referralCookie'] = $deriveCode;
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +75,7 @@
         </div>
     </div>
 </main>   
-<section class="referral-icon" style="backround-color:#000">
+<!-- <section class="referral-icon" style="backround-color:#000">
     <div class="fa-flexbox">
         <div>
             <i class="fa-4x fa fa-wpforms"></i><br><br>
@@ -74,10 +88,10 @@
         <div>
             <i class="fa-5x fa fa-dollar"></i><br><br>
             <h5>You can earn up to ₦ 9500 in Kemon-Market for shops you refer in a week to register their shops. it's our way of saying "thanks" for spreading the good words and increasing the shop registered on Kemon. <br><br></h5> 
-                <!-- Once we confirm your referral, we are going to note it and sum it up with the number of referral you have in that week. We will pay you at the end of every week if we find any referral of that week. To check your balance, you have it at the top right cornal of your phone-->
+                 Once we confirm your referral, we are going to note it and sum it up with the number of referral you have in that week. We will pay you at the end of every week if we find any referral of that week. To check your balance, you have it at the top right cornal of your phone
         </div>
     </div>
-</section>
+</section> -->
 
 
 
@@ -197,7 +211,6 @@
 
 
 
-  <?php include('../js/payment.php') ?>
   <script src="../lib/jquery/jquery.min.js"></script>
   <script src="../lib/jquery/jquery-migrate.min.js"></script>
   <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>

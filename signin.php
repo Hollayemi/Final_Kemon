@@ -33,6 +33,7 @@
 			<!-- <h1 class="kemonLog">KE<span class="M">M</span>ON</h1> -->
 			<img src="./img/myKemon.png" class="kemonLogPic" alt="">
 			<h3 class="googleLogin">Sign in with Google</h3>
+
 			<div >
 				<form method="POST">
 					<div class="inputs">

@@ -20,7 +20,6 @@
                 <div class="firTopBar"></div>
                 <div class="myTableChanHeader">
                   <h4> Chances</h4>
-                  <h4 class="close rmvChance" ><i class="fa fa-remove"></i></h4>
                 </div>
                
                 <div class="main-chance">
@@ -124,4 +123,122 @@
                 </div>
             </div>
       </div>
+    </section>
+
+
+<!-- All brands -->
+
+    <section class="main_side for_files_display" id="Brands_s" style="display:none;">
+    <div class="show_file_top">
+          <h4>Active Brands</h4>
+          <h4>Total = <?php echo count($allPages); ?></h4>
+      </div>
+       <div class="showBrands">
+          <?php
+              foreach($allPages as $allPage){
+                ?>
+                <div class="centt_col showBrands_div">
+                    <i class='fa fa-file'></i>
+                    <h5><?php echo $allPage ?></h5>
+                    <div class="showBrands_functons centt_col">
+                      <span class="material-icons <?php echo $allPage ?>-d " id="<?php echo $allPage ?>" onclick="toggle(this)">more_vert</span>
+
+                      
+
+                      <form action="../action.php" method="POST" class=" ddam centt_col" style="display:none;">
+                        <input type="text" value="<?php echo $allPage?>" name="deleteSelectedPage" style="visibility:hidden; visimility" >
+                        <button type='post' name='deleteSelectedPageBtn'id="sadEL" >
+                          <span class="material-icons" title="delete page">delete</span>
+                        </button>
+                      </form>
+
+                      <h4 class="<?php echo $allPage ?>-delete ddam" style="top:55px;position:absolute;right:-0px;visibility:hidden;"><label class="new-button upLabel1" for="sadEL">
+                          <span class="material-icons" title="delete page">delete</span>
+                      </h4>
+                    </div>
+                    
+                </div>
+                <?php
+              }
+                ?>
+       </div>
+       <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </section>
+
+
+    <!-- All products -->
+    <section class="main_side for_files_display" id="Product_s" style="display:none;">
+      <div class="show_file_top">
+          <h4>Active Products</h4>
+          <h4>Total = <?php echo count($Main_tabs); ?></h4>
+      </div>
+       <div class="showBrands">
+          <?php
+              foreach($Fetch_tabs as $Main_tab){
+                ?>
+                <div class="centt_col showBrands_div">
+                    <i class='fa fa-file'></i>
+                    <h5><?php echo $Main_tab ?></h5>
+                    <div class="showBrands_functons centt_col">
+                      <span class="material-icons <?php echo $Main_tab ?>-d " id="<?php echo $Main_tab ?>" onclick="toggle(this)">more_vert</span>
+
+                      
+
+                      <form action="../action.php" method="POST" class=" ddam centt_col" style="display:none;">
+                        <input type="text" value="<?php echo $Main_tab?>" name="deleteSelectedTab" style="visibility:hidden; visimility" >
+                        <button type='post' name='deleteSelectedTabBtn'id="sadEL" >
+                          <span class="material-icons" title="delete page">delete</span>
+                        </button>
+                      </form>
+
+                      <h4 class="<?php echo $Main_tab ?>-delete ddam" style="top:55px;position:absolute;right:-0px;visibility:hidden;"><label class="new-button upLabel1" for="sadEL">
+                          <span class="material-icons" title="delete page">delete</span>
+                      </h4>
+                    </div>
+                    
+                </div>
+                <?php
+              }
+                ?>
+       </div>
+       <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </section>
+
+
+
+    <!-- inactive pages -->
+
+    <section class="main_side for_files_display" id="inactive_page" style="display:none;">
+    <div class="show_file_top">
+          <h4>Inactive pages</h4>
+          <h4>Total = <?php echo count($allPages); ?></h4>
+      </div>
+       <div class="showBrands">
+          <?php
+              foreach($allErrArr as $allErrArr_1){
+                ?>
+                <div class="centt_col showBrands_div">
+                    <i class='fa fa-file'></i>
+                    <h5><?php echo $allErrArr_1 ?></h5>
+                    <div class="showBrands_functons centt_col">
+                      <span class="material-icons <?php echo $allErrArr_1 ?>-d " id="<?php echo $allErrArr_1 ?>" onclick="toggle(this)">more_vert</span>
+                      
+                      <form action="../action.php" method="POST" class=" ddam centt_col" style="display:none;">
+                        <input type="text" value="<?php echo $allErrArr_1?>" name="deleteSelectedPage" style="visibility:hidden; visimility" >
+                        <button type='post' name='deleteSelectedPageBtn'id="sadEL" >
+                          <span class="material-icons" title="delete page">delete</span>
+                        </button>
+                      </form>
+
+                      <h4 class="<?php echo $allErrArr_1 ?>-delete ddam" style="top:55px;position:absolute;right:-0px;visibility:hidden;"><label class="new-button upLabel1" for="sadEL">
+                          <span class="material-icons" title="delete page">delete</span>
+                      </h4>
+                    </div>
+                    
+                </div>
+                <?php
+              }
+                ?>
+       </div>
+       <br><br><br><br><br><br><br><br><br><br><br><br><br>
     </section>

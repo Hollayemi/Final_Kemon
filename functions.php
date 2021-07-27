@@ -132,50 +132,5 @@ function myMessage($typeOfMessage,$infoHeader,$info,$icon){
 
 
 
-function rating($nameOfBusiness){
-    if(isset($_SESSION['user_info_id'])){
-        require_once('config.php');
-        $ppID = $_SESSION['user_info_id'];
-        $sql="SELECT star FROM rating WHERE id='$ppID'";
-        $run=mysqli_query($mysqli,$sql);
-        $queryRun = mysqli_fetch_assoc($run);
-        if(!isset($queryRun['star'])){
-            ?>
-            <section class="myRatingSec">
-            <div class="cancelRating">
-                <button class="btn">GO Back</button>
-            </div>
-                <div>
-                <center>
-                        <?php 
-                        echo "<h2>Rate ".$nameOfBusiness." Now <i class='fa fa-heart'></i></h2>";
-                        
-                        include("st/sec.php");
-                        ?>
-                        <div class="rateyo-readonly-widg myRater" style="block;background-color:#fff;padding:10px 20px;border-radius:5px"><h4 id="ratingVeri"></h4></div>
-                        <form action="" method="POST">
-                        <input type="text" value="<?php echo $_SESSION['user_info_id'] ?>" name="raterID"  style="display:none">
-                        <input type="text" value="<?php echo $nameOfBusiness ?>" name="rateeShop"  style="display:none">
-                        <input type="text" value="" id="rateValueId" name="extRate" style="display:none">
-                        <input type="submit" value="Submit" class="btn submitRate" name="rateMyShop" style="visibility:hidden; margin-top:10px; height:40px;line-height:30px;margin-left:0px">
-                        </form>
-                </center>
-                </div>
-
-            </section>
-
-            <script>
-                document.querySelector('.cancelRating').addEventListener('click', function(){
-                    document.querySelector('.myRatingSec').style.display="none"
-                })
-
-            </script>
-            <?php
-        }
-    }
-}
-
-
-
 
 ?>

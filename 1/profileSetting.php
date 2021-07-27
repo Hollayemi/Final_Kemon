@@ -14,7 +14,8 @@ if(isset($_POST['faqSub'])){
     $contents      =  $faqQust.'==='.$faqAns;
     $NewPageFile   =  '../up/'.$shop_nick.'/cp/Faq-'.$faqNo. ".txt";
     if(file_put_contents($NewPageFile,$contents)){
-        $profileEdited = "FAQ ".$faqNo." added";
+
+         $_SESSION['profileEdited'] =   displayMessage('success',"FAQ number ".$faqNo." was successfully added");
     }
 }
 ?>
@@ -42,7 +43,7 @@ if(isset($_POST['faqSub'])){
                 $chooseBgType   =       $_POST['chooseBgType'];
                 $run            =       update_bgPicStyle($conn,$myId,$chooseBgType);
                 if($run){
-                    $profileEdited = 'updated';
+                    $_SESSION['profileEdited'] =   displayMessage('success',"Background picture style was successfully saved");
                 }
             }
                 if(isset($_POST['SubmitColor'])){
@@ -53,7 +54,7 @@ if(isset($_POST['faqSub'])){
 
                     $run=update_websiteColor($conn,$myId,$MainColor,$TextColor,$SubColor,$LinkColor);
                     if($run){
-                        $profileEdited = 'updated';
+                        $_SESSION['profileEdited'] =   displayMessage('success',"Template Edited");
                     }
                 }
 
@@ -77,17 +78,17 @@ if(isset($_POST['faqSub'])){
                                 if(move_uploaded_file($fileTempName,$fileDestination)){
                                     // if(file_put_contents($memberFile,$contents)){
                                         
-                                      $profileEdited = 'uploaded';
+                                        $_SESSION['profileEdited'] =   displayMessage('success',"Background picture changed");
                                       // }
                                 }
                             }else{
-                            $profileEdited = "This file is too big, try with a lesser file size";
+                                $_SESSION['profileEdited'] =   displayMessage('danger',"This file is too big, try with a lesser file size");
                             }
                         }else{
-                        $profileEdited = "An error has occured, try again with another file";
+                            $_SESSION['profileEdited'] =   displayMessage('danger',"An error has occured, try again with another file");
                         }
                     }else{
-                    $profileEdited = "Note: File must be in PNG or JPG format";
+                        $_SESSION['profileEdited'] =   displayMessage('danger',"File must be in PNG or JPG format");
                     }
                 }
 
@@ -121,26 +122,22 @@ if(isset($_POST['faqSub'])){
                                     $fileDestination = '../up/'.$shop_nick.'/usersTeam/'.$TeamPic.'.'.'png';
                                     if(move_uploaded_file($fileTempName,$fileDestination)){
                                         if(file_put_contents($memberFile,$contents)){
-                                            $profileEdited = 'uploaded';
+                                            $_SESSION['profileEdited'] =   displayMessage('success', $memberPOS. " was successfully added");
                                         }
                                     }
                                 }else{
-                                $profileEdited = "This file is too big, try with a lesser file size";
+                                    $_SESSION['profileEdited'] =   displayMessage('danger',"This file is too big, try with a lesser file size");
                                 }
                             }else{
-                            $profileEdited = "An error has occured, try again with another file";
+                                $_SESSION['profileEdited'] =   displayMessage('danger',"An error has occured, try again with another file");
                             }
                         }else{
-                        $profileEdited = "Note: File was not changed";
+                            $_SESSION['profileEdited'] =   displayMessage('danger',"File was not changed");
                         }
                 }else{
-                    $profileEdited = " Fill all 'TEAM UPLOAD SECTION' input Field";
+                    $_SESSION['profileEdited'] =   displayMessage('danger',"All input field must be filled");
                 }
             }
-
-                if(isset($profileEdited)){
-                    echo $profileEdited;
-                }
                 
             ?>
 

@@ -80,6 +80,14 @@
             return $result;
         }
 
+        function allPagesUp($conn,$readID)
+        {
+            $sql = "SELECT page FROM Trackk where real_ID=? ";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$readID]);
+            $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+            return $result;
+        }
         
 
 
@@ -251,11 +259,15 @@
             return true;
         }
 
+        function deleteUploads($conn,$picture)
+        {
+            $deleteSql = "DELETE FROM Trackk WHERE picture = ?";
+            $stmt      = $conn->prepare($deleteSql);
+            $stmt->execute([$picture]);
+            return true;
+        }
 
-
-
-
-
+        
         // ----------------------------------------------------------
 
         function updateActivite($conn,$eventType,$myAction,$myId,$activity)

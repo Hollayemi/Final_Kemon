@@ -1,28 +1,30 @@
 <script>
   function toggle(e) {
-    console.log("qpiowew");
     var id      = e.id;
     var myClass = "."+id + "-d"
-    var myClassFa = "."+id + "-fa"
 
+    var forDelete = "."+id + "-delete"
 
-    var elem    = document.querySelector(myClass)
-    var elemFa    = document.querySelector(myClassFa)
+    var x = document.getElementsByClassName("ddam");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.visibility = "hidden";
+        x[i].style.top = "25px";
+      }
+    var elem    = document.querySelector(forDelete)
 
-
-    if(elem.style.height == "0px"){
-      elem.style.height       = "auto"
-      elem.style.overflow     = "auto"
-      elemFa.style.transform  = "scale(-1)"
-      elemFa.style.padding    = "10px" 
-    }else{
-      elem.style.overflow = "hidden"
-      elem.style.height = "0px"
-
-      elemFa.style.padding    = "0px" 
-      elemFa.style.transform = "scale(1)"
+    var forDelete_p = document.querySelector(forDelete)
+    if(elem.style.visibility == "hidden"){
+      forDelete_p.style.visibility = "visible"
+      forDelete_p.style.top = "30px"
+    }else{  
+      forDelete_p.style.visibility = "hidden"
+      forDelete_p.style.top = "25px"
     }
   }
+
+
+
+
 
   document.querySelector(".arrRight").addEventListener('click',function(){
             document.getElementById('Profile').style.marginLeft="-3%"
@@ -219,17 +221,17 @@ function delayBit(){
   return true;
 }
 
- function switchPage(PageName) {
-   var eeClass  = '.'+PageName+'-ee'
-  document.querySelector('.loadTab').style.display = 'flex';
+function switchPage(PageName) {
+    var eeClass  = '.'+PageName+'-ee'
+    document.querySelector('.loadTab').style.display = 'flex';
     setTimeout(function(){
-      
       var i;
       var x = document.getElementsByClassName("main_side");
       for (i = 0; i < x.length; i++) {
         //  x[i].style.display = "none";  
         x[i].style.transform = "scale(0)";
         x[i].style.height = "0px";
+        x[i].style.minHeight = "0px";
         x[i].style.padding = "0px";
         //  x[i].style.margin = "0px";
         x[i].style.opacity = "0";
@@ -239,6 +241,11 @@ function delayBit(){
       document.getElementById(PageName).style.height = "auto";  
       document.getElementById(PageName).style.transform = "scale(1)";
       document.getElementById(PageName).style.opacity = "1";
+      if(screen.width < 890){
+        document.getElementById('Profile').style.marginLeft="-349px"
+        document.getElementById('Profile').style.opacity=".8"
+        document.querySelector(".cloudCover").style.visibility="hidden"
+      }
       setTimeout(function(){
         document.querySelector('.loadTab').style.display = 'none'; 
       },000)
@@ -262,9 +269,9 @@ document.querySelector(".dropCreate").addEventListener('click',function(){
 
 
 
-document.querySelector(".rmvChance").addEventListener('click',function(){
-  rmvChances();
-});
+// document.querySelector(".rmvChance").addEventListener('click',function(){
+//   rmvChances();
+// });
 
 window.addEventListener('mouseup', function(event){
     if(
@@ -276,5 +283,8 @@ window.addEventListener('mouseup', function(event){
       rmvChances();
     }
 })
+
+
+
 
 </script>

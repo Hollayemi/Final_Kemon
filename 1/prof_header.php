@@ -106,8 +106,8 @@ if(isset($_GET['theme'])){
       
     </div>
   </header>
-  <div >
-        <button class="arrRight">&#x2192</button>
+  <div>
+      <button class="arrRight"><i class="fa fa-angle-right"></i></button>
   </div>
 
   <div >

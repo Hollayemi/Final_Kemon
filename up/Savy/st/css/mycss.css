@@ -1,0 +1,471 @@
+#headerMain{
+  width:100%;
+  height:95%;
+  background-image: url('../img/hotels/Founder.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.headerDiv{
+  background-color: rgb(0, 0, 0);
+  width:100%;
+  height:100%;
+  opacity:.5;
+}
+.fir{animation: fir 1s ease-out 0s forwards;}
+@keyframes fir {0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:5px;transform: translateX(5px);}}
+.thr{animation: thr 1s ease-out 0s forwards;}
+@keyframes thr{0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:5px;transform: translateX(34px);}}
+.sec{animation: sec 1s ease-out 0s forwards;}
+@keyframes sec {0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:5px;transform:translateX(20px);}}
+.deleteBtn{margin-top:-90px;margin-left:160px;}
+
+@media screen and (max-width:400px){
+  .deleteBtn{margin-top:-35px;margin-left:0px;}
+}
+.soc_link, .soc_link_fb{
+  color:#fff !important;
+  padding:10px;
+
+}
+.soc_link_fb{
+  margin-left:47%;
+}
+@media screen and (max-width:600px){
+  .soc_link_fb{
+    margin-left:40%;
+  }
+}
+.shopHeader{
+  text-align:center;
+  color:#fff;
+  padding-top:10%
+}
+.bodymi{
+  overflow-y: hidden;
+}
+#tab-sec{
+    display:block;
+}
+.tab-lnk{
+    margin-left:10px;
+    
+}
+.bg{
+    background-color: #fff;
+    color:rgb(255, 0, 0);
+}
+
+.tab-lnk:hover{
+    background-color: #fff;
+    color:rgb(255, 0, 0);
+}
+.pic-td{
+    width:20%;
+}
+.cap-td{
+    width:60%;
+}
+.amt-td{
+    width:20%;
+}
+.main-td-pic{
+    width: 200px;
+    height:180px;
+}
+.readMoreBtn{
+    position: absolute;
+    border:none;
+    background-color:  rgb(16, 16, 90);
+    color:#fff;
+    width:150px;
+    height:30px !important;
+    transition:1s !important;
+}
+.readMoreBtn:hover{
+    background-color:  rgb(27, 27, 206);
+    color:#fff;
+}
+@media screen and (max-width:530px) {.readMoreBtn{width:100px}}
+@media screen and (max-width:450px) {
+    .main-td-pic{
+        width: 100px;
+        height:120px;
+    }
+    
+    .pic-td{
+        width:10%;
+    }
+    .cap-td{
+        width:60%;
+    }
+}
+@media screen and (max-width:3000px){
+    .wearsPic{
+      width:40% !important;
+      height:800px;
+      margin-left:30%;
+    }
+    .wearsCap{
+      margin-left:25%;
+    }
+  }
+  @media screen and (max-width:2500px){
+    .wearsPic{
+      width:70% !important;
+      height:600px;
+      margin-left:15%;
+      z-index:300;
+    }
+    .wearsCap{
+      margin-left:20%;
+    }
+  }
+  @media screen and (max-width:1500px){
+    .wearsPic{
+      width:50% !important;
+      height:400px;
+      margin-left:25%;
+    }
+    .wearsCap{
+      margin-left:20%;
+    }
+  }
+  @media screen and (max-width:1000px){
+          .wearsPic{
+              width:80% !important;
+              height:500px;
+              margin-left:10%;
+          }
+          .wearsCap{
+              margin-left:15%;
+          }
+  }
+  @media screen and (max-width:600px){
+    .wearsPic{
+      width:100% !important;
+      height:500px;
+      margin-left:5%;
+    }
+    .wearsCap{
+      margin-left:5%;
+    }
+  }
+  @media screen and (max-width:400px){
+    .wearsPic{
+        width:130% !important;
+        height:300px;
+        margin-left:-15%;
+    }
+    .wearsCap{
+        margin-left:5%;
+    }
+  
+}
+@media screen and (max-width:768px){
+    .picBox{
+      width:500px !important;
+    }
+  }
+@media screen and (max-width:377px){
+    .picBox{
+      width:350px !important;
+    }
+  }
+.closeLink{display:none}
+.tab-sec{
+  display:block;
+  position: absolute;
+  width:100%;
+  margin-top:-5%;
+  margin-left:0%;
+  padding-top:0px;
+  height:80%;
+  z-index:455;
+  overflow: hidden;
+  text-overflow: unset;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  color:red;
+  justify-content: center;
+  animation: tabLink 4s ease-out;
+  animation-fill-mode: forwards;
+  }
+  @keyframes tabLink{
+    0%{height:12px;width:10px; background-color: #fff;}
+    60%{height:1px;width:100%;}
+    100%{height:80%;width:100%;}
+  }
+  @media screen and (max-width:800px){.shopHeader{padding-top:0%;font-size:25px;}.tab-sec{margin-top:-30%;}}
+.each_page_ca{
+    width:60%;
+    margin-left:20%;
+    margin-top:5%;
+    padding:20px 0px;
+    opacity:0;
+    color:red;
+    background-color: #fff;
+    text-align:center; 
+    animation: eachPagaCa 2s ease-in 3s;
+    animation-fill-mode: forwards;
+ }
+@keyframes eachPagaCa{
+  0%{opacity:0;}
+  100%{opacity: 1;}
+ }
+.tab-lnk a{ 
+  color:red;
+}
+.hwBtn{
+  border: none;
+  background-color: rgb(9, 71, 243);
+  height:130px;
+  padding:10px;
+}
+.shwLnk{
+  border:none;
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  float: right;
+  margin-right:40px;
+}
+.cancelLnk{
+border:none;
+border-radius:50%;
+width:50px;
+height:50px;
+float: right;
+margin-right:-25px;
+margin-top:-48px;
+background-color: #fff;
+opacity:1;
+}
+.subscribeClass{
+border:1px solid rgb(255, 0, 0);
+  padding:5px 10px;
+  margin-right:20px;
+  background-color: rgb(255, 0, 0);
+  color:#fff;
+  font-size:20px;
+  transition:.5s;
+  -o-transition:.5s;
+  -moz-transition:.5s;
+}
+.subscribeClass:hover{
+  background-color:transparent;
+  border:1px solid #fff;
+}
+.popLogin{
+  display: none;
+  position: fixed;
+  right:30px;
+  top:100px;
+  z-index:300;
+  color:#fff !important;
+  font-size:23px !important;
+  height:50px;
+  line-height:50px;
+  background-color: transparent;
+  border:1px solid #fff;
+  border-radius:5px;
+  padding:0px 15px;
+  transition:.5s;
+  -o-transition:.5s;
+  -moz-transition:.5s;
+}
+.popLogin h4{
+color:#fff !important;
+font-size:23px !important;
+height:40px;
+line-height:50px;
+padding:0px 15px;
+}
+
+.popLogin:hover{
+background-color: red;
+border:1px solid red;
+}
+ 
+ /*----------------------------------- rating sec----------------------- */
+.myRater{
+  background-color:#fff;
+  padding:10px 20px;
+  border-radius:5px
+}
+ .myRatingSec{
+    position:fixed;
+    height:100%;
+    width:100%;
+    background-color: rgba(0, 0, 0, 0.786);
+    z-index:10000;
+ }
+ .myRatingSec center{
+    margin-top:20%;
+ }
+ .myRatingSec center h2{
+  color:#fff;
+ }
+ .cancelRating{
+   position: absolute;
+   top:50px;
+   right:50px;
+ }
+ @media screen and (max-width:800px){
+  .myRatingSec h2{
+    margin-top:30%;
+    font-size:22px;
+ }
+ }
+ @media screen and (max-width:500px){
+  .myRatingSec h2{
+    margin-top:60%;
+    font-size:22px;
+ }
+ .myRatingSec center{
+    width:80%;
+    margin-left:10%;
+  }
+ 
+ }
+ @media screen and (max-width:1591px){
+    .subscribeClass{
+        width:50% !important;
+        margin-left:25%;
+        height:50px !important;
+        margin-top:15px !important;
+        text-align: center;
+    }
+    button.subscribeClass{
+      margin-left:25% !important;
+      margin-top:70px !important;
+    }
+
+ }
+
+
+
+
+
+
+
+ /* -------------------------------------shift for naff bar ------------------------------------------- */
+
+.sub-menuDiv{
+  display:none;
+}
+.showSideLinks{
+  display:none;
+}
+@media screen and (max-width:1591px){
+  .showSideLinks{
+    display:block;
+    position:absolute;
+    top:10px;
+    left:5px;
+    width:40px;
+    height:40px;
+    z-index:500;
+  }
+  .menu-fa{
+    position: absolute;
+    color:#fff;
+    font-size:20px;
+    padding:8px 10px;
+    left:0px;
+    transition:1s;
+  }
+  .shiftMain{
+    width:100%;
+    background-color: #fff;
+    z-index:2;
+    overflow-x: hidden !important;
+  }
+  .sub_links{
+    margin-top:100px;
+    margin-left:20px;
+    width:80%;
+
+  }
+  .sub_links li {
+    margin-top:20px;
+    border:2px solid #fff;
+    border-radius:5px;
+    list-style-type: none;
+    line-height:40px;
+    text-align: center;
+  }
+  .sub_links li a{
+    color:#fff;
+    padding:15px 40px !important;
+  }
+  .sub-menuDiv{
+    background-color:rgb(58, 57, 57);
+    color:#fff;
+    display:block;
+    position:fixed;
+    z-index:2;
+    top:0px;
+    left:0px;
+    width:70%;
+    height:100%;
+    transition:.8s;
+  }
+  .sec-mainDiv{
+    position: relative;
+    z-index:1 !important;
+    width:100%;
+    transition:.3s;
+    box-shadow: -10px 20px 160px 5px rgba(0, 0, 0, 0.59);
+  }
+  .sc-body{
+    overflow-x: hidden !important;
+  }
+}
+
+
+
+
+
+/*======================================================= map pop up================================================== */
+
+
+.mapBodyBlack{
+  top:0px;
+  position: fixed;
+  width:100%;
+  height:100%;
+  background-color: rgba(0, 0, 0, 0.501);
+  justify-content: center;
+  align-items: center;
+  z-index:99999;
+  visibility:visible;
+  transition:visibility 1s;
+}
+.mapBodyBlack .mainMap{
+  position: relative;
+  width:80%;
+  background-color: #fff;
+  height:70%;
+}
+.removeMap{
+  pointer-events: none;
+  height:50px;
+  width:100%;
+  position: absolute;
+  top:-1px;
+  left:-1px;
+  background-color: rgba(80, 78, 78, 0.46);
+
+}
+.mapAdd,.removeMapIcon{
+  cursor: pointer;
+}
+.removeMapIcon{
+  line-height:50px;
+  font-size:20px;
+  position: absolute;
+  right:25px;
+}
+.removeMapIcon:hover{
+  transform: scale(1.5);
+}

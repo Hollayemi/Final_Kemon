@@ -663,7 +663,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #about {
   <?php
     if(!isset($sc)){
-        echo 'background: url("../st/img/about-bg.jpg");';
+        echo 'background: url("st/img/about-bg.jpg");';
     }else{
         echo 'background: url("../st/img/about-bg.jpg");';
     }
@@ -1676,11 +1676,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 <?php
 // session_start();
-$mysqli=mysqli_connect('sql105.epizy.com','epiz_28257429','BHiMYLgFzV3pjb','epiz_28257429_market');
-$shopName = $_SESSION['in-shop_name'];
-$sql="SELECT MainColor, TextColor, SubColor, LinkColor FROM marketers WHERE shop_name = '$shopName'";
-$run=mysqli_query($mysqli,$sql);
-$row = mysqli_fetch_assoc($run);
+$row = marketersInfo($conn,$genId);
   echo "
   <style>
     #header.header-scrolled,

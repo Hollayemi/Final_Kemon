@@ -1,0 +1,5 @@
+document.getElementById('Profile').style.marginLeft=&quot;-349px&quot;
+            document.getElementById('Profile').style.opacity=&quot;.8&quot;
+            document.querySelector(&quot;.cloudCover&quot;).style.visibility=&quot;hidden&quot;document.getElementById('Profile').style.marginLeft=&quot;-349px&quot;
+            document.getElementById('Profile').style.opacity=&quot;.8&quot;
+            document.querySelector(&quot;.cloudCover&quot;).style.visibility=&quot;hidden&quot;<br><br><br><br>Universal Product Code (UPC):*******<br>Electronic Product Code (EPC): *******<br>Product Key (P-Key): *******<br>Marketing Part Number (MPN): *******<br>Part Number (PN): *******<br>_This was uploaded on_25/07/2120         `for`7000<br><br><br><br>
