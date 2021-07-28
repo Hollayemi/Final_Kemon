@@ -67,29 +67,26 @@
             ?>
              <nav id="nav-menu-container">
               <ul class="nav-menu">
-              <li><a href="../<?php echo $genId ?>.php">Home</a></li>
-            <?php
-                        
-              foreach($allTabs as $tabb){
-                if(ucwords($name)==$tabb){     
-
-                  echo '<li class="menu-active"><a href="../pg/<?php echo $tabb?>.php"><?php echo $tabb?></a></li>';
-                }else{
-                  echo '<li><a href="../pg/'.$tabb.'.php">'.$tabb.'</a>';
-
-                      echo "<ul>";
-                      for($b=0;$b<count($allMyReadyTabArr); $b++){
-                        $eacT = explode('-', $allMyReadyTabArr[$b]);
-                        if(strtolower($eacT[0]) == strtolower($tabb)){
-                            echo '<li><a href="../tb/'.strtolower($allMyReadyTabArr[$b]).'.php"> '.$eacT[1].'</a></li>';
-                        }
-                      }
-                      ?>
-                      </ul>
-                    </li><?php
+              <li class="menu-active"><a href="../<?php echo $genId ?>.php">Home</a></li>
+              <?php
+                foreach($allMyReadyPageArr as $tabb){
+                  echo '<li class="mainDropper"><a href="pg/'.$tabb.'.php">'. ucwords($tabb).'</a>';
+                  echo "<ul>";
+                  for($b=0;$b<count($allMyReadyTabArr); $b++){
+                    $eacT = explode('-', $allMyReadyTabArr[$b]);
+                    if(strtolower($eacT[0]) == strtolower($tabb)){
+                        echo '<li><a href="../tb/'.strtolower($allMyReadyTabArr[$b]).'.php"> '.ucwords($eacT[1]).'</a></li>';
+                    }
                   }
-              }
-            ?>
+                  
+                  ?>
+                  </ul>
+                  
+                </li><?php
+
+                }
+              
+              ?>
             <li style="margin-left:0px; margin-right:0px"><a href="../../../signin.php">Logout</a></li>
         </ul>
       </nav>
@@ -114,7 +111,7 @@
     </div>
     <div class="sec-mainDiv">
 
-      <main id='headerMain' style="background-image:url('../pic/<?php echo $Mypic[$myRand-1]?>">
+      <main id='headerMain' style="background-image:url('../pic/<?php echo $Mypic[1]?>">
             <div class="headerDiv">
                         <div class="showSideLinks" style="top:80px;"><i class="menu-fa menu-fa1 fa fa-bars"></i> <i class="menu-fa menu-fa2 fa fa-remove" style="transform:scale(0)"></i></div>
                       <?php
@@ -125,7 +122,7 @@
                       $extPage = $exPag[0];
                       
                       echo"<h1 class='shopHeader'>".ucwords($row_id['shop_name'])."<br>(".ucwords($extPage).")</h1><br>";
-                      echo "<div style='text-align:center;color:#fff; width:70%;'>".substr($row_id['our_offer'],0,120)."</div>"."<br>";
+                      echo "<div style='text-align:center;color:#fff; width:70%;'>".substr($row_id['our_offer'],0,120)."...</div>"."<br>";
                       echo "<div class='About_me' style='text-align:left;'>";
                         echo '<span><a href="https://'.$row_id['facebook'].'"><i class="fa fa-facebook fa-2x"></i></a></span>';
                         echo '<span><a href="'.$row_id['whatsapp'].'"><i class="fa fa-whatsapp fa-2x " ></i></a></span><br>';

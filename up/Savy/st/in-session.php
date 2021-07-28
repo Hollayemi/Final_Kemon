@@ -169,30 +169,8 @@ $_SESSION['allrandRange2']=$allrandRange2;
 $_SESSION['allrandRange3']=$allrandRange3;
 $_SESSION['allrandRange4']=$allrandRange4;
 $_SESSION['allrandRange5']=$allrandRange5;
-$footerLink = array();
-$footerLinkName = array();
 
-
-
-// print_r($ShowAllLink);
-for($k=0; $k<count($ShowAllLink); $k++){
-    $footerLi = $ShowAllLink[$k];
-    $FN = $ShowAllLink[$k];
-    $FNa = explode('-',$FN);
-    $FNam = explode('.',$FNa[1]);
-    $footerNa = ucwords(strtolower($FNam[0]));
-    
-
-    if(in_array($footerNa,$_SESSION['tabChkExistence'])){
-        if(!in_array($footerNa,$footerLinkName)){
-            $footerLink[]= $footerLi;
-            $footerLinkName[]= $footerNa;
-        }
-    }
-}
            
-
-
 
 if(isset($sc)){
     $HomeBgPic = glob("../pic/*.*");

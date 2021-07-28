@@ -1677,6 +1677,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 <?php
 // session_start();
 $row = marketersInfo($conn,$genId);
+  $hex = $row['MainColor'];
+  list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
+  $bdColMin = "rgba(".$r.", ".$g.", ".$b.", .8)";     
   echo "
   <style>
     #header.header-scrolled,
@@ -1698,6 +1701,9 @@ $row = marketersInfo($conn,$genId);
         border: 1px solid".$row['MainColor']." !important;
         box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.35), 0 6px 16px 0 rgba(0, 0, 0, 0.35);
     }
+    .sub-menuDiv{
+        background-color:".$row['MainColor']." !important;
+    }
     .subscribeClass:hover{
         background-color:transparent !important;
         border:1px solid #fff !important;
@@ -1715,8 +1721,7 @@ $row = marketersInfo($conn,$genId);
       opacity:.8;
     }
     #intro:before,.headerDiv{
-      background: ".$row['MainColor']." !important;
-      opacity:.4;
+      background: ".$bdColMin." !important;
     }
     .nav-menu a, #header #logo h1 span{
       color: ".$row['LinkColor'].";

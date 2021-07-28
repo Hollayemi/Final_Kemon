@@ -2,7 +2,7 @@
 <html lang="en">
 <?php 
   if(isset($_SESSION['user_info_id'])){
-    $Pagehommie = "true"; 
+    $Pagehommie = "true";
   }
   ?>
 <head>
@@ -24,7 +24,7 @@
   <?php
     include('st/in-session.php');
     include('st/css/style.css.php');
-    // include('st/dropdown.php');
+    include('st/dropdown.php');
     include('st/Configuration/actions.php');
   ?>
 </head>
@@ -70,8 +70,8 @@
               <ul class="nav-menu">
               <li class="menu-active"><a href="#intro">Home</a></li>
             <?php
-              foreach($allTabs as $tabb){
-                echo '<li class="mainDropper"><a href="pg/'.$tabb.'.php">'. $tabb.'</a>';
+              foreach($allMyReadyPageArr as $tabb){
+                echo '<li class="mainDropper"><a href="pg/'.$tabb.'.php">'. ucwords($tabb).'</a>';
                 echo "<ul>";
                 for($b=0;$b<count($allMyReadyTabArr); $b++){
                   $eacT = explode('-', $allMyReadyTabArr[$b]);
@@ -118,7 +118,7 @@
   ?>
   <section id="intro" style="background-image:url('<?php echo $myBg?>')">
     <div class="intro-container wow fadeIn">
-      <h1 class="mb-4 pb-0"><span><?php echo $explod[0] ?></span><?php isset($explod[0]) ? $explod[0] :  " r"?></h1>
+      <h1 class="mb-4 pb-0"><span><?php echo $row_id['shop_name'] ?></span><?php isset($explod[0]) ? $explod[0] :  " r"?></h1>
       <p class="mb-4 pb-0" style='width:60%'><?php echo substr($row_id['our_offer'],0,150)."..." ?></p> 
       <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
         data-autoplay="true"></a>
@@ -503,6 +503,26 @@
 
  
 <?php
+
+
+$footerLink = array();
+$footerLinkName = array();
+
+
+for($k=0; $k<count($allPages); $k++){
+    $footerLi = $allPages[$k];
+    $FN = $allPages[$k];
+    $FNa = explode('-',$FN);
+    
+    $footerNa = ucwords(strtolower($FNa[1]));
+    
+
+    if(!in_array($footerNa,$footerLinkName)){
+        $footerLink[]= "tb/".$footerLi.".php";
+        $footerLinkName[]= $footerNa;
+    }
+    
+}
 
 function repeatFooter($numTimes,$footerLinkName,$footerLink){
   if(!is_float($numTimes+1)){

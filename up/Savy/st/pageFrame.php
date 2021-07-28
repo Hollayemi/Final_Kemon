@@ -47,6 +47,9 @@
             width:80%;
             text-align:center;
           }
+          .pic-td img{
+            width:70%;
+          }
           .amt-td{
             width:auto;
             padding:5px 10px;
@@ -76,7 +79,7 @@
                 <?php
                 $txt = strlen( $Mycap[$i]);
                 $MyRealpic =  $Mycap[$i];
-                $ti = $uploadTime[$i];
+                $ti = $Mydat[$i];
 
                 $tim =  explode(' ',$ti);
                 $time = $tim[0];
@@ -92,8 +95,8 @@
                           height:25px !important;
                         }
                     </style>
-                    <div class="cap-td"><p><span id="remo'.$i.'">'.$remo.'</span> <span id="dots'.$i.'">...</span><span id="more'.$i.'">'.$Mycap[$i].'</span></p><br>
-                        <button onclick="myFunction'.$i.'()" id="myBtn'.$i.'"class="readMoreBtn">Read more</button><br><br>'.$time;
+                    <div class="cap-td"><p><span id="remo'.$i.'">'.$remo.'</span> <span id="dots'.$i.'">...</span><span id="more'.$i.'">'.$Mycap[$i].'</span></p>
+                        <button onclick="myFunction'.$i.'()" id="myBtn'.$i.'"class="readMoreBtn">Read more</button>'.$time;
                   }
                   echo '
                         <div style="display:flex;padding:5px">
@@ -157,7 +160,7 @@
                 ';
       
               ?>
-            <div class="amt-td">&#x20A6 <?php echo $uploadAmount[$i] ?></div>
+            <div class="amt-td"><?php echo $Myamt[$i] ?></div>
                       
         </div>
         <?php

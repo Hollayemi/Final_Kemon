@@ -12,9 +12,9 @@
         $id                 =           $row_id['id'] ;
     }
 
-    // if(!empty(sellerInfo($conn,$row_id))){
+    if(!empty(sellerInfo($conn,$id))){
         $sellerInfo =   sellerInfo($conn,$id);
-    // }
+    }
 
     function testInput($data){
         $data = trim($data);
@@ -33,7 +33,7 @@
     }
 
 
-    
+
     function sellerInfo($conn,$id)
     {
         $sql    ="SELECT * FROM users WHERE id=?";
@@ -108,6 +108,21 @@
     }
 
     
+
+
+
+
+    function SelectTrackForDisplay($conn,$page,$market_id)
+    {
+        $sql    ="SELECT * FROM trackk WHERE page=? AND real_ID=? ORDER BY date";
+        $stmt   = $conn->prepare($sql);
+        $stmt->execute([$page,$market_id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+
+    }
+
+
     function SelectTrackByPage($conn,$page,$Skey)
     {
         $sql    ="SELECT * FROM trackk WHERE page=? AND Skey=?";

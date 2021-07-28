@@ -175,6 +175,7 @@
        <div class="showBrands">
           <?php
               foreach($Fetch_tabs as $Main_tab){
+                if(!in_array($Main_tab, $allErrArr)){
                 ?>
                 <div class="centt_col showBrands_div">
                     <i class='fa fa-file'></i>
@@ -199,6 +200,7 @@
                 </div>
                 <?php
               }
+            }
                 ?>
        </div>
        <br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -211,7 +213,7 @@
     <section class="main_side for_files_display" id="inactive_page" style="display:none;">
     <div class="show_file_top">
           <h4>Inactive pages</h4>
-          <h4>Total = <?php echo count($allPages); ?></h4>
+          <h4>Total = <?php echo count($allErrArr); ?></h4>
       </div>
        <div class="showBrands">
           <?php

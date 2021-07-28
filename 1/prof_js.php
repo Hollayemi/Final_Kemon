@@ -259,9 +259,9 @@ function switchPage(PageName) {
       }
       setTimeout(function(){
         document.querySelector('.loadTab').style.display = 'none'; 
-      },1000)
+      },000)
       
-    },1000)
+    },000)
 }
 
 

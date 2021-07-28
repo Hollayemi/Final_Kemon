@@ -1,5 +1,26 @@
 <?php
 
+  
+$footerLink = array();
+$footerLinkName = array();
+
+
+for($k=0; $k<count($allPages); $k++){
+  $footerLi = $allPages[$k];
+  $FN = $allPages[$k];
+  $FNa = explode('-',$FN);
+  
+  $footerNa = ucwords(strtolower($FNa[1]));
+  
+
+  if(!in_array($footerNa,$footerLinkName)){
+      $footerLink[]= $footerLi.".php";
+      $footerLinkName[]= $footerNa;
+  }
+}
+
+
+
   function repeatFooter($numTimes,$footerLinkName,$footerLink){
     if(!is_float($numTimes+1)){
     for($i=0; $i<$numTimes+1; $i++){
@@ -104,7 +125,7 @@
         </div>
       </div>
     </div>
-
+    
     <div class="container">
       <div class="copyright">
       </div>
@@ -130,6 +151,17 @@
   <script src="../st/js/setup.js"></script>
 <script type="text/javascript" src="../../v2.3.2/jquery.rateyo.js"></script>
   <script>
+
+// function hexToRgb(hex) {
+//   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+//   return result ? {
+//     r: parseInt(result[1], 16),
+//     g: parseInt(result[2], 16),
+//     b: parseInt(result[3], 16)
+//   } : null;
+// }
+
+// alert(hexToRgb("#ffffff").r + "--"+ hexToRgb("#ffffff").g + "--"+ hexToRgb("#ffffff").b)
      <?php 
       if(isset($Pagehommie)){
       ?>  
