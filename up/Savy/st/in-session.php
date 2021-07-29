@@ -1,29 +1,9 @@
 <?php
 if(!isset($sc)){
-    session_start();
+    // session_start();
 }
 include('configuration/actions.php');
 
-
-// $sql_fetch_pic2 = "SELECT phone,shop_name,our_offer,bustop,junction,city,facebook,whatsapp,linked_in FROM marketers WHERE id='$pap'";
-// $run_fetch_pic2= mysqli_query($mysqli,$sql_fetch_pic2);
-// $row_fetch_pic2 = mysqli_fetch_array($run_fetch_pic2);
-
-
-// $shop_line  =   $row_fetch_pic2['phone'];
-// $shop_name  =   $row_fetch_pic2['shop_name'];
-// $desc       =   $row_fetch_pic2['our_offer'];
-// $bustop     =   $row_fetch_pic2['bustop'];
-// $junction   =   $row_fetch_pic2['junction'];
-// $city       =   $row_fetch_pic2['city'];
-// $facebook     =   $row_fetch_pic2['facebook'];
-// $whatsapp   =   $row_fetch_pic2['whatsapp'];
-// $linked_in       =   $row_fetch_pic2['linked_in'];
-
-
-
-
-echo "</div>";
 $ShowLink = glob("../tb/*.*");
 // print_r($ShowLink);
     $matchLink = array();
@@ -169,6 +149,10 @@ $_SESSION['allrandRange2']=$allrandRange2;
 $_SESSION['allrandRange3']=$allrandRange3;
 $_SESSION['allrandRange4']=$allrandRange4;
 $_SESSION['allrandRange5']=$allrandRange5;
+
+
+
+$splitCategory = explode(',',selectAllCat($conn,$id)['category']);
 
            
 

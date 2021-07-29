@@ -137,7 +137,7 @@ if(isset($_POST['loginBtn'])){
 		$knwO = "popo";
 		echo "<div class='loginStatus'>
 			<h4>Status:</h4>
-			<h5>you are not logged in </h5>
+			<h5>you are not logged in ".$hashedPassword."</h5>
 			<p>( Incorrect Password or Email )</p>
 		</div>";
 	}
