@@ -18,13 +18,13 @@
     </div>
     <ul class="nospace clear">
       <li class="one_third first">
-      <a href="tel:<?php echo $_SESSION['in-phone'] ?>" style="color:black"><div class="block clear"><i class="fas fa fa2 fa-phone"></i> <span><strong>Give us a call:</strong> <?php echo $_SESSION['in-shop_lines'] ?></span> </div></a>
+      <a href="tel:<?php echo $sellerInfo['phone'] ?>" style="color:black"><div class="block clear"><i class="fas fa fa2 fa-phone"></i> <span><strong>Give us a call:</strong> <?php echo $sellerInfo['phone'] ?></span> </div></a>
       </li>
       <li class="one_third">
-      <div class="block clear"><i class="fas fa fa2 fa-envelope"></i> <span><strong>Send us a mail:</strong> <?php echo $_SESSION['in-email'] ?></span> </div>
+      <div class="block clear"><i class="fas fa fa2 fa-envelope"></i> <span><strong>Send us a mail:</strong> <?php echo $sellerInfo['email'] ?></span> </div>
       </li>
       <li class="one_third">
-        <div id="locMap" class="block clear"><i class="fas fa fa2 fa-map-marker"></i> <span><strong>Come visit us:</strong> Directions to</span><span class="mapAdd"><?php echo $_SESSION['in-city'] ?></span> </div>
+        <div id="locMap" class="block clear"><i class="fas fa fa2 fa-map-marker"></i> <span><strong>Come visit us:</strong> Directions to</span><span class="mapAdd"><?php echo $row_id['city'] ?></span> </div>
       </li>
     </ul>
    
@@ -36,19 +36,42 @@
   <footer id="footer" class="hoc clear"> 
 
     <div class="one_third first">
-      <h1 class="logoname secLogoname"><span><?php echo $_SESSION['in-shop_name'] ?></span> Kemon-Market</h1>
-      <p class="btmspace-30"><?php echo $_SESSION['in-shop_name']?>[<a href="#">&hellip;</a>]</p>
+      <h1 class="logoname secLogoname"><span><?php echo $row_id['shop_name'] ?></span> Kemon-Market</h1>
+      <p class="btmspace-30"><?php echo $row_id['shop_name']?>[<a href="#">&hellip;</a>]</p>
       <ul class="faico clear">
-        <li><a class="faicon-dribble fa3" href="tel:<?php echo $_SESSION['in-shop_lines']?>"><i class="fas fa fa-phone"></i></a></li>
-        <li><a class="faicon-facebook fa3" href="https://api.whatsapp.com/send?phone=<?php echo $_SESSION['in-whatsapp'] ?>&text=Hi,%20from%20Kemon-Market.%20My%20name%20is%20"><i class="fab fa fa-whatsapp"></i></a></li>
-        <li><a class="faicon-google-plus fa3" href="https://<?php echo $_SESSION['in-facebook'] ?>"><i class="fab fa fa-facebook"></i></a></li>
-        <li><a target="_blank" class="faicon-linkedin fa3" href="https://<?php echo $_SESSION['in-linked_in'] ?>"><i class="fab fa fa-linkedin"></i></a></li>
+        <li><a class="faicon-dribble fa3" href="tel:<?php echo $row_id['phone']?>"><i class="fas fa fa-phone"></i></a></li>
+        <li><a class="faicon-facebook fa3" href="https://api.whatsapp.com/send?phone=<?php echo $row_id['whatsapp'] ?>&text=Hi,%20from%20Kemon-Market.%20My%20name%20is%20"><i class="fab fa fa-whatsapp"></i></a></li>
+        <li><a class="faicon-google-plus fa3" href="https://<?php echo $row_id['facebook'] ?>"><i class="fab fa fa-facebook"></i></a></li>
+        <li><a target="_blank" class="faicon-linkedin fa3" href="https://<?php echo $row_id['linked_in'] ?>"><i class="fab fa fa-linkedin"></i></a></li>
         <!-- <li><a class="faicon-twitter" href="#"><i class="fab fa-twitter"></i></a></li>
         <li><a class="faicon-vk" href="#"><i class="fab fa-vk"></i></a></li> -->
       </ul>
     </div>
 
     <?php
+$footerLink = array();
+$footerLinkName = array();
+
+
+for($k=0; $k<count($allPages); $k++){
+  $footerLi = $allPages[$k];
+  $FN = $allPages[$k];
+  $FNa = explode('-',$FN);
+  
+  $footerNa = ucwords(strtolower($FNa[1]));
+  
+
+  if(!in_array($footerNa,$footerLinkName)){
+      if(isset($nameHome)){
+        $footerLink[]= "tb/".$footerLi.".php";
+      }else{
+        $footerLink[]= "../tb/".$footerLi.".php";
+      }
+      $footerLinkName[]= $footerNa;
+  }
+}
+
+
 
 function repeatFooter($numTimes,$footerLinkName,$footerLink){
   if(!is_float($numTimes+1)){
@@ -116,7 +139,7 @@ function repeatFooter($numTimes,$footerLinkName,$footerLink){
 
 <div class="one_third">
       <h6 class="heading">News Letter</h6>
-      <p class="nospace btmspace-15">Drop your name and your email with <b><?php echo $_SESSION['in-shop_name'] ?></b> for updates</p>
+      <p class="nospace btmspace-15">Drop your name and your email with <b><?php echo $row_id['shop_name'] ?></b> for updates</p>
       <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
         <fieldset>
           <button type="submit" class="btn readMoreBtn btnOnWhite" name="Newsletter" value="submit">Subscribe</button>
@@ -131,7 +154,7 @@ function repeatFooter($numTimes,$footerLinkName,$footerLink){
 <div class="wrapper row5">
   <div id="copyright" class="hoc clear"> 
     <p class="fl_left" style="color:blue"><i class="fa fa-heart" style="color:Red"></i> stephanyemmitty</p>
-    <p class="fl_right powered"> Powered by kemon-Market &copy; <?php echo date('Y') ?> <strong><?php echo $_SESSION['in-shop_name'] ?></strong></p>
+    <p class="fl_right powered"> Powered by kemon-Market &copy; <?php echo date('Y') ?> <strong><?php echo $row_id['shop_name'] ?></strong></p>
   </div>
 </div>
 <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>

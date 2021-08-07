@@ -1,158 +1,135 @@
-<?php
+<?php 
   session_start();
-  include_once('configuration/config.php');
-  include_once('configuration/initialize.php');
-  include('../st/in-session.php');
+  include('configuration/actions.php');
+  include('configuration/initialize.php');
+  include('in-session.php');
 ?>
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <title>Kemon-Market</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="../../v2.3.2/jquery.rateyo.min.css"/>
-    <?php
-          include('../st/layout/styles/layout.css.php');
-          include('../st/layout/styles/framework.css.php');
-    ?><br>
-    <link rel="stylesheet" href="../st/font-awesome.min.css">
-    <link rel="stylesheet" href="../st/css/mycss.css">
-    <script>document.cookie = "_quex224My = "+screen.width</script>
-  </head>
-  <?php 
-      
-      include("../st/dropdown.php");
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Kemon-Market</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <link href="../st/img/km.png" rel="icon">
+  <link href="../st/img/km.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+  <link href="../../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../../lib/venobox/venobox.css" rel="stylesheet">
+  <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <?php
+  include('css/style.css.php')
   ?>
-  <body id="top" class="top" style="overflow:auto">
-      <section class="shotLnk">
-          <div class="sho">
-                <button id="showLinkMenu" style="position:absolute;top:30px; right:15px;font-size:30px" class="cancel_x">X</button>
-                <li class="active"><a href="../<?php echo $genId ?>.php">Home</a></li><br>
-                <?php 
-                    for($a=0;$a<count($allMyReadyPageArr); $a++){
-                      echo '<li class="mainDropper"><a class="drop" href="../pg/'.$allMyReadyPageArr[$a].'.php">'. $allMyReadyPageArr[$a].' </a><i class="indDrop">></i>';
-                      echo "<ul>";
-                        for($b=0;$b<count($allMyReadyTabArr); $b++){
-                          $eacT = explode('-', $allMyReadyTabArr[$b]);
-                          if(strtolower($eacT[0]) == strtolower($allMyReadyPageArr[$a])){
-                              echo '<li class="sideBarDropDown" style="display:none"><a href="../tb/'.strtolower($allMyReadyTabArr[$b]).'.php"> '.$eacT[1].'</a></li>';
-                          }
-                        }?>
-                  </ul>
-                </li>
-                <?php 
-                    }
-                    echo "<center><br><br>";
-                    if(isset( $_SESSION['user_info_id'])){
-                      echo '<form method="POST" action="'.$_SERVER["PHP_SELF"].'">
-                              <button type="submit" name="Newsletter" class="LLSa" value="submit">Subscribe</button>                   
-                          </form>';
-                      echo "<a href='../../../login_form.php' class='LLS'><h2>Logout</h2></a>";
-                    }else{
-                      echo " <h2 class='LLS'><a href='../../../login_form.php'>Login</a></h2>";
-                    }
-                    echo "</center>"
-                ?>
-          </div>
-      </section>
+  <link href="../st/css/mycss.css" rel="stylesheet">
+</head>
+<body class="body">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="WHM8mb9K"></script>
+  <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <h1><a href="#main">Ke<span>m</span>on</a></h1>
+      </div>
+          <?php                          
 
-<section>
-<center>
-  <div class="popIn">
-      <h3 class="cancelPopX" onclick="myFunctionBig()">X</h3>
-      <a href="#"><img id="changeImage" src="../../../img/km.png"  alt=""></a>
-      <h5 id="changeText"></h5>
-      <!-- <span><button style="width:100px;height:100px"  onclick="myFunctionBig()">X</button></span> -->
-  </div>
-</center>
-
-</section>
- 
-<div class="norBlur">          
-<div class="wrapper row0">
-<div id="topbar" class="hoc clear" style="margin-top:-20px">
-    <div class="fl_left">
-      <div class="myTopBar">
-        <ul class="nospace">
-          <li><a href="../<?php echo $genId ?>.php"><i class="fas fa fa-home fa-lg"></i></a></li>
-              <?php
-              foreach($allMyReadyPageArr as $tabb){
-                if(ucwords($name)==$tabb){
-              ?>
+          $chkExistence = array();
+          $verifyP = glob("../pic/*.*");
           
-          <li><a href="../pg/<?php echo $tabb?>.php"><?php echo $tabb?></a></li>
-                
-                <?php
-                  }else{
-                    echo '<li><a href="../pg/'.$tabb.'.php">'.$tabb.'</a></li>';
+          for ($a=0; $a<count($verifyP); $a++){
+            $veri = explode('--',$verifyP[$a]);
+            $verri = explode('-',$veri[1]);
+            $anVery = $verri[0];
+            if(!in_array(ucwords(strtolower($anVery)),$chkExistence)){
+              $chkExistence[] =  ucwords(strtolower($anVery));
+            }
+          }
+          $allTabs = array();
+                    
+            $protabs = glob("../pg/*.php");
+            
+            for ($i=0; $i<count($protabs); $i++){
+                $tab = $protabs[$i];
+                $Tabs = explode('/',$tab);
+                $TabChecked = explode('.',$Tabs[2]);
+                if($TabChecked[1] ==  'php'){
+                  $extTab=$TabChecked[0];
+                  if(in_array(ucwords(strtolower($extTab)),$chkExistence)){
+                    $allTabs[]=ucwords(strtolower($extTab));
                   }
                 }
-                ?>
-        <li style="margin-left:90px; margin-right:30px"><a href="../../../exp.php">Logout</a></li>
-        </ul>
-      </div>
-      <div class="fl_right">
-    </div>
-      <ul class="nospace">
-        <button class="show_shotLink"><i class="fas fa fa-bars fa-2x"></i></button>
-      </ul>
-    </div>
-  </div>
+            }
 
-</div>
-   
-<div class="wrapper row1">
-  <header id="header" class="hoc clear"> 
-    <div id="logo" class="one_half first">
-      <h1 class="logoname"><a href="../<?php echo $genId ?>.php"><span><?php echo $row_id['shop_name'] ?></span>Kemon-Market</a><br><br>
-      <?php //echo ucwords('<h1 class="pageTitle">('.$extPage.')</h1>') ?></h1>
-    </div>
-    <div class="one_half">
-      <ul class="nospace clear">
-        <li class="one_half first">
-          <div class="block clear"><i class="fas fa fa2 fa-phone"></i> <span><strong class="block">Call Us:</strong> <?php echo $row_id['phone'] ?></span></span> </div>
-        </li>
-        <li class="one_half">
-          <div class="block clear"><i class="far fa fa2 fa-envelope"></i> <span><strong class="block"> Email:</strong> <?php echo $sellerInfo['email'] ?></span></span> </div>
-        </li>
-      </ul>
-    </div>
-
-    </header>
-    <nav id="mainav" class="hoc clear"> 
-          <ul class="clear">
-            <li class="active"><a href="<?php echo $genId ?>.php">Home</a></li>
-            <?php 
-                // print_r($allMyReadyPageArr);
-                for($a=0;$a<count($allMyReadyPageArr); $a++){
-                  if(strtolower($name) == strtolower($allMyReadyPageArr[$a])){
-                    echo '<li class="active"><a class="drop" href="#">'. $allMyReadyPageArr[$a].'</a>';
-                }else{
-                  echo '<li><a class="drop" href="../'.$genId.'/pg/'.$allMyReadyPageArr[$a].'.php">'. $allMyReadyPageArr[$a].'</a>';
-                }
-                  echo "<ul>";
-                    for($b=0;$b<count($allMyReadyTabArr); $b++){
-                      $eacT = explode('-', $allMyReadyTabArr[$b]);
-                      if(strtolower($eacT[0]) == strtolower($allMyReadyPageArr[$a])){
-                          echo '<li><a href="../tb/'.strtolower($allMyReadyTabArr[$b]).'.php">-- '.$eacT[1].'</a></li>';
-                      }
-                    }
-              ?>
-              </ul>
-            </li>
-            <?php 
-                }
+            include("../st/dropdown.php");
             ?>
-          </ul>    
-        </nav>
-</div>
-<div class="wrapper bgded overlay" style="background-image:url('../pic/<?php echo $Mypic[0]?>');">
-  <div id="pageintro" class="hoc clear"> 
-    <article>
-      <p style="letter-spacing:1px;text-transform:lowercase"><?php echo strtolower(substr($row_id['our_offer'],0,100))."[...]";?></p>
-      <h3 class="heading"><?php echo $row_id['shop_name'] ?></h3>
-      <p>Junction: <?php echo $row_id['junction'] ?><br>Bustop:<?php echo $row_id['bustop'] ?></p>
-      <footer><a class="btn scrollto" href="#locMap">Show map</a></footer>
-    </article>
-  </div>
-</div>
+             <nav id="nav-menu-container">
+              <ul class="nav-menu">
+              <li class="menu-active"><a href="../<?php echo $genId ?>.php">Home</a></li>
+              <?php
+                foreach($allMyReadyPageArr as $tabb){
+                  echo '<li class="mainDropper"><a href="pg/'.$tabb.'.php">'. ucwords($tabb).'</a>';
+                  echo "<ul>";
+                  for($b=0;$b<count($allMyReadyTabArr); $b++){
+                    $eacT = explode('-', $allMyReadyTabArr[$b]);
+                    if(strtolower($eacT[0]) == strtolower($tabb)){
+                        echo '<li><a href="../tb/'.strtolower($allMyReadyTabArr[$b]).'.php"> '.ucwords($eacT[1]).'</a></li>';
+                    }
+                  }
+                  ?>
+                  </ul>
+                  
+                </li><?php
+
+                }
+              
+              ?>
+            <li style="margin-left:0px; margin-right:0px"><a href="../../../signin.php">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="shiftMain">
+    <div class="sub-menuDiv" style="margin-left:;opacity:1;visibility:hidden">
+      <div class="sub_links">
+    <?php
+        require_once("../st/dropdown.php");
+        for($b=0;$b<count($allMyReadyTabArr); $b++){
+          $eacT = explode('-', $allMyReadyTabArr[$b]);
+          if(strtolower($eacT[0]) == strtolower($namePage)){
+              echo '<li><a href="../tb/'.strtolower($allMyReadyTabArr[$b]).'.php"> '.$eacT[1].'</a></li>';
+          }
+        }
+                              
+?>
+       </div>                         
+    </div>
+    <div class="sec-mainDiv">
+
+      <main id='headerMain' style="background-image:url('../pic/<?php echo $Mypic[1]?>">
+            <div class="headerDiv">
+                        <div class="showSideLinks" style="top:80px;"><i class="menu-fa menu-fa1 fa fa-bars"></i> <i class="menu-fa menu-fa2 fa fa-remove" style="transform:scale(0)"></i></div>
+                      <?php
+
+                      $loo = explode('-',$loop[5]);
+                      $lo = ucwords($loo[0]);
+                      $exPag = explode('.',$loo[1]);
+                      $extPage = $exPag[0];
+                      
+                      echo"<h1 class='shopHeader'>".ucwords($row_id['shop_name'])."<br>(".ucwords($extPage).")</h1><br>";
+                      echo "<div style='text-align:center;color:#fff; width:70%;'>".substr($row_id['our_offer'],0,120)."...</div>"."<br>";
+                      echo "<div class='About_me' style='text-align:left;'>";
+                        echo '<span><a href="https://'.$row_id['facebook'].'"><i class="fa fa-facebook fa-2x"></i></a></span>';
+                        echo '<span><a href="'.$row_id['whatsapp'].'"><i class="fa fa-whatsapp fa-2x " ></i></a></span><br>';
+
+                      echo "</div>";
+                  ?>
+                  <div class="fb-share-button"
+                   data-href="https://www.google.com/search?q=share+button+facebook&amp;source=lnms&amp;tbm=vid&amp;sa=X&amp;ved=2ahUKEwi9892tuL_wAhVaAWMBHfIJC88Q_AUoAnoECAEQBA" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dshare%2Bbutton%2Bfacebook%26source%3Dlnms%26tbm%3Dvid%26sa%3DX%26ved%3D2ahUKEwi9892tuL_wAhVaAWMBHfIJC88Q_AUoAnoECAEQBA&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+            </div>
+      </main>
+    

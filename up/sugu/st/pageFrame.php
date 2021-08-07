@@ -6,22 +6,18 @@ if(isset($_SESSION['user_info_id'])){
 }
 ?>
 <div class="wrapper row2">
-  <section id="latest" class="hoc container clear"> 
     <div class="sectiontitle">
-      <h6 class="heading"><?php echo $extPage ?></h6>
+      <h6 class="heading"><?php echo $name ?></h6>
       <p></p>
     </div>
-    <ul class="nospace group">
+    <ul class="nospace group forProdDisplay">
     <?php 
       $Pict=sizeof($Mypic);
       // echo $Pict;
       for ($i=$Pict; $i >=0; $i--){
-        
-        
-        ?>
 
-        <?php
-                    
+        ?>
+        <?php       
           echo '
           <style>
           #more'.$i.'{display:none;}
@@ -32,40 +28,27 @@ if(isset($_SESSION['user_info_id'])){
         ';
         // echo $i;
         if(isset($Mypic[$i])){
-          $remo = substr($Mycap[abs($i)],0,80);
+          $remo = substr($Mycap[abs($i)],0,120);
           $txt = strlen( $Mycap[abs($i)]);
           $MyRealpic =  $Mycap[abs($i)];
           
-          $ti = explode('_This was uploaded on_',$Mycap[abs($i)]);
-          
-          
-
-          $tim =  $ti[1];
-          $timi=explode('`for`',$ti[1]);
-          $time = $timi[0];
-          $divd=$i/4;
-          if(floor($divd) == $divd){
-            echo '<li class="one_quarter first" style"height:200px">';
-          }else{
-            echo '<li class="one_quarter" style"height:200px>';
-          }
-          echo '
-         
-          
-        <article style="padding-bottom:30px;">
-          <figure><a href="#"><img src="'.$Mypic[abs($i)].'" style="height:200px; width:100%" alt=""></a>.
-            <figcaption>
-              <time datetime="2045-04-06T08:15+00:00"><strong>'.($i+1).'</strong> <em>&#x20A6 '.$timi[1].'</em></time>
-            </figcaption>
-          </figure>
-          <div class="excerpt" style="margin-top:-25px">
-          <i class="cap-td"><p><span id="remo'.($i).'" style="display:block;">'.strtolower(str_replace('<br>', ' ', $remo)).'</span> <span id="dots'.abs($i).'" style="display:block">...</span><span id="more'.abs($i).'" style="display:none">'.$ti[0].'</span></p></i>
-          <footer>
-          <center>'; 
+  
+          echo ' 
+          <li class="one_quarter eacF" style"height:200px>
+            <article style="padding-bottom:30px;">
+              <figure><a href="#"><img src="../pic/'.$Mypic[abs($i)].'" class="pic_'.abs($i).'" style="height:200px; width:100%" alt=""></a>
+                <figcaption class="amount_show">
+                  <time datetime="2045-04-06T08:15+00:00"><em> '.$Myamt[$i].'</em></time>
+                </figcaption>
+              </figure>
+              <div class="excerpt">
+              <i class="cap-td"><p><span id="remo'.($i).'" style="display:block;">'.strtolower(str_replace('<br>', ' ', $remo)).'</span> <span id="dots'.abs($i).'" style="display:block">...</span><span id="more'.abs($i).'" style="display:none">'.$Mycap[$i].'</span></p></i>
+              <footer>
+              <center>'; 
 
             if($_COOKIE['_quex224My'] > 751){
             ?>
-            <button onclick="myFunctionBig('<?php echo abs($i)?>')" id="myBtn<?php echo abs($i)?>" class="readMoreBtn readMore1 btn">Read more</button>
+            <button onclick="myFunction('<?php echo abs($i)?>')" id="myBtn<?php echo abs($i)?>" class="readMoreBtn readMore1 btn">Read more</button>
           <?php
             }else{
               ?>
@@ -75,37 +58,34 @@ if(isset($_SESSION['user_info_id'])){
           echo '
           </center>
             <div style="display:flex;padding:5px">
-            <h4 id="media_a'.abs($i).'" style="display:none"><a href=""><i class="anime fir fa fa-whatsapp"></a></i></h4>
-            <h4 id="media_b'.abs($i).'" style="display:none"><a href=""><i class="anime sec fa fa-facebook"></a></i></h4>
-            <h4 id="media_c'.abs($i).'" style="display:none"><button class="thr" onclick="copyToClipboard('.abs($i).')"><i class="anime  fa fa-copy"></i></button></h4>
+            <h4 id="media_a'.abs($i).'" style="display:none;margin:0px;"><a href=""><i class="anime fir fa fa-whatsapp"></a></i></h4>
+            <h4 id="media_b'.abs($i).'" style="display:none;margin:0px;"><a href=""><i class="anime sec fa fa-facebook"></a></i></h4>
+            <h4 id="media_c'.abs($i).'" style="display:none;margin:0px;"><button class="thr" onclick="copyToClipboard('.abs($i).')"><i class="anime  fa fa-copy"></i></button></h4>
           </div>
-          <button id="share" onclick="myShare('.abs($i).')" class=" btn btn2" style="padding-top:7px;margin-top:20; height:30px !important;"><i class="fa fa-share"></i></button><br>
+          <button id="share" onclick="myShare('.abs($i).')" class="sharebtn"><i class="fa fa-share"></i></button>
           
             <form action="../st/myAction.php" method="GET">
-             <input type="text" id="cap'.abs($i).'" style="border:0px solid black;background-color:#fff; width:0px"  readonly  name="text'.abs($i).'" value="'.$ti[0].'">';
-             if ($user_id == $visitor_id){
+             <input type="text" id="cap'.abs($i).'" style="border:0px solid black;background-color:#fff; width:0px;position:absolute;"  readonly  name="text'.abs($i).'" value="'.$Mycap[$i].'">';
+             if (isset($myVisitor) && $myVisitor == $visitor_id){
               echo '
              <input type="submit" name="deleteNo'.abs($i).'" class="btn btn2" style="height:30px;margin:-48px 0px 0px 77%;line-height:25px" value="X">
              ';
           }
              echo '</form>';
           
-          echo $time.'
+          echo "<h4 class='dateCenter'>".explode(" ",$Mydat[$i])[0].'</h4>
             </footer>
           </div>
         </article>
       </li>
-      
       ';
+    ?>
+  <?php
       }
       
         }
-        ?>
-        
-        
-    </div>
+        ?>        
   </div>
-  </section>
         <script>
           function myFunction(x){
             var p = x
@@ -120,11 +100,13 @@ if(isset($_SESSION['user_info_id'])){
                 btnText.innerHTML = "Read less"; 
                 moreText.style.display = "block";
                 // console.log(moreText.style.display+"moreText")
+                document.querySelector(".pic_"+p).style.boxShadow="0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2)";
                 remo.style.display = "none";
               }else{
                   dots.style.display = "block";
                   btnText.innerHTML = "Read more"; 
                   moreText.style.display = "none";
+                  document.querySelector(".pic_"+p).style.boxShadow="none";
                   remo.style.display = "block";
                 }
             }
@@ -140,7 +122,7 @@ if(isset($_SESSION['user_info_id'])){
                 var changeImage = document.getElementById("changeImage");
                 var passArrayPic = <?php echo json_encode($Mypic) ?>;
                 var passArrayText = <?php echo json_encode($Mycap) ?>;
-                changeImage.src=passArrayPic[parseInt(p)];
+                changeImage.src="../pic/"+passArrayPic[parseInt(p)];
                 changeText.innerHTML = passArrayText[parseInt(p)];
                 var remo = document.getElementById("remo"+p);
                 var dots = document.getElementById("dots"+p);

@@ -33,15 +33,6 @@
     }
 
 
-    function selectAllCat($conn,$id)
-    {
-        $sql    ="SELECT * FROM category WHERE id=?";
-        $stmt   = $conn->prepare($sql);
-        $stmt->execute([$id]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
 
     function sellerInfo($conn,$id)
     {

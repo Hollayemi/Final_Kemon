@@ -147,36 +147,7 @@ if(isset($_POST['send_to_email'])){
                 <div class="credits">
             </div>
           </div>
-        </footer>
-
-
-
-        
-
-
-
-          
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="exp.php">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  
-    
+        </footer>   
     <?php 
     
 
@@ -255,38 +226,13 @@ var letsChat = document.querySelector(".letsChat")
     <!-- Contact Form JavaScript File -->
     <!-- <script src="./contactform/contactform.js"></script> -->
     <script src="js/main.js"></script>
-
     <script src="js/register.js"></script>
-    <script> 
-      var allPop = document.getElementsByClassName("popSetAgent")
-      document.querySelector('.Set_showAgnpop').addEventListener('click', function(){
-        
-        allPop[0].style.display="block"
-        document.querySelector('.bodyAgentPop').style.display="flex"
-        document.querySelector('.bodyAgentPop').style.backgroundColor="rgba(0, 0, 0, 0.693)"
-      })
-
-      document.querySelector('.deactivateCode').addEventListener('click', function(){
-        console.log('ioioui')
-        // allPop[1].style.display="block"
-        // document.querySelector('.bodyAgentPop').style.display="flex"
-        // document.querySelector('.bodyAgentPop').style.backgroundColor="rgba(0, 0, 0, 0.693)"
-      })
-
-      document.querySelector('.Remove2_showAgnpop').addEventListener('click', function(){
-        document.querySelector('.bodyAgentPop').style.display="flex"
-        document.querySelector('.bodyAgentPop').style.backgroundColor="rgba(0, 0, 0, 0.693)"
-      })
-
-      document.querySelector('.cancelAgnpop').addEventListener('click', function(){
-        document.querySelector('.bodyAgentPop').style.display="none"
-        document.querySelector('.bodyAgentPop').style.backgroundColor="rgba(0, 0, 0, 0)"
-      })
-  </script>
     <!-- <script src="node_modules/mysql/index.js"></script> -->
     <script data-main="./js/config" src="./js/require.js"></script>
     <?php include('./js/jsToSql.php')?>
+    <?php include('pop-ups.php')?>
   </body>
 
 </html>
+
 

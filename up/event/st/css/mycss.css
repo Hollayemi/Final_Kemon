@@ -17,16 +17,13 @@
 }
 
 .fir{animation: fir 1s ease-out 0s forwards;}
-@keyframes fir {0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:5px;transform: translateX(5px);}}
+@keyframes fir {0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:-5px;transform: translateX(5px);}}
 .thr{animation: thr 1s ease-out 0s forwards;}
-@keyframes thr{0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:5px;transform: translateX(34px);}}
+@keyframes thr{0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:-5px;transform: translateX(34px);}}
 .sec{animation: sec 1s ease-out 0s forwards;}
-@keyframes sec {0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:5px;transform:translateX(20px);}}
-.deleteBtn{margin-top:-90px;margin-left:160px;}
+@keyframes sec {0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);}100%{margin-top:-5px;transform:translateX(20px);}}
+.deleteBtn{margin-left:160px;}
 
-@media screen and (max-width:400px){
-  .deleteBtn{margin-top:-35px;margin-left:0px;}
-}
 .soc_link, .soc_link_fb{
   color:#fff !important;
   padding:10px;
@@ -80,11 +77,9 @@
     height:180px;
 }
 .readMoreBtn{
-    position: absolute;
     border:none;
-    background-color:  rgb(16, 16, 90);
+    background-color:  rgb(109, 109, 109);
     color:#fff;
-    width:150px;
     height:30px !important;
     transition:1s !important;
 }
@@ -92,7 +87,6 @@
     background-color:  rgb(27, 27, 206);
     color:#fff;
 }
-@media screen and (max-width:530px) {.readMoreBtn{width:100px}}
 @media screen and (max-width:450px) {
     .main-td-pic{
         width: 100px;
@@ -412,7 +406,7 @@ border:1px solid red;
     z-index:2;
     top:0px;
     left:0px;
-    width:70%;
+    width:200px;
     height:95%;
     transition:.8s;
   }

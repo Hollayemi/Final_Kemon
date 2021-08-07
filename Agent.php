@@ -11,7 +11,7 @@ include('updateAgent.php');
 if (isset($_POST['Agents'])){
     $AccNum        = testInput($_POST['agentAcc']);
     $AgnMail       = testInput($_POST['mail']);
-    $AgnUsername   = testInput($_POST['agentUsername']);
+    $AgnUsername   = ucwords(testInput($_POST['agentUsername']));
     $AgnAccName    = testInput($_POST['agentAccName']);
     $AgnBank       = testInput($_POST['agentBank']);
     $AgnPhone      = testInput($_POST['agentPhoneNum']);

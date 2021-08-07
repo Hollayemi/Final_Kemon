@@ -45,7 +45,7 @@ if (isset($_POST['post'])){
                             $myfileDestination = '../up/'.$shop_nick.'/pic/'.$myfileNewName;
 
                             $run=catchUploads($conn,$myId,$capf,$myfileNewName,$sKey,$amt,$selected);
-                            $_SESSION['picUp'] = displayMessage('success',' Product was successfully uploaded');
+                            $picUpMessage = displayMessage('success',' Product was successfully uploaded');
                             if($run){
                                 if(strlen($capf)>100){
                                     $pagename =  $selected.'-'.$sKey;

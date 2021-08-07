@@ -56,7 +56,7 @@
             $sql = "SELECT * FROM agent where agnUsername=?";
             $stmt = $conn->prepare($sql);
             $stmt->execute([$agnName]);
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
         }
 
@@ -125,6 +125,23 @@
             $sql    = "UPDATE users SET userStorage=?,num_Page=?,num_Tab=? WHERE id=?";
             $stmt   = $conn->prepare($sql);
             $stmt->execute([$userS,$numP,$numT,$myId]);
+            return true;
+        }
+
+
+        function updateSub_User($conn,$n,$newNumPage,$newNumTab,$newStorage,$myId)
+        {
+            $sql    = "UPDATE users Set Subscribed=?,num_Page=?,num_Tab=?, userStorage=? WHERE id =?";
+            $stmt   = $conn->prepare($sql);
+            $stmt->execute([$n,$newNumPage,$newNumTab,$newStorage,$myId]);
+            return true;
+        }
+
+        function updateKey($conn,$newSkey,$oldSKey)
+        {
+            $sql    = "UPDATE users Set sKey=? WHERE sKey =?";
+            $stmt   = $conn->prepare($sql);
+            $stmt->execute([$newSkey,$oldSKey]);
             return true;
         }
 
@@ -270,6 +287,18 @@
         
         // ----------------------------------------------------------
 
+        
+
+        function newSubscriber($conn,$myId,$sub_username,$sub_emails,$sub_shop,$date_expired,$date_subscribed,$type)
+        {
+            $sql = "INSERT INTO subscribers (id,username,email,shop,Date_expired,Date_subscribed,type_of_sub)VALUES(?,?,?,?,?,?,?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$myId,$sub_username,$sub_emails,$sub_shop,$date_expired,$date_subscribed,$type]);
+            return true;
+        }
+
+
+
         function updateActivite($conn,$eventType,$myAction,$myId,$activity)
         {
             $sql = "INSERT INTO activity (Fid,eventType,myAction,activity)VALUES(?,?,?,?)";
@@ -337,6 +366,22 @@
 
 
 
+
+                
+        function updateAgn_3($conn,$NewCountMonth,$NewCount,$AgnUser)
+        {
+            $sql    = "UPDATE agent SET 3_months=?, Total_reg =? WHERE agnPic=?";
+            $stmt   = $conn->prepare($sql);
+            $stmt->execute([$NewCountMonth,$NewCount,$AgnUser]);
+            return true; 
+        }
+        function updateAgn_norm($conn,$NewCount,$NewTot,$AgnUser)
+        {
+            $sql    = "UPDATE agent SET counting=?, Total_reg =? WHERE agnPic=?";
+            $stmt   = $conn->prepare($sql);
+            $stmt->execute([$NewCount,$NewTot,$AgnUser]);
+            return true;
+        }
 
 
 

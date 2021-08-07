@@ -567,11 +567,11 @@
                     ?>
                     </select><br>
                     <!-- <input type="file" name="myPageFile" class="pg-file" onchange="readURL(this)" id="myPageFile"><br><br> -->
-                    <div class="myLegend">
+                    <div class="myLegends">
                         <!-- <p style="width:100px">Price <i style="color:red">*</i></p> -->
                         <input type="text" name="amount" id="amount" placeholder="&#x20A6 default price"><br><br>
                     </div>
-                    <div class="myLegend">
+                    <div class="myLegends">
                         <!-- <p style="width:150px">Description <i style="color:red">*</i></p> -->
                         <textarea name="myPageCaption" id="myPageCaption"placeholder="Description"></textarea><br>
                     </div>
@@ -589,27 +589,27 @@
                   <div class="Other_info" style="display:none">
                       <h5>optional:</h5><br>
 
-                      <div class="myLegend">
+                      <div class="myLegends">
                         <p style="width:150px">UPC</p>
                         <input type="text" name="UPC" id="amount" placeholder="UPC"><br>
                       </div>
 
-                      <div class="myLegend">
+                      <div class="myLegends">
                         <p style="width:150px">EPC</p>
                         <input type="text" name="EPC" id="amount" placeholder="EPC "><br>
                       </div>
 
-                      <div class="myLegend">
+                      <div class="myLegends">
                         <p style="width:150px">PKEY</p>
                         <input type="text" name="PKEY" id="amount" placeholder="Product key"><br>
                       </div>
 
-                      <div class="myLegend">
+                      <div class="myLegends">
                         <p style="width:150px">MPN</p>
                         <input type="text" name="MPN" id="amount" placeholder="MPN "><br>
                       </div>
 
-                      <div class="myLegend">
+                      <div class="myLegends">
                         <p style="width:150px">PN</p>
                         <input type="text" name="PN" id="amount" placeholder="PN"><br>
                       </div>
@@ -632,8 +632,8 @@
         <header class="section-header">
         <?php 
       
-              if(isset($_SESSION['picUp'])){
-                  echo $_SESSION['picUp'];
+              if(isset($picUpMessage)){
+                  echo $picUpMessage;
               }
           ?>
           <h3 class="section-title">Exploy Templates</h3>

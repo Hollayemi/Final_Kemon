@@ -2,14 +2,14 @@
     if(isset($_POST['agentCode'])){
         $AgnUsers = htmlentities($_POST['nameToSet']);
         
-        $row = allAgentByName($conn,$myId,$agnName);
+        $row = allAgentByName($conn,$myId,ucwords($AgnUsers));
         if(isset($row['agnPic'])){
             if(!isset($_COOKIE['Code-Agent'])){
-                    
                 $_SESSION['name']= $row['agnPic'];
                 $_SESSION['reffered']= $row['counting'];
-                $pp =  $_SESSION['name'];
-                setcookie('Code-Agent',$pp, time()+3600);
+                $picuure =  $_SESSION['name'];
+                setcookie('Code-Agent',$picuure, time()-3600);
+                setcookie('Code-Agent',$picuure, time()+3600);
             }else{
                 header('Location:Register.php');
 
@@ -41,4 +41,23 @@
         }
     }
         
+
+    // deactivate
+
+    if(isset($_POST['De_Agent'])){
+        $AgnUsers = htmlentities($_POST['nameToSet']);
+        $row = allAgentByName($conn,$myId,ucwords($AgnUsers));
+        if(isset($row['agnPic'])){
+            if(isset($_COOKIE['Code-Agent'])){
+                $_SESSION['name']= $row['agnPic'];
+                $_SESSION['reffered']= $row['counting'];
+                $picuure =  $_SESSION['name'];
+                setcookie('Code-Agent',$picuure, time()-3600);
+            }else{
+                header('Location:Register.php');
+            }
+        }else{
+            header('Location:Register.php?_vagent=abs');
+        }
+    }
 ?>

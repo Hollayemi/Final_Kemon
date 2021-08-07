@@ -78,7 +78,6 @@
                         echo '<li><a href="../tb/'.strtolower($allMyReadyTabArr[$b]).'.php"> '.ucwords($eacT[1]).'</a></li>';
                     }
                   }
-                  
                   ?>
                   </ul>
                   

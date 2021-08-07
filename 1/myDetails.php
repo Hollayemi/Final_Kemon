@@ -170,7 +170,7 @@
     <section class="main_side for_files_display" id="Product_s" style="display:none;">
       <div class="show_file_top">
           <h4>Active Products</h4>
-          <h4>Total = <?php echo count($Main_tabs); ?></h4>
+          <h4>Total = <?php echo count($Main_tabs)-count($allErrArr); ?></h4>
       </div>
        <div class="showBrands">
           <?php

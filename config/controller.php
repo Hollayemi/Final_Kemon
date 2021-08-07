@@ -1,7 +1,6 @@
 <?php
     session_start();
     require_once "actions.php";
-    require_once "db.php";
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;

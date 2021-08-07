@@ -9,15 +9,15 @@
     <?php
         $name     ="home";
         $nameHome = "set";
-        include("st/dropdown.php");
         session_start();
+        include('st/Configuration/config.php');
         include('st/in-session.php');
         include('st/layout/styles/layout.css.php');
         include('st/layout/styles/framework.css.php');
-        
-        if(require_once('../../functions.php')){
-          rating($_SESSION['in-shop_name']);
-        }
+        include("st/dropdown.php");
+        // if(require_once('../../functions.php')){
+        //   rating($_SESSION['in-shop_name']);
+        // }
       
     ?><br>
     <script>document.cookie = "_quex224My= "+screen.width</script>
@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="st/font-awesome.min.css">
 </head>
 <body id="top">
+  
 <section class="shotLnk">
 <div class="sho">
       <!-- <button id="showLinkMenu" style="position:absolute;top:30px; right:15px;font-size:30px" class="cancel_x">X</button> -->
@@ -152,9 +153,8 @@
               
               <li>
               <?php
-              require_once('in-session.php');
                     if(isset($_SESSION['user_info_id'])){
-                      $nletterUsername = $_SESSION["in-username"];
+                      $nletterUsername = $sellerInfo["username"];
                         echo '
                         <li style="margin-left:90px; margin-right:30px"><a href="../../exp.php">Logout</a></li>
                         <form method="POST" action="'.$_SERVER["PHP_SELF"].'">
@@ -184,7 +184,7 @@
       <div class="wrapper row1">
         <header id="header" class="hoc clear"> 
           <div id="logo" class="one_half first">
-            <h1 class="logoname"><a href="../../Register.php"><span><?php echo $_SESSION['in-shop_name'] ?></span>Kemon-Market</a></h1>
+            <h1 class="logoname"><a href="../../Register.php"><span><?php echo $row_id['shop_name'] ?></span>Kemon-Market</a></h1>
           </div>
           <?php 
     if(isset($_COOKIE['_quex224My'])){
@@ -208,10 +208,10 @@
           <div class="one_half">
             <ul class="nospace clear">
               <li class="one_half first">
-                <div class="block clear"><i class="fas fa fa2 fa-phone"></i> <span><strong class="block">Call Us:</strong> <?php echo $_SESSION['in-phone'] ?></span></span> </div>
+                <div class="block clear"><i class="fas fa fa2 fa-phone"></i> <span><strong class="block">Call Us:</strong> <?php echo $row_id['phone'] ?></span></span> </div>
               </li>
               <li class="one_half">
-                <div class="block clear"><i class="far fa fa2 fa-envelope"></i> <span><strong class="block"> Email:</strong> <?php echo $_SESSION['in-email'] ?></span></span> </div>
+                <div class="block clear"><i class="far fa fa2 fa-envelope"></i> <span><strong class="block"> Email:</strong> <?php echo $sellerInfo['email'] ?></span></span> </div>
               </li>
             </ul>
           </div>
@@ -245,7 +245,7 @@
         </nav>
       </div>
       <?php  
-        if($_SESSION['bgPic'] == "fix"){
+        if($row_id['bgPic'] == "fix"){
           echo '<div class="wrapper bgded overlay" style="background-image:url(\'homeBg.png\');">';
 
         }else{
@@ -256,9 +256,9 @@
         <div id="pageintro" class="hoc clear"> 
           <!-- ################################################################################################ -->
           <article>
-          <p style="letter-spacing:1px;text-transform:lowercase;width:70%"><?php echo substr($_SESSION['in-desc'],0,100)."[...]";?></p>
-            <h3 class="heading" style="font-size:35px"><?php echo $_SESSION['in-shop_name'] ?></h3>
-            <p>Junction: <?php echo $_SESSION['in-junction'] ?><br>Bustop:<?php echo $_SESSION['in-bustop'] ?></p>
+          <p style="letter-spacing:1px;text-transform:lowercase;width:70%"><?php echo substr($row_id['our_offer'],0,100)."[...]";?></p>
+            <h3 class="heading" style="font-size:35px"><?php echo $row_id['shop_name'] ?></h3>
+            <p>Junction: <?php echo $row_id['junction'] ?><br>Bustop:<?php echo $row_id['bustop'] ?></p>
             <footer><a class="btn backtotop sm" href="#locMap">Show map</a></footer>
           </article>
           
@@ -268,70 +268,71 @@
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->
-      <div class="wrapper row3">
-        <main class="hoc container clear"> 
-          <!-- main body -->
-          <!-- ################################################################################################ -->
-          <div class="sectiontitle">
-            <h6 class="heading">Our Uploads</h6>
-            <!-- <p>Mauris tempor aenean pretium sem et luctus semper justo velit</p> -->
-          </div>
-          <ul class="nospace group overview">
-            <li class="one_third">
-              <figure><a href="<?php echo $allLink[$_SESSION['allrandRange0']-1] ?>"><img src="<?php echo $allPic[$_SESSION['allrandRange0']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
-                <figcaption>
-                  <h6 class="heading"><?php echo '<a href="'.$allLink[$_SESSION['allrandRange0']-1].'">'.ucwords($allName[$_SESSION['allrandRange0']-1]).'</a>' ?></h6>
-                  <p>Congue quam erat et dui morbi at sapien non enim blandit.</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="one_third">
-              <figure><a href="<?php echo $allLink[$_SESSION['allrandRange1']-1] ?>"><img src="<?php echo $allPic[$_SESSION['allrandRange1']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
-                <figcaption>
-                  <h6 class="heading"><?php echo '<a href="'.$allLink[$_SESSION['allrandRange1']-1].'">'.ucwords($allName[$_SESSION['allrandRange1']-1]).'</a>' ?></h6>
-                  <p>Congue quam erat et dui morbi at sapien non enim blandit.</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="one_third">
-              <figure><a href="<?php echo $allLink[$_SESSION['allrandRange2']-1] ?>"><img src="<?php echo $allPic[$_SESSION['allrandRange2']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
-                <figcaption>
-                  <h6 class="heading"><?php echo '<a href="'.$allLink[$_SESSION['allrandRange2']-1].'">'.ucwords($allName[$_SESSION['allrandRange2']-1]).'</a>' ?></h6>
-                  <p>Congue quam erat et dui morbi at sapien non enim blandit.</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="one_third">
-              <figure><a href="<?php echo $allLink[$_SESSION['allrandRange3']-1] ?>"><img src="<?php echo $allPic[$_SESSION['allrandRange3']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
-                <figcaption>
-                  <h6 class="heading"><?php echo '<a href="'.$allLink[$_SESSION['allrandRange3']-1].'">'.ucwords($allName[$_SESSION['allrandRange3']-1]).'</a>' ?></h6>
-                  <p>Congue quam erat et dui morbi at sapien non enim blandit.</p>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="one_third">
-              <figure><a href="<?php echo $allLink[$_SESSION['allrandRange4']-1] ?>"><img src="<?php echo $allPic[$_SESSION['allrandRange4']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
-                <figcaption>
-                  <h6 class="heading"><?php echo '<a href="'.$allLink[$_SESSION['allrandRange4']-1].'">'.ucwords($allName[$_SESSION['allrandRange4']-1]).'</a>' ?></h6>
-                  <p>Congue quam erat et dui morbi at sapien non enim blandit.</p>
-                </figcaption>
-              </figure>
-            </li>
-            </li>
-            <li class="one_third">
-              <figure><a href="<?php echo $allLink[$_SESSION['allrandRange5']-1] ?>"><img src="<?php echo $allPic[$_SESSION['allrandRange5']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
-                <figcaption>
-                  <h6 class="heading"><?php echo '<a href="'.$allLink[$_SESSION['allrandRange5']-1].'">'.ucwords($allName[$_SESSION['allrandRange5']-1]).'</a>' ?></h6>
-                  <p>Congue quam erat et dui morbi at sapien non enim blandit.</p>
-                </figcaption>
-              </figure>
-            </li>
-          </ul>
-          <!-- ################################################################################################ -->
-          <!-- / main body -->
-          <div class="clear"></div>
-        </main>
-      </div>
+      
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <h6 class="heading">Exploy</h6>
+      <!-- <p>Mauris tempor aenean pretium sem et luctus semper justo velit</p> -->
+    </div>
+    <ul class="nospace group overview">
+      <li class="one_third">
+        <figure><a href="pg/<?php echo $matchPageLink[$_SESSION['randRange0']-1] ?>"><img src="pic/<?php echo $matchPic[$_SESSION['randRange0']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
+          <figcaption>
+            <h6 class="heading"><a href=""><?php echo ucwords($matchName[$_SESSION['randRange0']-1]).'</a>' ?></h6>
+            <p><?php echo $matchCap[$_SESSION['randRange0']-1] ?></p>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third">
+        <figure><a href="pg/<?php echo $matchPageLink[$_SESSION['randRange1']-1] ?>"><img src="pic/<?php echo$matchPic[$_SESSION['randRange1']-1] ?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
+          <figcaption>
+            <h6 class="heading"><a href=""><?php echo ucwords($matchName[$_SESSION['randRange1']-1]).'</a>' ?></h6>
+            <p><?php echo $matchCap[$_SESSION['randRange1']-1] ?></p>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third">
+        <figure><a href="pg/<?php echo $matchPageLink[$_SESSION['randRange2']-1] ?>"><img src="pic/<?php echo $matchPic[$_SESSION['randRange2']-1] ?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
+          <figcaption>
+            <h6 class="heading"><a href="'"><?php echo ucwords($matchName[$_SESSION['randRange2']-1]).'</a>' ?></h6>
+            <p><?php echo $matchCap[$_SESSION['randRange2']-1] ?>.</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third">
+        <figure><a href="pg/<?php echo $matchPageLink[$_SESSION['randRange3']-1] ?>"><img src="pic/<?php echo $matchPic[$_SESSION['randRange3']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
+          <figcaption>
+            <h6 class="heading"><a href=""><?php echo ucwords($matchName[$_SESSION['randRange3']-1]).'</a>' ?></h6>
+            <p><?php echo $matchCap[$_SESSION['randRange3']-1] ?></p>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third">
+        <figure><a href="pg/<?php echo $matchPageLink[$_SESSION['randRange4']-1] ?>"><img src="pic/<?php echo $matchPic[$_SESSION['randRange4']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
+          <figcaption>
+            <h6 class="heading"><a href="'.$allLink[$_SESSION['allrandRange4']-1].'"><?php echo ucwords($matchName[$_SESSION['randRange4']-1]).'</a>' ?></h6>
+            <p><?php echo $matchCap[$_SESSION['randRange4']-1] ?></p>
+          </figcaption>
+        </figure>
+      </li>
+      </li>
+      <li class="one_third">
+        <figure><a href="pg/<?php echo $matchPageLink[$_SESSION['randRange5']-1] ?>"><img src="pic/<?php echo $matchPic[$_SESSION['randRange5']-1]?>" style='height:350px;width:350px;' class="picBox" alt=""></a>
+          <figcaption>
+            <h6 class="heading"><a href=""><?php echo ucwords($matchName[$_SESSION['randRange5']-1]).'</a>' ?></h6>
+            <p><?php echo $matchCap[$_SESSION['randRange5']-1] ?></p>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->
       <!-- ################################################################################################ -->

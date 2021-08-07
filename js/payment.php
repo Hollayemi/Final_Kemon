@@ -29,42 +29,41 @@
     }
 ?>
 <script>
-  
     function regPayPageWithPaystack(){
-    //     if('<?php echo $_SESSION['name'] ?>'){
-    //         alert('No agent is active')
-    // }
+        if('<?php echo $_SESSION['name'] ?>'){
+            alert('No agent is active')
+    }
     <?php
         $amount = $_SESSION['ProfilePayment'];
-        $first_name = $_SESSION['username'];
+        $first_name = $myIdFetch['username'];
        ?>
     const api = "pk_test_0b4537f09ca0e3bef10015f41440b242d75757e9";
     var handler = PaystackPop.setup({
       key: api,
-      email: "<?php echo $_SESSION['email']; ?>",
+      email: "<?php echo $myIdFetch['email']; ?>",
       amount: <?php echo $amount*100; ?>,
       currency: "NGN",
       ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
       firstname: "<?php echo". $first_name."; ?>",
-      shopname: "<?php echo $_SESSION['username']; ?>",
-      phone: "<?php echo $_SESSION['phone']; ?>",
+      shopname: "<?php echo $myIdFetch['username']; ?>",
+      phone: "<?php echo $myIdFetch['phone']; ?>",
       // label: "Optional string that replaces customer email"
       metadata: {
          custom_fields: [
             {
                 display_name: "Shop Name:",
                 variable_name: "Shop_Name",
-                value: "<?php echo  $_SESSION['username']; ?>"
+                value: "<?php echo  $myIdFetch['username']; ?>"
             },
              {
                 display_name: "Shop Line:",
                 variable_name: "Shop_Line",
-                value: "<?php echo  $_SESSION['phone']; ?>"
+                value: "<?php echo  $myIdFetch['phone']; ?>"
             },
              {
                 display_name: "Email:",
                 variable_name: "email",
-                value: "<?php echo $_SESSION['email']; ?>"
+                value: "<?php echo $myIdFetch['email']; ?>"
             }
          ]
       },
@@ -91,29 +90,29 @@
             const api = "pk_test_0b4537f09ca0e3bef10015f41440b242d75757e9";
                 var handler = PaystackPop.setup({
                   key: api,
-                  email: "<?php echo $_SESSION['email']; ?>",
+                  email: "<?php echo $myIdFetch['email']; ?>",
                   amount: <?php echo $amount*100; ?>,
                   currency: "NGN",
                   ref: ''+Math.floor((Math.random() * 1000000000) + 1),//generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
                   firstname: "<?php echo". $first_name."; ?>",
-                  shopname: "<?php echo $_SESSION['username']; ?>",
-                  phone: "<?php echo $_SESSION['phone']; ?>",//label:"Optional string that replaces customer email"
+                  shopname: "<?php echo $myIdFetch['username']; ?>",
+                  phone: "<?php echo $myIdFetch['phone']; ?>",//label:"Optional string that replaces customer email"
                   metadata: {
                     custom_fields: [
                         {
                             display_name: "Shop Name:",
                             variable_name: "Shop_Name",
-                            value: "<?php echo  $_SESSION['username']; ?>"
+                            value: "<?php echo  $myIdFetch['username']; ?>"
                         },
                         {
                             display_name: "Shop Line:",
                             variable_name: "Shop_Line",
-                            value: "<?php echo  $_SESSION['phone']; ?>"
+                            value: "<?php echo  $myIdFetch['phone']; ?>"
                         },
                         {
                             display_name: "Email:",
                             variable_name: "email",
-                            value: "<?php echo $_SESSION['email']; ?>"
+                            value: "<?php echo $myIdFetch['email']; ?>"
                         }
                     ]
                   },
@@ -137,29 +136,29 @@
             const api = "pk_test_0b4537f09ca0e3bef10015f41440b242d75757e9";
                 var handler = PaystackPop.setup({
                   key: api,
-                  email: "<?php echo $_SESSION['email']; ?>",
+                  email: "<?php echo $myIdFetch['email']; ?>",
                   amount: <?php echo $amount*100; ?>,
                   currency: "NGN",
                   ref: ''+Math.floor((Math.random() * 1000000000) + 1),//generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
                   firstname: "<?php echo". $first_name."; ?>",
-                  shopname: "<?php echo $_SESSION['username']; ?>",
-                  phone: "<?php echo $_SESSION['phone']; ?>",//label:"Optional string that replaces customer email"
+                  shopname: "<?php echo $myIdFetch['username']; ?>",
+                  phone: "<?php echo $myIdFetch['phone']; ?>",//label:"Optional string that replaces customer email"
                   metadata: {
                     custom_fields: [
                         {
                             display_name: "Shop Name:",
                             variable_name: "Shop_Name",
-                            value: "<?php echo  $_SESSION['username']; ?>"
+                            value: "<?php echo  $myIdFetch['username']; ?>"
                         },
                         {
                             display_name: "Shop Line:",
                             variable_name: "Shop_Line",
-                            value: "<?php echo  $_SESSION['phone']; ?>"
+                            value: "<?php echo  $myIdFetch['phone']; ?>"
                         },
                         {
                             display_name: "Email:",
                             variable_name: "email",
-                            value: "<?php echo $_SESSION['email']; ?>"
+                            value: "<?php echo $myIdFetch['email']; ?>"
                         }
                     ]
                   },
@@ -188,29 +187,29 @@
             const api = "pk_test_0b4537f09ca0e3bef10015f41440b242d75757e9";
                 var handler = PaystackPop.setup({
                   key: api,
-                  email: "<?php echo $_SESSION['email']; ?>",
+                  email: "<?php echo $myIdFetch['email']; ?>",
                   amount: <?php echo $amount*100; ?>,
                   currency: "NGN",
                   ref: ''+Math.floor((Math.random() * 1000000000) + 1),//generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
                   firstname: "<?php echo". $first_name."; ?>",
-                  shopname: "<?php echo $_SESSION['username']; ?>",
-                  phone: "<?php echo $_SESSION['phone']; ?>",//label:"Optional string that replaces customer email"
+                  shopname: "<?php echo $myIdFetch['username']; ?>",
+                  phone: "<?php echo $myIdFetch['phone']; ?>",//label:"Optional string that replaces customer email"
                   metadata: {
                     custom_fields: [
                         {
                             display_name: "Shop Name:",
                             variable_name: "Shop_Name",
-                            value: "<?php echo  $_SESSION['username']; ?>"
+                            value: "<?php echo  $myIdFetch['username']; ?>"
                         },
                         {
                             display_name: "Shop Line:",
                             variable_name: "Shop_Line",
-                            value: "<?php echo  $_SESSION['phone']; ?>"
+                            value: "<?php echo  $myIdFetch['phone']; ?>"
                         },
                         {
                             display_name: "Email:",
                             variable_name: "email",
-                            value: "<?php echo $_SESSION['email']; ?>"
+                            value: "<?php echo $myIdFetch['email']; ?>"
                         }
                     ]
                   },

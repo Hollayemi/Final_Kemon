@@ -675,9 +675,6 @@ textarea .textarea{
   padding:0px;
   font-size:17px;
 }
-.knownAs:hover{
-  background-color: rgb(32, 36, 46);
-}
 
 .sCro{
   position: relative;
@@ -937,13 +934,13 @@ textarea .textarea{
 
 /* fieldsetBorder for inputs */
 
-.myLegend{
+.myLegends{
   display: flex;
   width:100%;
   position: relative;
 }
 
-.myLegend input, .myLegend select, .myLegend textarea{
+.myLegends input, .myLegends select, .myLegends textarea{
   border: none !important;
   background-color: #fff !important;
   border:1px solid rgb(231, 231, 231) !important;
@@ -955,15 +952,13 @@ textarea .textarea{
   margin-bottom:50px;
   background-image:none !important;
 }
-.myLegend textarea{
+.myLegends textarea{
   resize:none;
   outline:none;
   height:200px !important;
   padding-top:20px;
 }
-
-
-.myLegend p{
+.myLegends p{
   top:-10px;
   background-color: rgb(255, 255, 255);
   left:30px;
@@ -1055,7 +1050,6 @@ textarea .textarea{
     background-color: #f6f6f6;
     width:48%;
     height:250px;
-    
     opacity: .8;
     border: 0px solid #000;
     border-radius:10px;
@@ -1063,7 +1057,22 @@ textarea .textarea{
     transition:0.6s;
     
 }
+.cen-re{
+  height:100% !important;
+  display:flex;
+  align-items:center;
+  margin-top:0px !important;
+  z-index:500000;
+}
+.cen-re .myt div{
+  display:flex;
+  justify-content: center !important;
+  align-items: center;
+  flex-flow: column;
+  width:90% !important;
+  margin-left:5%;
 
+}
 .sec_side h4,.flexin-1 h4,.updatePages h4{
     margin-top:-40px;
     font-style: bold;
@@ -1256,7 +1265,7 @@ textarea .textarea{
     margin-left:3%;
     font-size:16px;
   }
-  .myLegend input, .myLegend select, .myLegend textarea{
+  .myLegends input, .myLegends select, .myLegends textarea{
     width:80% !important;
   }
   .main_side{
@@ -1412,7 +1421,7 @@ textarea .textarea{
   .dropCreate{
     display:none;
   }
-  .myLegend input, .myLegend select, .myLegend textarea{
+  .myLegends input, .myLegends select, .myLegends textarea{
     width:90% !important;
   }
   .visitWeb,.chkbox{
@@ -1850,10 +1859,13 @@ input[type="file"]{
 @media screen and (max-width:990px){.col-md-2{margin-left:0%;}}
 .letsChat{
   background-color: rgb(107, 170, 230);
-  padding:15px;
+  /* padding:15px; */
   position:fixed;
-  height:65px;
-  width:65px;
+  height:50px;
+  width:50px;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center;
   top:50%;
   right:0px !important;
   border-radius:50%;
@@ -1861,29 +1873,27 @@ input[type="file"]{
   z-index:200;
 }
 .letsChatPic{
-  height:55px;
-  width:55px;
+  width:90%;
+  height:90%;
   border-radius:50%;
-  margin-top:-11px;
-  margin-left:-11px;
 }
 .cha{
   position: absolute;;
   background-color: rgb(107, 170, 230);
   padding:5px;
   border-radius:50%;
-  margin-top:-20px;
-  margin-left:10px;
+  margin-top:25px;
+  margin-left:-15px;
+  font-size:15px;
 }
 .activeness{
-  font-size:17px;
-  margin:-3px -35px;
-  color:rgb(255, 255, 255);
-  text-align:center;
-  width:130px;
-  background-color: rgb(107, 170, 230);
-  padding:5px;
-border-radius:30px;
+  width:12px;
+  height:12px;
+  position:absolute;
+  background-color: rgb(123, 192, 44);
+  top:5px;
+  left:-5px;
+  border-radius:50%;
 }
 .chatEachPic{
   width:60px !important;

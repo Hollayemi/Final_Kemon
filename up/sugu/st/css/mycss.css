@@ -31,10 +31,6 @@
 .pic-td{
     width:20%;
 }
-.cap-td p {
-    font-size:17px !important;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
 .cap-td{
     width:60%;
 }
@@ -52,6 +48,7 @@
     width:150px;
     height:30px !important;
     transition:1s !important;
+    margin-top:-5px !important;
 }
 .readMoreBtn:hover{
     background-color:  rgb(27, 27, 206);
@@ -236,4 +233,83 @@
 }
 .removeMap i:hover{
     transform: scale(1.5);
+}
+.forProdDisplay{
+    position: relative;
+    display:flex !important;
+    justify-content: center !important;
+    align-items: center;
+    flex-flow:wrap;
+}
+.forProdDisplay .eacF{ 
+    float: left;
+    position: relative;
+    max-width:330px !important;
+    min-width:250px !important;
+    width:300px;
+    border-radius:6px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    margin-bottom:60px;
+    max-height:500px;
+    
+}
+.forProdDisplay .eacF .excerpt{
+    overflow: auto;
+    padding-left: 5px;
+    padding-top:-5px;
+    font-weight: normal !important;
+    max-height:200px;
+}
+.cap-td p{
+    font-style: normal;
+}
+.amount_show{
+    display:flex !important;
+    justify-content: center !important;
+    align-items: center;
+    position: absolute;
+    top:0px;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    padding:5px 10px;
+    border-radius:3px;   
+}
+.sharebtn{
+    border: 0px;
+    background-color: #fff;
+}
+.dateCenter{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    display: none;
+}
+
+.excerpt::-webkit-scrollbar{
+    width:4px;
+    background-color:#fff;
+}
+.excerpt::-webkit-scrollbar-button{
+    background-color: rgb(189, 189, 194);
+    display: none;
+    
+}
+.excerpt::-webkit-scrollbar-thumb{
+    background-color: rgb(160, 160, 160);
+    border-radius:30px;
+}
+
+.popIn{
+    position: fixed;
+    visibility:visible;
+    top:70px;
+    right:00px;
+    width:70px;
+    height:60px;
+    background-color: rgb(151, 135, 135);
+    transition:.5s;
+    opacity:1;
+    overflow-y: auto;
+    overflow-x:hidden;
 }

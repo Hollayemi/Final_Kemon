@@ -76,11 +76,9 @@
                 <li><i class="ion-android-checkmark-circle"></i> Edit Profile.</li>
                 <li><i class="ion-android-checkmark-circle"></i> Customise your page</li>
               </ul>
-              <!-- onclick="MytoggleNav() -->
-              <!-- <button onclick="MytoggleNav()" class="">toogle</button> -->
               <?php 
-                
-                if(isset($result)){
+                $myMarket=(marketersInfo($conn,$myId));
+                if(empty($myMarket)){
                     echo '<a href="#Registration_all"><button class="btn-outline-info btn">Pay Now</button></a>';
                 }else{
                     echo '<button onclick="regPayPageWithPaystack()"  class="btn-outline-info btn">Pay Now</button>';
@@ -96,13 +94,12 @@
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam accusantium consequatur sequi in unde obcaecati reiciendis nihil? Voluptatibus perspiciatis accusantium repellat natus. Rem, impedit natus exercitationem quos blanditiis expedita quam.
                   <?php 
                     if(isset($_COOKIE['Code-Agent'])){
-                        echo '<br><button class="btn btn-outline-info deactivateCode">Deactivate Agent</button>';
+                      echo '<br><button class="btn btn-outline-info Set_showAgnpop top forPointer" data-toggle="modal" data-target="#Deactivate">Click to Deactivate</button>';
                     }elseif(isset($_COOKIE['Agent'])){
                         echo '<br><button class="btn btn-outline-info Remove2_showAgnpop">Deactivate Agent</button>';
                     }else{
-                        echo '<br><button class="btn btn-outline-info Set_showAgnpop">Click to Activate</button>';
+                        echo '<br><button class="btn btn-outline-info Set_showAgnpop top forPointer" data-toggle="modal" data-target="#Activate">Click to Activate</button>';
                     }
-
                     ?>
               </div>
               <div  class="trending-pic">
@@ -135,140 +132,45 @@
 
       </section>
   </section>
-  <section id="Registration_all">
-		<div class="Registration ">	
-			<div class="regForm">
-        <br><br>
-          <div class="myForm">
-              <div class="processForm wow bounceInUp" data-wow-delay="0.5s" data-wow-duration="1.4s">
-                <div class="regStatus wow bounceInUp" data-wow-delay="0.7s" data-wow-duration="1.4s">Status</div>
-                <div class="dash1" style="background-color:green"></div><div class="numbb1">1</div>
-                <div class="dash2"></div><div class="numbb2">2</div>
-                <div class="dash3"></div><div class="numbb3">3</div>
-                <div class="dash4"></div><div class="numbb4">4</div>
-                <div class="dash5"></div><div class="numbb5">5</div>
-                <div class="dash6"></div>
-              </div>
-              <div class="formDiv wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
-                  
-                      <form action="Register.php?detailssubmitted" name=form1 method="POST">
-                          <div class="inputs">
-                          <!-- <h2 class="shopHeader">Business details</h2><br> -->
-                              <div class="busz_details">
-                                  <h2>Business Details</h2>
-                                  <input type="text" name="Shop_Name"  placeholder="Business's Name"><br>
-                                  <input type="text" name="aka"  placeholder="Link Name (can't be changed after submission)" ><br>
-                                  <input type="url"  name="website"  placeholder="website"><br>
-                                  <!-- <input type="url"  name="youTube"  placeholder="Youtube link (optional)"><br> -->
-                                  <input type="checkbox" id="not24" style="display:none" name="ckHour" class="checkHour">
-                                  <label for="not24" class="not24">not 24 hours</label><br>
-                                  <div class="Openhours" >
-                                      <input type="number" min = "1" max="12" name="Opening" value=7>
-                                      <input type="number" min = "1" max="12" name="Closing" value=7>
-                                  </div>
-                                  
-                                  <div class="slideReg">
-                                    <h3 class="toNext1">Next</h3>
-                                  </div>
-                              </div>
-                              <div class="busz_loc_Add">
-                                <div class="scrollable">
-                                    <h2>Business Location Address</h2>
-                                    <input type="text" name="Country"  value="Nigeria" readonly> <br>
-                                    <?php include('nigerial-states.php') ?><br>
-                                    <input type="text" id="guessCity"  name="City"     placeholder="City"><br>
-                                    <input type="text" id="guessRoad"       name="Junction"  placeholder="Junction"> <br>
-                                    <input type="text" id="guessBustop"  name="Bustop"  placeholder="Bustop"><br>
-                                    <input type="text" id="guessSuburb"  name="VCT"  placeholder="Very Close To"><br>
+  <section>
+        <div class="slideshow-container">
+            <div class="mySlides fadess">
+              <img src="img/banners/banner_resources.png" style="width:100%">
+              <div class="text"><h2>Digital Companies Identify <br> Key Customer <br> Connections</h2></div>
+            </div>
+            
+            <div class="mySlides fadess">
+              <img src="img/banners/banner_thank_you.png" style="width:100%">
+              <div class="text"><h2>Empowering CFOs with Real-Time <br> Insights into Business <br> Performance</h2></div>
+            </div>
+            
+            <div class="mySlides fadess">
+              <img src="img/banners/scam-using-wechat5514.jpg" style="width:100%">
+              <div class="text"><h2>Business Integration & Automation<br> Intelligence <br> Performance</h2></div>
+            </div>
+            
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-                                    <input type="text" id="latitude" name="latitude"  placeholder="latitude"><br>
-                                    <input type="text" id="longitude" name="longitude" placeholder="longitude"><br>
-                                    <div class="slideReg">
-                                      <h3 class="toBack2">Previous</h3>
-                                      <h3 class="toNext2 otha">Next</h3>
-                                    </div>
-                                  </div>
-                              </div>
-
-                              
-                              <div class="busz_Category">
-                                  <div class="scrollable">
-                                      <h2>Business Category</h2>                       
-                                      <div class="businessCategories">            
-                                          <div class="cl0"><input type=checkbox name=ckb value='Electronics' id="Electronics" readonly onclick='chkcontrol(0)';><label  for="Electronics" class="">Electronics</label></div>
-                                          <div class="cl1"><input type=checkbox name=ckb value='Hotel and Suites' id="Hotel"onclick='chkcontrol(1)';><label for="Hotel" class="">Hotel and Suites</label></div>
-                                          <div class="cl2"><input type=checkbox name=ckb value='Wears' id="Wears"onclick='chkcontrol(2)';><label for="Wears" class="">Wears</label></div>
-                                          <div class="cl3"><input type=checkbox name=ckb value='Catering and decoration' id="Catering"onclick='chkcontrol(3)';><label for="Catering" class="">Catering and decoration</label></div>
-                                          <div class="cl4"><input type=checkbox name=ckb value='Restaurant' id="Restaurant"onclick='chkcontrol(4)';><label for="Restaurant" class="">Restaurant</label></div>
-                                          <div class="cl5"><input type=checkbox name=ckb value='Bar' id="Bar"onclick='chkcontrol(5)';><label for="Bar" class="">Bar</label></div>
-                                          <div class="cl6"><input type=checkbox name=ckb value='Gym' id="Gym"onclick='chkcontrol(6)';><label for="Gym" class="">Gym</label></div>
-                                          <div class="cl7"><input type=checkbox name=ckb value='Beauty supply' id="Beauty_supply"onclick='chkcontrol(7)';><label for="Beauty_supply" class="">Beauty supply</label></div>
-                                          <div class="cl8"><input type=checkbox name=ckb value='Dry cleaning' id="Dry_cleaning"onclick='chkcontrol(8)';><label for="Dry_cleaning" class="">Dry cleaning</label></div>
-                                          <div class="cl9"><input type=checkbox name=ckb value='Car dealer' id="Car_dealer"onclick='chkcontrol(9)';><label for="Car_dealer" class="">Car dealer</label></div>
-                                          <div class="cl10"><input type=checkbox name=ckb value='Convenience store' id="Convenience_store"  onclick='chkcontrol(10)';><label for="Convenience_store" class="">Convenience store</label></div>
-                                          <div class="cl11"><input type=checkbox name=ckb value='Library' id="Library"  onclick='chkcontrol(11)';><label for="Library" class="">Library</label></div>
-                                          <div class="cl12"><input type=checkbox name=ckb value='Fuel & Gas' id="Fuel_Gas"  onclick='chkcontrol(12)';><label for="Fuel_Gas" class="">Fuel & Gas</label></div>
-                                          <div class="cl13"><input type=checkbox name=ckb value='Hospital & Pharmacy' id="Hospital_Pharmacy"  onclick='chkcontrol(13)';><label for="Hospital_Pharmacy" class="">Hospital & Pharmacy</label></div>
-                                          <div class="cl14"><input type=checkbox name=ckb value='Beauty salon' id="Beauty_salon"  onclick='chkcontrol(14)';><label for="Beauty_salon" class="">Beauty salon</label></div>
-                                          <div class="cl15"><input type=checkbox name=ckb value='Shopping center' id="Shopping_center"onclick='chkcontrol(15)';><label for="Shopping_center" class="">Shopping center</label></div>
-                                          <div class="cl16"><input type=checkbox name=ckb value='Car wash' id="Car_wash"  onclick='chkcontrol(16)';><label for="Car_wash" class="">Car wash</label></div>
-                                          <div class="cl17"><input type=checkbox name=ckb value='Movie' id="Movie"onclick='chkcontrol(17)';><label for="Movie" class="">Movie</label></div>
-                                          <div class="cl18"><input type=checkbox name=ckb value='Furniture' id="Furniture"onclick='chkcontrol(18)';><label for="Furniture" class="">Furniture</label></div>
-                                          <div class="cl19"><input type=checkbox name=ckb value='Fruits' id="Fruits"onclick='chkcontrol(19)';><label for="Fruits" class="">Fruits</label></div>
-                                          <div class="cl20"><input type=checkbox name=ckb value='Mechanic' id="Mechanic"onclick='chkcontrol(20)';><label for="Mechanic" class="">Mechanic</label></div>
-                                          <div class="cl21"><input type=checkbox name=ckb value='Sporting materials' id="Sporting_materials"onclick='chkcontrol(21)';><label for="Sporting_materials" class="">Sporting materials</label></div>
-                                          <div class="cl22"><input type=checkbox name=ckb value='Laundry' id="laundry" onclick='chkcontrol(22)';><label for="laundry" class="">Laundry</label></div>
-                                          <div class="cl23"><input type=checkbox name=ckb value='Clothing Materials & Styling' id="Clothing_Materials" onclick='chkcontrol(23)';><label for="Clothing_Materials" class="">Clothing Materials & Styling</label></div>
-                                          <div class="cl24"><input type=checkbox name=ckb value='Plasterer & Constructing Materials' id="constructing_Materials" onclick='chkcontrol(24)';><label for="constructing_Materials" class="">Plasterer & Constructing Materials</label></div>
-                                          <div class="cl25"><input type=checkbox name=ckb value='Agricultural Products' id="agriculturalProducts" onclick='chkcontrol(25)';><label for="agriculturalProducts" class="">Agricultural Products</label></div>
-                                          <div class="cl26"><input type=checkbox name=ckb value='Cyber Cafe' id="Cybercafe" onclick='chkcontrol(26)';><label for="Cybercafe" class="">Cyber Cafe</label></div>
-                                          <div class="cl27"><input type=checkbox name=ckb value='Automobile' id="Automobile" onclick='chkcontrol(27)';><label for="Automobile" class="">Automobile</label></div>
-                                      </div>
-                                  
-                                      <br>
-                                      <div class="slideReg">
-                                        <h3 class="newtoBack2">Previous</h3>
-                                        <h3 class="newtoNext2 otha">Next</h3>
-                                      </div>
-                                    </div>
-                              </div>
-
-                              
-                              <div class="soc_med">
-                                  <h2>Social Media</h2>
-                                  <input type="url" name="Facebook"  placeholder="Facebook Link"><br>
-                                  <input type="text" name="Whatsapp"  placeholder="WhatsApp number"><br>
-                                  <input type="url" name="Linkedin"  placeholder="linkedin Link"> <br>
-                                  <input type="text" name="BPhone"  placeholder=" Business Line"><br><br><br>
-                                  <div class="slideReg">
-                                    <h3  class="toBack3">Previous</h3>
-                                    <h3 class="toNext3 otha">Next</h3>
-                                  </div>
-                              </div>
-                              <div class="ourFf">
-                                <div class="scrollable">
-                                  <h2>What You Offer</h2>
-                                  <p>Keywords and simple language help search engines work out whether your site is of interest to when
-                                    customers are looking for information online. <br> <br>
-                                    We won’t direct people to your site if you don't have the content that matches their interest. <br>
-                                    <i>list of everything you offer:</i>
-                                      
-                                  </p>
-                                  <textarea class="textarea" name="Desc" id="Desc" placeholder="What offer do you render" required></textarea>
-                                  <div class="slideReg lastMemberOffer">
-                                    <h3  class="toBack4">Previous</h3>
-                                    <input type="submit" name="business" value="Register"  class="otha" />
-                                  </div>
-                              </div>
-                              </div>
-                          </div>
-                      </form>
-                  <!-- </div> -->
-          </div>
+            <button class='top sliderNext' data-toggle='modal' data-target='#popReg'><i class='fa fa-sign'></i>Click To Register</li>
+            
         </div>
+        <br>
         
-      </div>
-    </div>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+    </section>
+
+
+          
+
+          </button>
+            <?php include('addBusiness.php') ?>
+            
+          
 </section>
     <section id="services" class="section-bg">
       <div class="container">

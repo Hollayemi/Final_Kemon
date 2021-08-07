@@ -6,7 +6,6 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
-
   <link href="img/km.png" rel="icon">
 
   <!-- Google Fonts -->
@@ -28,8 +27,16 @@
   <link href="css/info.css" rel="stylesheet">
   <link href="css/style2.css" rel="stylesheet">
   <?php
+    include('session.php');
       if(isset($reg)){
-        echo '<link href="css/animate.css" rel="stylesheet">';
+        include('whatsapp.php');
+        echo '<link href="css/animate.css" rel="stylesheet">
+              <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+              <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+              <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+              <link rel="stylesheet" href="add.css">
+    ';
       }
       if(isset($Agent)){
         echo '<link href="css/agent.css" rel="stylesheet">';
@@ -37,11 +44,6 @@
   ?>
   
 </head>
-<?php
-  
-    include('session.php');
-    // require_once "config/create-page.php"
-?>
 <body class="kemBody">
   <header id="header">
 
@@ -93,14 +95,13 @@
             </ul>
           </li>
           <li><a href="#footer">Contact Us</a></li>
-          
       <?php
                 $_SESSION['veri_payment'] = $myIdFetch['veri_payment'];
                 if($_SESSION['veri_payment'] == "True"){
                     echo "<li><a href='1/".$myIdFetch['username'].($myId+30)."loader.php'>Dashboard</a></li>";
                 }else{
                     echo "<li title='Register before creating your profile'class='scrollto'><a href='Register.php#payNow'>Dashboard</a></li>";
-                } 
+                }
                 if($myIdFetch['veri_payment'] == "True"){
                   echo "<li class='top drop-down float-rt'><a href='#'><img src='up/".$shop_nick."/profile.png' height='60' width='60' style=\"border-radius:50%;margin-top:-20px\" class='arrTop'></a>
                   <ul class='subscription  logout-left'>
@@ -116,13 +117,10 @@
               };
                       
             "
-            
-               
         </ul>
       </nav>
       
       ";
-include('whatsapp.php')
  ?>
 </header>
 

@@ -1,20 +1,17 @@
 <?php 
   require_once('refer.php');
   if(isset( $_COOKIE['Code-Agent'])){
-        
     echo '<div class="letsChat"><img src="'. $_COOKIE["Code-Agent"].'" class="letsChatPic" alt="">
-                <h4 class="activeness">Agent (active)</h4>
+                <h4 class="activeness"></h4>
           </div>';
-  
-
   }elseif(isset( $_COOKIE['Agent'])){
     echo '<div class="letsChat">
             <img src="'.$_COOKIE["Agent"].'" class="letsChatPic" alt="nn">
-            <h4 class="activeness">Agent (active)</h4>
+            <h4 class="activeness"></h4>
           </div>
      ';
   }else{
-   echo '<button id="fakePhone" class="letsChat" style="right:23px; border:none;display:block" onclick="fakePhone()"><i class="letsChatPic fa fa-comment-dots " style="font-size:40px"></i><i class="cha fa fa-whatsapp"></i></button>';
+   echo '<button id="fakePhone" class="letsChat" style="right:23px; border:none;display:block" onclick="fakePhone()"><i class="letsChatPic material-icons " style="font-size:30px">chat <i class="cha fa fa-whatsapp"></i></i></button>';
   }
      ?>
     <section class='chatPhone' style="display:none">

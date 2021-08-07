@@ -36,7 +36,7 @@
         @media screen and (max-width:740px){
           .eachFlex{
             flex-flow:column;
-            padding:0px 10px;
+            padding:50px 10px;
             justify-content:space-around;
             position:relative;
           }
@@ -55,14 +55,14 @@
             padding:5px 10px;
             margin-top:-20px;
             position:absolute;
-            top:0px;
+            top:50px;
             background-color:#fff;
             box-shadow:0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2);
           }
         }
         .functionsButtons{
-            width:100%;
-            justify-content:space-between;
+            width:100% !important;
+            justify-content:space-evenly;
             display:flex !important;
           }
     </style>
@@ -96,7 +96,8 @@
                         }
                     </style>
                     <div class="cap-td"><p><span id="remo'.$i.'">'.$remo.'</span> <span id="dots'.$i.'">...</span><span id="more'.$i.'">'.$Mycap[$i].'</span></p>
-                        <button onclick="myFunction'.$i.'()" id="myBtn'.$i.'"class="readMoreBtn">Read more</button>'.$time;
+                    <div class="functionsButtons">
+                      <button onclick="myFunction'.$i.'()" id="myBtn'.$i.'"class="readMoreBtn">Read more</button>';
                   }
                   echo '
                         <div style="display:flex;padding:5px">
@@ -104,7 +105,6 @@
                           <h4 id="media'.$i.'b" style="display:none"><a href=""><i class="anime sec fa fa-facebook"></a></i></h4>
                           <h4 id="media'.$i.'c" style="display:none"><a href=""><i class="anime thr fa fa-instagram"></a></i></h4>
                         </div>
-                        <div class="functionsButtons">
                           <button id="share" onclick="myShare'.$i.'()" class="readMoreBtn shareBtn">Share <i class="fa fa-share"></i></button>';
                         if(isset($myVisitor)){
                             if ($row_id['id'] == $myVisitor){
@@ -206,8 +206,8 @@
 
 
     document.querySelector('.showSideLinks').addEventListener('click', function(){
-      if(document.querySelector('.sec-mainDiv').style.marginLeft!="70%"){
-        document.querySelector('.sec-mainDiv').style.marginLeft="70%"
+      if(document.querySelector('.sec-mainDiv').style.marginLeft!="200px"){
+        document.querySelector('.sec-mainDiv').style.marginLeft="200px"
         document.querySelector('.sub-menuDiv').style.visibility="visible"
         document.querySelector('.sub-menuDiv').style.opacity="1"
         document.querySelector('.menu-fa2').style.transform="scale(1)"

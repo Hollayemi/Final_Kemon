@@ -25,8 +25,8 @@ html, body{margin:0; padding:0; font-size:14px; line-height:1.6em;}
 .bgded{background-position:top center; background-repeat:no-repeat; background-size:cover;}
 .circle{border-radius:50%; background-clip:padding-box;}
 
-.btn{display:inline-block; padding:5px 18px 16px; text-transform:uppercase; border:1px solid;}
-.readMoreBtn{display:inline-block; padding:5px 18px; text-transform:uppercase; border:1px solid; height:50px !important;min-height:50px !important}
+.btn{display:inline-block; text-transform:uppercase; border:1px solid;}
+.readMoreBtn{ text-transform:uppercase; border:1px solid; height:40px !important;min-height:35px !important}
 .readMore1{width:100%;}
 
 blockquote{display:block; position:relative; width:100%; margin:0; padding:0; line-height:1.4; z-index:1;}
@@ -134,19 +134,6 @@ address, article, aside, figcaption, figure, footer, header, main, nav, section{
 @keyframes sec {0%{margin-top:-40px;transform: translateY(12%)rotate(50deg);opacity:0;}100%{margin-top:5px;transform:translateX(20px);opacity:1;}}
 .deleteBtn{margin-top:-55px;margin-left:160px;}
 
-.popIn{
-    position:fixed;
-    display: block;
-    visibility:hidden;
-    top:70px;
-    right:70px;
-    width:80%;
-    height:70%;
-    transition:.5s;
-    opacity:0;
-    overflow-y: auto;
-    overflow-x:hidden;
-}
 #changeText{
     width:60%;
     text-align:left;
@@ -264,12 +251,7 @@ address, article, aside, figcaption, figure, footer, header, main, nav, section{
     }
   }
 <?php
-
-$mysqli=mysqli_connect('sql105.epizy.com','epiz_28257429','BHiMYLgFzV3pjb','epiz_28257429_market');
-$shopName = $_SESSION['in-shop_name'];
-$sql="SELECT MainColor, TextColor, SubColor, LinkColor FROM marketers WHERE shop_name = '$shopName'";
-$run=mysqli_query($mysqli,$sql);
-$row = mysqli_fetch_assoc($run);
+$row = marketersInfo($conn,$genId);
   echo "
     .row0, .row0 a{
         background-color:".$row['MainColor']." !important;
@@ -423,4 +405,5 @@ $row = mysqli_fetch_assoc($run);
     .cancel_x{background-color: ".$row['MainColor']." !important;color: ".$row['LinkColor']." !important;}
     ";
 ?>
+
   </style>

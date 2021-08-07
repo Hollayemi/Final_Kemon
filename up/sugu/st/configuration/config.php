@@ -33,6 +33,15 @@
     }
 
 
+    function selectAllCat($conn,$id)
+    {
+        $sql    ="SELECT * FROM category WHERE id=?";
+        $stmt   = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
 
     function sellerInfo($conn,$id)
     {
@@ -64,6 +73,15 @@
         $stmt   = $conn->prepare($sql);
         $stmt->execute([$myVisitor]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    function selectNewsletters($conn,$myVisitor)
+    {
+        $sql    ="SELECT senderShop FROM newsletters WHERE id=?";
+        $stmt   = $conn->prepare($sql);
+        $stmt->execute([$myVisitor]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -141,6 +159,17 @@
         $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
         return $result;
     }
+
+    function SelectAllPageById($conn,$id)
+    {
+        $sql    ="SELECT * FROM trackk WHERE real_ID=? ORDER BY date DESC";
+        $stmt   = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+
 
     function SelectAllPic($conn)
     {

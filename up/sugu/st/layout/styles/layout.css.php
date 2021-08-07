@@ -305,7 +305,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#56AED4;}
 .overlay.light{color:#474747;}
 .overlay.light::after{background-color:rgba(255,255,255,.7);}
 
-.btn{height:50px; line-height:40px;padding:0px;color:#fff;}
+.btn{height:40px; line-height:40px;padding:0px;color:#fff;}
 
 .logoname{color:#F7A804;}
 .logoname span{color:#0E74A5;}
@@ -538,4 +538,5 @@ table a, #comments a{background-color:inherit;}
 	.font-x2{font-size:1.4rem;}
 	.font-x3{font-size:1.6rem;}
 }
+
 </style>

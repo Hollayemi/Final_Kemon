@@ -13,8 +13,6 @@
       </center>
   </div>
 
-
-
 <div class="popSetAgent Remove1Agnpop" style="display:none">
     <div class="agnPopTopBar">
       <h5>Remove Agent</h5>

@@ -1,7 +1,7 @@
 <?php
   session_start();
   include_once('configuration/config.php');
-  include_once('initialization/initialize.php');
+  include_once('configuration/initialize.php');
   include('../st/in-session.php');
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,6 @@
     <script>document.cookie = "_quex224My = "+screen.width</script>
   </head>
   <?php 
-      
       include("../st/dropdown.php");
   ?>
   <body id="top" class="top" style="overflow:auto">
@@ -47,9 +46,9 @@
                       echo '<form method="POST" action="'.$_SERVER["PHP_SELF"].'">
                               <button type="submit" name="Newsletter" class="LLSa" value="submit">Subscribe</button>                   
                           </form>';
-                      echo "<a href='../../../login_form.php' class='LLS'><h2>Logout</h2></a>";
+                      echo "<a href='../../../signin.php' class='LLS'><h2>Logout</h2></a>";
                     }else{
-                      echo " <h2 class='LLS'><a href='../../../login_form.php'>Login</a></h2>";
+                      echo " <h2 class='LLS'><a href='../../../signin.php'>Login</a></h2>";
                     }
                     echo "</center>"
                 ?>
@@ -57,81 +56,16 @@
       </section>
 
 <section>
-<center>
+<!-- <center>
   <div class="popIn">
       <h3 class="cancelPopX" onclick="myFunctionBig()">X</h3>
-      <a href="#"><img id="changeImage" src="../../../img/km.png"  alt=""></a>
+      <a href="#"><img id="changeImage" src="../../../img/km.png"  alt="" style="width:30px;height:30px;border-radius:50%;"></a>
       <h5 id="changeText"></h5>
-      <!-- <span><button style="width:100px;height:100px"  onclick="myFunctionBig()">X</button></span> -->
   </div>
-</center>
+</center> -->
 
 </section>
-  
-   <?php                          
-          
-          $chkExistence = array();
-          $verifyP = glob("../pic/*.*");
-          for ($a=0; $a<count($verifyP); $a++){
-            $veri = explode('/',$verifyP[$a]);
-            $verri = explode('-',$veri[2]);
-            $anVery = $verri[0];
-            if(!in_array($anVery,$chkExistence)){
-              $chkExistence[] =  ucwords(strtolower($anVery));
-              
-            }
-          }
-          $allTabs = array();
-                    echo "</div>";
-            $protabs = glob("../pg/*.php");
-            echo "<div class='each_page'>";
-            for ($i=0; $i<count($protabs); $i++){
-                $tab = $protabs[$i];
-                $Tabs = explode('/',$tab);
-                $TabChecked = explode('.',$Tabs[2]);
-                    if($TabChecked[1] ==  'php'){
-                      $extTab=$TabChecked[0];
-                      // echo ucwords(strtolower($extTab));
-                      if(in_array(ucwords(strtolower($extTab)),$chkExistence)){
-                        $allTabs[]=$extTab;
-                      }
-                echo "<span>";
-              }
-            }
-            $allTabs;
-
-            echo '<section class="closeLink">';
-            $subLink = array();
-            $subLinkName = array();
-            $paging = glob("../tb/*.*");
-            echo "<div class='each_page_ca'>";
-              for ($i=0; $i<count($paging); $i++){
-                  $pages = $paging[$i];
-                  // echo $pages ."<br>";
-                  $pag = explode('/',$pages);
-                  // echo $pag[2]."<br>";
-                  $page = explode('-',$pag[2]);
-                  $PN = ucwords($page[0]).".php";
-                  // echo $PN."<br>";
-                  $loo = explode('-',$loop[5]);
-                  $lo = ucwords($loo[0]);
-                  // echo $lo."<br><br>";
-                  $exPag = explode('.',$loo[1]);
-                  $extPage = $exPag[0];
-                  if($PN==$lo.'.php'){
-                    $sec_nam = explode('.',$page[1]);
-                      if($sec_nam[1] ==  'php'){              
-                            // if(ucfirst($name) == ucwords($sec_nam[0])){                  
-                              $subLinks[]=$pag[2];
-                              $subLinkNames[]= ucwords($sec_nam[0]);
-                          echo "</span>";
-                    }
-                  }
-               }
-            echo '</div>';
-      echo '</section>';
-?>
-
+ 
 <div class="norBlur">          
 <div class="wrapper row0">
 <div id="topbar" class="hoc clear" style="margin-top:-20px">
@@ -140,7 +74,7 @@
         <ul class="nospace">
           <li><a href="../<?php echo $genId ?>.php"><i class="fas fa fa-home fa-lg"></i></a></li>
               <?php
-              foreach($allTabs as $tabb){
+              foreach($allMyReadyPageArr as $tabb){
                 if(ucwords($name)==$tabb){
               ?>
           
@@ -157,9 +91,6 @@
       </div>
       <div class="fl_right">
     </div>
-      <ul class="nospace">
-        <button class="show_shotLink"><i class="fas fa fa-bars fa-2x"></i></button>
-      </ul>
     </div>
   </div>
 
@@ -168,41 +99,54 @@
 <div class="wrapper row1">
   <header id="header" class="hoc clear"> 
     <div id="logo" class="one_half first">
-      <h1 class="logoname"><a href="../<?php echo $genId ?>.php"><span><?php echo $_SESSION['in-shop_name'] ?></span>Kemon-Market</a><br><br>
-      <?php echo ucwords('<h1 class="pageTitle">('.$extPage.')</h1>') ?></h1>
+      <h1 class="logoname"><a href="../<?php echo $genId ?>.php"><span><?php echo $row_id['shop_name'] ?></span>Kemon-Market</a><br><br>
+      <?php //echo ucwords('<h1 class="pageTitle">('.$extPage.')</h1>') ?></h1>
     </div>
     <div class="one_half">
       <ul class="nospace clear">
         <li class="one_half first">
-          <div class="block clear"><i class="fas fa fa2 fa-phone"></i> <span><strong class="block">Call Us:</strong> <?php echo $_SESSION['in-phone'] ?></span></span> </div>
+          <div class="block clear"><i class="fas fa fa2 fa-phone"></i> <span><strong class="block">Call Us:</strong> <?php echo $row_id['phone'] ?></span></span> </div>
         </li>
         <li class="one_half">
-          <div class="block clear"><i class="far fa fa2 fa-envelope"></i> <span><strong class="block"> Email:</strong> <?php echo $email ?></span></span> </div>
+          <div class="block clear"><i class="far fa fa2 fa-envelope"></i> <span><strong class="block"> Email:</strong> <?php echo $sellerInfo['email'] ?></span></span> </div>
         </li>
       </ul>
     </div>
 
     </header>
-  <nav id="mainav" class="hoc clear"> 
-      <ul class="clear">
-    <?php 
-        for ($s=0; $s<count($subLinks); $s++){
-        ?>
-        <li><a href="<?php echo $subLinks[$s] ?>"><?php echo $subLinkNames[$s] ?></a></li>
-      <?php
-          }
-        
-     ?>
-    </ul>
-    
-  </nav>
+    <nav id="mainav" class="hoc clear"> 
+          <ul class="clear">
+            <li class="active"><a href="../<?php echo $genId ?>.php">Home</a></li>
+            <?php 
+                // print_r($allMyReadyPageArr);
+                for($a=0;$a<count($allMyReadyPageArr); $a++){
+                  if(strtolower($name) == strtolower($allMyReadyPageArr[$a])){
+                    echo '<li class="active"><a class="drop" href="#">'. $allMyReadyPageArr[$a].'</a>';
+                }else{
+                  echo '<li><a class="drop" href="../pg/'.$allMyReadyPageArr[$a].'.php">'. $allMyReadyPageArr[$a].'</a>';
+                }
+                  echo "<ul>";
+                    for($b=0;$b<count($allMyReadyTabArr); $b++){
+                      $eacT = explode('-', $allMyReadyTabArr[$b]);
+                      if(strtolower($eacT[0]) == strtolower($allMyReadyPageArr[$a])){
+                          echo '<li><a href="../tb/'.strtolower($allMyReadyTabArr[$b]).'.php">-- '.$eacT[1].'</a></li>';
+                      }
+                    }
+              ?>
+              </ul>
+            </li>
+            <?php 
+                }
+            ?>
+          </ul>    
+        </nav>
 </div>
-<div class="wrapper bgded overlay" style="background-image:url('<?php echo $Mypic[$myRand-1]?>');">
+<div class="wrapper bgded overlay" style="background-image:url('../pic/<?php echo $Mypic[0]?>');">
   <div id="pageintro" class="hoc clear"> 
     <article>
-      <p style="letter-spacing:1px;text-transform:lowercase"><?php echo strtolower(substr($_SESSION['in-desc'],0,100))."[...]";?></p>
-      <h3 class="heading"><?php echo $_SESSION['in-shop_name'] ?></h3>
-      <p>Junction: <?php echo $_SESSION['in-junction'] ?><br>Bustop:<?php echo $_SESSION['in-bustop'] ?></p>
+      <p style="letter-spacing:1px;text-transform:lowercase"><?php echo strtolower(substr($row_id['our_offer'],0,100))."[...]";?></p>
+      <h3 class="heading"><?php echo $row_id['shop_name'] ?></h3>
+      <p>Junction: <?php echo $row_id['junction'] ?><br>Bustop:<?php echo $row_id['bustop'] ?></p>
       <footer><a class="btn scrollto" href="#locMap">Show map</a></footer>
     </article>
   </div>
