@@ -1,14 +1,13 @@
 
 <?php
-$mysqli=mysqli_connect('sql105.epizy.com','epiz_28257429','BHiMYLgFzV3pjb','epiz_28257429_market');
-session_start();
+require "config/config.php";
+require "config/main_Handler.php";
 
 
 $AgnUser = $_SESSION['AgnUser'];
 // echo $AgnUser;
-$sql = "SELECT * from agent WHERE agnPic='$AgnUser'";
-$run=mysqli_query($mysqli,$sql);
-$row = mysqli_fetch_array($run);
+
+$row = allAgentByPic($conn,$AgnUser);
 
 $NewCount =  $row['1_year'] + 1;
 $Total_reg =  $row['Total_reg'] + 1;
@@ -17,12 +16,12 @@ $unq=$_SESSION['paymentNum'];
 
 
 $sql_agent="UPDATE agent SET 1_year='$NewCount', Total_reg='$Total_reg' WHERE agnPic='$AgnUser'";
-$run_agent  = mysqli_query($mysqli,$sql_agent);
+$run_agent  = updateAgn_year($conn,$NewCount,$Total_reg,$AgnUser);
 
 
-$sub_username                =   $_SESSION['username'];
-$sub_email                   =   $_SESSION['email'];
-$sub_shop                    =   $_SESSION['shop_name'];
+$sub_username                =   $myIdFetch['username'];
+$sub_email                   =   $myIdFetch['email'];
+$sub_shop                    =   $marketersInfo['shop_name'];
 $type                        =   "12";
 
 $sub_emai  = explode('.',$sub_email);
@@ -43,39 +42,35 @@ $reaYear = $preYear;
 $date_expired                =   date("20".$reaYear.'/'.$relMonth.'/'.$preDay);
 
 
- 
-$sql = "SELECT id,num_Page,num_Tab,userStorage from users WHERE email='$sub_email'";
-$un=mysqli_query($mysqli,$sql);
-$ow = mysqli_fetch_array($un);
-$myId = $ow['id'];
 
 
 
 
 // =--------------------==========max page==============-----------------------
-$newNumPage = ($ow['num_Page']+10);
-$newNumTab = ($ow['num_Tab']+105);
-$newStorage = ($ow['userStorage']+(1025*10));
+$newNumPage = ($myIdFetch['num_Page']+10);
+$newNumTab = ($myIdFetch['num_Tab']+105);
+$newStorage = ($myIdFetch['userStorage']+(1025*10));
 
 
-$rem_sql0 = "SELECT Subscribed FROM users WHERE email = '$sub_email'";
-$rem_run0 = mysqli_query($mysqli,$rem_sql0);
-$rems = mysqli_fetch_array($rem_run0);
+if($myIdFetch['Subscribed'] == 0){
+    $n = $myIdFetch['Subscribed']+1;
+    $sql_add = updateSub_User($conn,$n,$newNumPage,$newNumTab,$newStorage,$myId);
+    $allsub  = allSubscribers($conn,$myId);
+    if($run_agent && empty($allsub)){
+        if(isset($_GET['sg-ref-kcl']) && isset($_GET['sub-crol_err-key'])){
+            if($sql_add){
+                $oldSKey = $_GET['sub-crol_err-key'];
+                $newSkey  = generate_string($permitted_chars,50);
 
-
-if($rems['Subscribed'] == 0){
-    $n = $rems['Subscribed']+1;
-    $sql_sub = "INSERT INTO subscribers(id,username,email,shop,Date_expired,Date_subscribed,type_of_sub) VALUES('$myId','$sub_username','$sub_emails','$sub_shop','$date_expired','$date_subscribed','$type')";
-    
-    $sql_add = "UPDATE users Set Subscribed='$n',num_Page='$newNumPage',num_Tab='$newNumTab', userStorage='$newStorage' WHERE id ='$myId'";
-
-    if($run_agent){
-        if($_GET['Subscription']){
-            if(mysqli_query($mysqli,$sql_sub) && mysqli_query($mysqli,$sql_add)){
-                $maRef = explode('__',$_GET['Subscription']);
-                header('Location:1/'.$username.($suer_id+30).'loader.php?subscription_was_successfulpaid='.$unq.'&rreef='.$maRef[0]);
+                $sql_sKey = updateKey($conn,$newSkey,$oldSKey);
+                $sql_sub = newSubscriber($conn,$myId,$sub_username,$sub_emails,$sub_shop,$date_expired,$date_subscribed,$type);
+                if($sql_sKey){
+                    header('Location:1/'.$myIdFetch['username'].($myId+30).'loader.php?subscription_was_successfulpaid='.$unq.'&rreef='.$_GET['sg-ref-kcl']);
+                }else{
+                    header('Location:Register.php?err=error in transactionpopop');
+                }
             }else{
-                header('Location:Register.php?err=no payment');
+                header('Location:Register.php?err=error in transaction');
             }
         }else{
             header('Location:Register.php?warning=error in transaction');

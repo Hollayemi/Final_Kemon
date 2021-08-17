@@ -70,27 +70,31 @@ getLocation: function success(data){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, console.error);
     }
-    // console.log("Latitude: " + data.coords.latitude)
-    // console.log("Longitude: " + data.coords.longitude)
-
-    document.getElementById('btnLat').value = data.coords.latitude;
-    document.getElementById('btnLong').value =  data.coords.longitude;
-    var getAllLongitude = (document.getElementsByClassName("catLong"))
-    var getAllLatitude = (document.getElementsByClassName("catLati"))
-    for(var i = 0; i<getAllLatitude.length; i++){
-        getAllLatitude[i].value  =  data.coords.latitude;
-        getAllLongitude[i].value =  data.coords.longitude;
-    }
-    geocode.reverseGeocode(data.coords.latitude,data.coords.longitude)
-} 
+        if(data !== undefined){
+            console.log("Latitude: " + data.coords.latitude)
+            console.log("Longitudesss: " + data.coords.longitude)
+            console.log('yess');
+            document.getElementById('btnLat').value = data.coords.latitude
+            document.getElementById('btnLong').value =  data.coords.longitude
+        
+            
+            var getAllLongitude = (document.getElementsByClassName("catLong"))
+            var getAllLatitude = (document.getElementsByClassName("catLati"))
+            for(var i = 0; i<getAllLatitude.length; i++){
+                getAllLatitude[i].value  =  data.coords.latitude;
+                getAllLongitude[i].value =  data.coords.longitude;
+            }
+            geocode.reverseGeocode(data.coords.latitude,data.coords.longitude)
+        }
+    } 
 };
 geocode.getLocation();
-var getAllLongitude = (document.getElementsByClassName("catLong"))
-    var getAllLatitude = (document.getElementsByClassName("catLati"))
-    for(var i = 0; i<getAllLatitude.length; i++){
-        getAllLatitude[i].value="kem"
-        getAllLongitude[i].value = "okeigbo"
-    }   
+// var getAllLongitude = (document.getElementsByClassName("catLong"))
+//     var getAllLatitude = (document.getElementsByClassName("catLati"))
+//     for(var i = 0; i<getAllLatitude.length; i++){
+//         getAllLatitude[i].value="kem"
+//         getAllLongitude[i].value = "okeigbo"
+//     }   
 
 
 

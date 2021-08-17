@@ -45,7 +45,8 @@
                     if(isset($_COOKIE['_categoriesEdit'])){ 
                         $category =  $_COOKIE['_categoriesEdit'];
                         $runCategory = updateCategory($conn,$myId,$category);
-                        if($runCategory){
+                        $updateMarketersCategory = updateMarketersCategory($conn,$category,$myId);
+                        if($runCategory && $updateMarketersCategory){
                             echo displayMessage('success',"Updated");
 
                             $eventType = "Updation";

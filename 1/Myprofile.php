@@ -770,14 +770,12 @@ if(isset($_GET['transaction'])){
   if(!isset($_GET['type'])){
     $n = $_GET['ref'];
     $id = $_SESSION['user_info_id'];
-    $sql_add = "UPDATE marketers Set subRef='$n' WHERE id ='$id'";
-    mysqli_query($mysqli,$sql_add);
+    update_SubRef($conn,$n,$myId);
   }
   if(isset($_GET['type'])){
     $n = $_GET['ref'];
     $id = $_SESSION['user_info_id'];
-    $sql_add = "UPDATE marketers Set payRef='$n' WHERE id ='$id'";
-    mysqli_query($mysqli,$sql_add);
+    update_payRef($conn,$n,$myId);
     }
   $success = "Your payment has been received with reference ID: ".$n;
   myMessage("success","Transaction was Successful",$success,"ion-android-checkmark-circle");

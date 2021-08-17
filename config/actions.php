@@ -16,11 +16,11 @@
         </div>';
     }
 
-    function register($conn,$firstname,$surname,$email,$password,$phone,$address, $token)
+    function register($conn,$username,$email,$password,$phone, $token)
     {
-        $sql = "INSERT INTO users(first_name,surname,email,password, phone, address, token) VALUES(:first_name,:surname,:email,:password,:phone,:address,:token)";
+        $sql = "INSERT INTO users(username,email,password, phone, token) VALUES(:username,:email,:password,:phone,:token)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute(['first_name'=>$firstname, 'surname'=>$surname, 'email'=>$email,'password'=>$password, 'phone'=>$phone, 'address'=>$address, 'token'=>$token]);
+        $stmt->execute(['username'=>$username, 'email'=>$email,'password'=>$password, 'phone'=>$phone,'token'=>$token]);
         return true;
     }
 

@@ -20,7 +20,7 @@
                             <div class="eachFlexMyLegend">
                                 <div class="myLegend">
                                     <p class="spaP">Business Short name</p>
-                                    <input type="text" name="aka"  placeholder="(can't be changed after submission)" >
+                                    <input type="text" name="aka"  placeholder="Fixed name/title" >
                                 </div>
                             </div>
 
@@ -40,8 +40,23 @@
                         </div>
 
 
-                        <br>
 
+                        <div class="FlexMyLegend">
+                            <div class="eachFlexMyLegend">
+                                <div class="myLegend">
+                                    <p class="spaP">Bustop</p>
+                                    <input type="text" name="Country" value="Nigeria" readonly> <br>
+                                </div>
+                            </div>
+
+                            <div class="eachFlexMyLegend">
+                                <div class="myLegend">
+                                    <p class="spaP">Very Close To</p>
+                                    <?php include('nigerial-states.php') ?><br>
+                                </div>
+                            </div>
+
+                        </div>
 
                         
                         <div class="FlexMyLegend">
@@ -141,26 +156,23 @@
                             <div class="eachFlexMyLegend">
                                 <div class="myLegend">
                                     <p class="spaP">WhatsApp Line</p>
-                                    <input type="text" id="latitude" name="Whatsapp"  placeholder="WhatsApp Line">
+                                    <input type="text" name="Whatsapp"  placeholder="WhatsApp Line">
                                 </div>
                             </div>
-
                             <div class="eachFlexMyLegend">
                                 <div class="myLegend">
                                     <p class="spaP">Facebook URL</p>
-                                    <input type="text" id="longitude" name="Facebook" placeholder="Facebook URL">
+                                    <input type="text"  name="Facebook" placeholder="Facebook URL">
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="myLegend">
                             <p class="spaP">Facebook URL</p>
-                            <textarea type="text" id="longitude" name="Facebook" placeholder="What do you deal in"></textarea>
+                            <textarea type="text" id="Desc"  name="Desc" placeholder="What do you deal in"></textarea>
                         </div>
                     <br>
                         <div class="action_plus">
-                            <button name="reg" class="thickBtn longBtn">Register</button>
+                            <button name="regBusiness" class="thickBtn longBtn">Register</button>
                         </div>
                     
 

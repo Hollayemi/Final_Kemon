@@ -6,7 +6,7 @@ if(isset($_SESSION['user'])){
     $emailName  =   $_SESSION['user'];
     include('../config/main_Handler.php');
     updatePage_func($conn,$myId,$emailName);
-    updateFunc_Subscribers($conn,$myId);
+    updateFunc_Subscribers($conn,$myId,$myIdFetch);
 
     $numOfFiles = [];
     $numOfFile = glob('pages/'.$emailName.'/pictures/*.*');

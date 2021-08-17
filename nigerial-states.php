@@ -1,12 +1,4 @@
-<style>.select-css{margin-left:20% !important;width:60% !important;margin-top:30px;height:40px;margin-bottom:-30px;}
-@media screen and (max-width:625px){
-  
-  .sec_style{margin-left:15% !important;
-    width:50%  !important;
-}
-  
-}
-</style>
+
 <select class='select-css sec_style' id='guessState' name="state">
     <option selected>Select State</option>
     <option value="Abia">Abia</option>

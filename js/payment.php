@@ -118,7 +118,7 @@
                   },
                   callback: function(response){
                       const referenced = response.reference;
-                      window.location.href='gathering_important _data_for_the_user_for_3_months.php?sg-ref-kcl='+ referenced+'&agent=<?php echo $_SESSION['name'] ?>&sub-crol_err-key=<?php echo $sKey?>&efri-fsf=<?php echo $_SESSION['reffered']?>';
+                      window.location.href='gathering_important_data_for_the_user_for_3_months.php?sg-ref-kcl='+ referenced+'&agent=<?php echo $_SESSION['name'] ?>&sub-crol_err-key=<?php echo $sKey?>&efri-fsf=<?php echo $_SESSION['reffered']?>';
                   },
                   onClose: function(){
                       alert('window closed');         

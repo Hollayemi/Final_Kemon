@@ -41,14 +41,17 @@
             position:relative;
           }
           .cap-td{
-              width:80%;
+              width:90%;
+              margin-top:20px;
           }
           .pic-td{
-            width:80%;
+            width:70%;
+            height:200px;
             text-align:center;
           }
           .pic-td img{
-            width:70%;
+            width:100%;
+            height:100%;
           }
           .amt-td{
             width:auto;
@@ -60,11 +63,32 @@
             box-shadow:0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2);
           }
         }
-        .functionsButtons{
-            width:100% !important;
-            justify-content:space-evenly;
-            display:flex !important;
+        .formSmall{
+          /* width:100px; */
+          overflow:hidden;
+        }
+        .myShare{
+            position:relative;
+
           }
+          .myShareIcons{
+            display:flex;
+            position:absolute;
+            visibility:hidden;
+            transition:.4s;
+            opacity:0px;
+          }
+          .myShareIcons h4{
+            padding:5px;
+          }
+        .functionsButtons{
+          width:100% !important;
+          justify-content:space-evenly;
+          display:flex !important;
+        }
+        .shareBtn{
+          z-index:5000 !important;
+        }
     </style>
       <?php 
         $Pict=sizeof($Mypic)-1;
@@ -74,7 +98,6 @@
             }
        ?>
             <div class="eachFlex">
-        
                 <div class="pic-td"><a href="../pic/<?php echo $Mypic[$i] ?>"><img src="../pic/<?php echo $Mypic[$i] ?>" alt="err" class="main-td-pic"></a><br><br></div>
                 <?php
                 $txt = strlen( $Mycap[$i]);
@@ -100,23 +123,24 @@
                       <button onclick="myFunction'.$i.'()" id="myBtn'.$i.'"class="readMoreBtn">Read more</button>';
                   }
                   echo '
-                        <div style="display:flex;padding:5px">
-                          <h4 id="media'.$i.'a" style="display:none"><a href=""><i class="anime fir fa fa-whatsapp"></a></i></h4>
-                          <h4 id="media'.$i.'b" style="display:none"><a href=""><i class="anime sec fa fa-facebook"></a></i></h4>
-                          <h4 id="media'.$i.'c" style="display:none"><a href=""><i class="anime thr fa fa-instagram"></a></i></h4>
-                        </div>
-                          <button id="share" onclick="myShare'.$i.'()" class="readMoreBtn shareBtn">Share <i class="fa fa-share"></i></button>';
+                        <div class="myShare">
+                            <div class="myShareIcons selected'.$i.'">
+                              <h4 id="media'.$i.'a" style="display:block"><a target="_blank" href="https://api.whatsapp.com/send?text=Kemon Market ( '.ucwords($row_id['shop_name']).' )--- '.$Mycap[$i].'------'.$Myamt[$i].'"><i class="anime fir fa fa-whatsapp"></a></i></h4>
+                              <h4 id="media'.$i.'b" style="display:block"><a href=""><i class="anime sec fa fa-facebook"></a></i></h4>
+                              <h4 id="media'.$i.'c" style="display:block"><a href=""><i class="anime thr fa fa-instagram"></a></i></h4>
+                            </div>
+                            <button id="share" onclick="myShare'.$i.'()" class="readMoreBtn shareBtn">Share <i class="fa fa-share"></i></button>
+                        </div>';
                         if(isset($myVisitor)){
                             if ($row_id['id'] == $myVisitor){
-                              echo '<form action="../st/myAction.php" method="GET">
-                                        <input type="text" style="border:none;background-color:#fff; display:none;" disabled="true" name="text'.$i.'" value="'.$Mypic[$i].'">
+                              echo '<form action="../st/myAction.php" method="GET" class="formSmall">
+                                        <input type="text" style="border:none;background-color:#fff; display:none;width:10px" disabled="true" name="text'.$i.'" value="'.$Mypic[$i].'">
                                         <input type="submit" name="deleteNo'.$i.'" class="readMoreBtn deleteBtn" value="Delete">
                                     </form>
                               ';
                             }
                         }
-                        
-                  echo '    
+                  echo '
                         </div>
                   </div>
           
@@ -140,17 +164,23 @@
                             }
                         }
                         function myShare'.$i.'(){
-                          var media'.$i.'a = document.getElementById("media'.$i.'a");
-                          var media'.$i.'b = document.getElementById("media'.$i.'b");
-                          var media'.$i.'c = document.getElementById("media'.$i.'c");
-                          if (media'.$i.'a.style.display === "none"){
-                            media'.$i.'a.style.display = "block"
-                            media'.$i.'b.style.display = "block"
-                            media'.$i.'c.style.display = "block"
+                          var medias   = document.querySelector(".selected'.$i.'");
+                          var i;
+                          var x = document.getElementsByClassName("myShareIcons");
+                          for (i = 0; i < x.length; i++) {
+                            //  x[i].style.display = "none";  
+                            x[i].style.visibility = "hidden";
+                            x[i].style.top = "-40px";
+                            x[i].style.opacity = "1";
+                          }
+                          if (medias.style.visibility == "hidden"){
+                            medias.style.visibility = "visible"
+                            medias.style.top = "-40px"
+                            medias.style.opacity  = 1
                           }else{
-                            media'.$i.'a.style.display = "none"
-                            media'.$i.'b.style.display = "none"
-                            media'.$i.'c.style.display = "none"
+                            medias.style.visibility = "hidden"
+                            medias.style.top = "0px"
+                            medias.style.opacity  = 0
                           }
                       }
                   

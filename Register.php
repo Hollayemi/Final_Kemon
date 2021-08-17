@@ -113,7 +113,6 @@
           </div>
       </section>
       <section class="agentAnimate">
-        
         <div class="bigBox wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
             <img src="img/bgr-eve-lyn.png" style="width:100%;height:100%" alt="">
             <div class="smallBox smallBox1">
@@ -132,7 +131,7 @@
 
       </section>
   </section>
-  <section>
+  <section id="Registration_all">
         <div class="slideshow-container">
             <div class="mySlides fadess">
               <img src="img/banners/banner_resources.png" style="width:100%">
@@ -170,7 +169,11 @@
           </button>
             <?php include('addBusiness.php') ?>
             
-          
+
+
+
+
+
 </section>
     <section id="services" class="section-bg">
       <div class="container">

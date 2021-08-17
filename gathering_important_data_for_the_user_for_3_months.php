@@ -50,24 +50,21 @@ $newNumTab = ($myIdFetch['num_Tab']+6);
 $newStorage = ($myIdFetch['userStorage']+1025);
 
 if($myIdFetch['Subscribed'] == 0){
-    $n = $myIdFetch['Subscribed']+0;
-    $sql_sub = newSubscriber($conn,$myId,$sub_username,$sub_emails,$sub_shop,$date_expired,$date_subscribed,$type);
-    
+    $n = $myIdFetch['Subscribed']+1;
     $sql_add = updateSub_User($conn,$n,$newNumPage,$newNumTab,$newStorage,$myId);
-
-    if($run_agent){
+    $allsub  = allSubscribers($conn,$myId);
+    if($run_agent && empty($allsub)){
         if(isset($_GET['sg-ref-kcl']) && isset($_GET['sub-crol_err-key'])){
-            if($sql_sub && $sql_add){
-
+            if($sql_add){
                 $oldSKey = $_GET['sub-crol_err-key'];
                 $newSkey  = generate_string($permitted_chars,50);
-               
+
                 $sql_sKey = updateKey($conn,$newSkey,$oldSKey);
-                echo $newSkey;
-                if($sql_sub){
-                    // header('Location:1/'.$username.($suer_id+30).'loader.php?subscription_was_successfulpaid='.$unq.'&rreef='.$_GET['sg-ref-kcl']);
+                $sql_sub = newSubscriber($conn,$myId,$sub_username,$sub_emails,$sub_shop,$date_expired,$date_subscribed,$type);
+                if($sql_sKey){
+                    header('Location:1/'.$myIdFetch['username'].($myId+30).'loader.php?subscription_was_successfulpaid='.$unq.'&rreef='.$_GET['sg-ref-kcl']);
                 }else{
-                    // header('Location:Register.php?err=error in transactionpopop');
+                    header('Location:Register.php?err=error in transactionpopop');
                 }
             }else{
                 header('Location:Register.php?err=error in transaction');

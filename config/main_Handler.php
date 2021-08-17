@@ -54,9 +54,9 @@
         }
     }
 
-
-    $countTabss = glob("../up/".$shop_nick."/tb/*.php");
-
+    if(isset($shop_nick)){
+        $countTabss = glob("../up/".$shop_nick."/tb/*.php");
+    }
     if(isset($_POST['CreatTab'])){
         
         $CreateTabName     =  testInput($_POST['CreateTabName']);

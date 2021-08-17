@@ -82,6 +82,6 @@
 
 @media screen and (max-width:889px) {
     .bigBox, .agentAnimate{
-        display:block;   
+        display:none;   
     }
 }

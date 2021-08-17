@@ -1,0 +1,143 @@
+*{
+    margin:0px;
+    padding-left:0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+div{
+    display: flex;
+    align-items: center;
+    height:80px;
+    background-color: rgb(27, 73, 202);
+}
+section{
+    margin-left:250px;
+    margin-top:60px;
+    width:60%;
+}
+h1{
+    margin-bottom:30px;
+    font-size:29px;
+    color: rgb(32, 32, 33);
+    margin-top:30px;
+}
+p, strong, li{
+    line-height: 35px;
+    color: rgb(79, 78, 78);
+    margin-top:20px;
+}
+h2{
+    margin-bottom:20px;
+    font-size:25px;
+    color: rgb(32, 32, 33);
+    margin-top:20px;
+}
+li{
+    margin-left:50px;
+    min-width:300px;
+}
+a{
+    text-decoration: none;
+    color: rgb(67, 65, 65);
+}
+
+
+
+
+
+
+
+
+
+
+div h1{
+    color:#fff;
+    font-size:27px;
+    margin-left:200px;
+    margin-bottom:0px;
+    margin-top:0px;
+}
+span{
+    position:sticky;
+    background-color: rgb(49, 53, 68);
+    height:50px;
+    display: flex;
+    align-items: center;
+    top:0px;
+}
+span p{
+    color: rgb(252, 252, 252);
+    margin-left:220px;
+    font-weight: 400;
+    height:100%;
+    display: flex;
+    margin-top:0px;
+    align-items: center;
+    justify-content: center;
+    padding:0px 30px;
+}
+span h3{
+    color: rgb(252, 252, 252);
+    margin-left:220px;
+    font-weight: 400;
+    background-color: rgb(80, 80, 80);
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0px 30px;
+}
+
+@media screen and (max-width:800px){
+    section{
+        margin-left:5%;
+        width:90%;
+    }   
+    div h1{
+        margin-left:30px;
+        font-size:24px;
+    }
+    span h3{
+        margin-left:40px;
+    }
+    span p{
+        width:100%;
+        margin-left:0px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:500px){
+    section{
+        margin-left:2%;
+        width:95%;
+    }   
+    h1{
+        font-size:20px;
+    }
+    h2{
+        font-size:18px;
+    }
+    h3{
+        font-size:16px;
+    }
+    div h1{
+        margin-left:30px;
+        font-size:18px;
+    }
+    span h3{
+        margin-left:40px;
+        font-size:16;
+    }
+    p{
+        font-size:15px;
+    }
+    li{
+        margin-left:30px;
+    }
+    span p{
+        width:100%;
+        margin-left:0px;
+        text-align: center;
+    }
+}

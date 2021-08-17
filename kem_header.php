@@ -21,17 +21,60 @@
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
   <script src="https://js.paystack.co/v1/inline.js"></script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
   <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
   <link href="css/style.css" rel="stylesheet">
   <link href="css/info.css" rel="stylesheet">
   <link href="css/style2.css" rel="stylesheet">
   <?php
-    include('session.php');
+  include('session.php');
+  $MyProf =  '1/'.$username.($myId+30).'.php';
+  $contents ="<?php include('Myprofile.php'); ?>";
+
+
+  $MyLoader =  '1/'.$username.($myId+30).'loader.php';
+  $contents2 ="<?php include('../loader.php');  ?>";
+  if(file_put_contents($MyLoader,$contents2))
+  if(file_put_contents($MyProf,$contents))
+
+    if(isset($_POST['regBusiness'])){
+        $Shop_Name    = testInput($_POST['Shop_Name']);
+        $shop_nick    = testInput($_POST['aka']);
+        $website      = testInput($_POST['website']);
+        $country      = testInput($_POST['Country']);
+        $state        = testInput($_POST['state']);
+        $City         = testInput($_POST['City']);
+        $Junction     = testInput($_POST['Junction']);
+        $Bustop       = testInput($_POST['Bustop']);
+        $VCT          = testInput($_POST['VCT']);
+        $facebook     = testInput($_POST['Facebook']);
+        $whatsapp     = testInput($_POST['Whatsapp']);
+        $Phone        = testInput($_POST['BPhone']);
+        $Offer        = testInput($_POST['Desc']);
+        $categ        = $_POST['test'];
+        $longitude    = testInput($_POST['longitude']);
+        $latitude     = testInput($_POST['latitude']);
+
+        $category = implode(',',$categ);
+        print_r($category);
+
+          if(!empty($Shop_Name) && !empty($shop_nick) && !empty($website) && !empty($country) && !empty($state) && !empty($City) && !empty($Junction)
+          && !empty($Bustop) && !empty($VCT) && !empty($facebook) && !empty($whatsapp) && !empty($Phone) && !empty($Offer) && !empty($longitude) && !empty($latitude)){
+            setRegisteration($conn,$Shop_Name,$shop_nick,$website,$country,$state,$City,$Junction,$Bustop,$VCT,$facebook,
+            $whatsapp,$Phone,$Offer,$myId,$longitude,$latitude);
+          }else{
+            echo $Offer;
+          }
+
+
+          if(!empty($category)){
+            registerCategory($conn,$myId,$category);
+          }
+    }
+
       if(isset($reg)){
         include('whatsapp.php');
         echo '<link href="css/animate.css" rel="stylesheet">
-              <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
               <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
               <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
@@ -60,7 +103,7 @@
     <div class="Mycontainer" style="width:100%">
       <div class="logo float-left" style="margin-left:5%">
         <!-- <h1 class="text-light"><a href="index.php" class="scrollto"><span>Ke<span style="color:skyblue">M</span>on</span></a></h1> -->
-        <a href="#header" class="scrollto"><img src="img/myKemon.png" alt="" class="imgfluid"></a>
+        <a href="#header" class="scrollto"><img src="img/myKemon.png" alt="" style="width:130px; height:100px" class="imgfluid"></a>
       </div>
       <nav class="main-nav float-right d-none d-lg-block margin-rt">
         <ul>
@@ -123,5 +166,6 @@
       ";
  ?>
 </header>
+
 
 

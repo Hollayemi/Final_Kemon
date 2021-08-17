@@ -88,7 +88,15 @@
             $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
             return $result;
         }
-        
+
+        function allSubscribers($conn,$myId)
+        {
+            $sql = "SELECT * FROM subscribers WHERE id=?";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$myId]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
 
 
 
@@ -327,13 +335,14 @@
         }
 
 
-        function setRegisteration($conn,$Shop_Name,$shop_nick,$website,$OPH,$CLH,$country,$state,$City,$Junction,$Bustop,$VCT,$facebook,
-                                  $whatsapp,$Phone,$linked_in,$Offer,$myId,$longitude,$latitude)
+        function setRegisteration($conn,$Shop_Name,$shop_nick,$website,$country,$state,$City,$Junction,$Bustop,$VCT,$facebook,
+                                  $whatsapp,$Phone,$Offer,$myId,$longitude,$latitude)
         {
-            
+            $OPH=7;
+            $CLH=7;
             $sql="INSERT INTO marketers (shop_name,shop_nick,shop_website,opening_hour,closing_hour,country,state,city,junction,
-            bustop,very_close_to,facebook,whatsapp,phone,linked_in,our_offer,id,longitude,latitude) VALUES (:Shop_Name,:shop_nick,:website,:OPH,:CLH,:country,:states,:City,:Junction,:Bustop,:VCT,
-            :facebook,:whatsapp,:Phone,:linked_in,:Offer,:real_id,:longitude,:latitude)";
+            bustop,very_close_to,facebook,whatsapp,phone,our_offer,id,longitude,latitude) VALUES (:Shop_Name,:shop_nick,:website,:OPH,:CLH,:country,:states,:City,:Junction,:Bustop,:VCT,
+            :facebook,:whatsapp,:Phone,:Offer,:real_id,:longitude,:latitude)";
 
             $stmt = $conn->prepare($sql);
 
@@ -353,7 +362,6 @@
                 'facebook'  =>$facebook,
                 'whatsapp'  =>$whatsapp,
                 'Phone'     =>$Phone,
-                'linked_in' =>$linked_in,
                 'Offer'     =>$Offer,
                 'real_id'   =>$myId,
                 'longitude' =>$longitude,
@@ -375,6 +383,23 @@
             $stmt->execute([$NewCountMonth,$NewCount,$AgnUser]);
             return true; 
         }
+
+        function updateAgn_6($conn,$NewCountMonth,$NewCount,$AgnUser)
+        {
+            $sql    = "UPDATE agent SET 6_months=?, Total_reg =? WHERE agnPic=?";
+            $stmt   = $conn->prepare($sql);
+            $stmt->execute([$NewCountMonth,$NewCount,$AgnUser]);
+            return true; 
+        }
+
+        function updateAgn_year($conn,$NewCountMonth,$NewCount,$AgnUser)
+        {
+            $sql    = "UPDATE agent SET 1_year=?, Total_reg =? WHERE agnPic=?";
+            $stmt   = $conn->prepare($sql);
+            $stmt->execute([$NewCountMonth,$NewCount,$AgnUser]);
+            return true; 
+        }
+        
         function updateAgn_norm($conn,$NewCount,$NewTot,$AgnUser)
         {
             $sql    = "UPDATE agent SET counting=?, Total_reg =? WHERE agnPic=?";
@@ -387,7 +412,7 @@
 
 
 
-    // /////////////////////////////////////////// /////////////////////////////////// //////////////////////////// //////////////////////
+/////////////// //////////////////////////// //////////////// /////////////////// //////////////////////////// //////////////////////
 
 
 
@@ -420,9 +445,32 @@
                 return true;
             }
 
+            function updateMarketersCategory($conn,$myId,$category){
+                $sql    = "UPDATE marketers SET category=? WHERE id=?";
+                $stmt   = $conn->prepare($sql);
+                $stmt->execute([$myId,$category]);
+                return true;
+            }
+
+            function update_payRef($conn,$n,$myId)
+            {
+                $sql    = "UPDATE marketers SET payRef=? WHERE id=?";
+                $stmt   = $conn->prepare($sql);
+                $stmt->execute([$n,$myId]);
+                return true;
+            }
+
+            function update_SubRef($conn,$n,$myId)
+            {
+                $sql    = "UPDATE marketers SET subRef=? WHERE id=?";
+                $stmt   = $conn->prepare($sql);
+                $stmt->execute([$n,$myId]);
+                return true;
+            }
     // ///////////Fetch all subscribers (ASSOCICALLY)///////////////
-            
-    function updateFunc_Subscribers($conn,$myId)
+
+              
+    function updateFunc_Subscribers($conn,$myId,$myIdFetch)
     {
         $sql = "SELECT * FROM subscribers WHERE id=?";
         $stmt = $conn->prepare($sql);
@@ -452,7 +500,7 @@
 
 
             
-            if($rems['Subscribed']==1){
+            if($myIdFetch['Subscribed']==1){
             
                 if($newExpiry == 0){
                     $zero = 0;

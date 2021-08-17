@@ -41,13 +41,11 @@ if(!empty($myId)){
     
         $emailName = $_SESSION['user'];
         if($myIdFetch['page_exist'] < 1){
-            $shop_nick    =    strtolower($resultMarketInfo['shop_nick']);
             $shop_nick    =    ucwords($shop_nick);
             $mylink       = $myIdFetch['id']+30;
             $type = 'sugu';
             if(setDefaultStorage($conn,$myId) && setDefaultTemplate($conn,$myId,$type) && setDefaultPicture($conn,$myId))
             {
-                
                 mkdir('../up/'.$shop_nick);
                 mkdir('../up/'.$shop_nick.'/pic');
                 mkdir('../up/'.$shop_nick.'/cp');
@@ -74,7 +72,7 @@ if(!empty($myId)){
 
                 if(require_once('../functions.php')){
                     copyFolder("../up/sugu/st","../up/".$shop_nick."/st");
-                    // copyFolder("../img/profile.png","../up/".$shop_nick);
+                    copyFolder("../img/profile","../up/".$shop_nick);
                 }
                 
                 if(setPageExistence($conn,$myId))
@@ -92,11 +90,11 @@ if(!empty($myId)){
         }else{
 
             if(isset($_GET['subscription_was_successfulpaid'])){
-                // header('Refresh: 5;'.$username.($user_id+30).'.php?transaction=successful&ref='.$_GET['rreef']);
+                header('Refresh: 5;'.$username.($myId+30).'.php?transaction=successful&ref='.$_GET['rreef']);
             }elseif(isset($_GET['successfullypaid'])){
-                // header('Refresh: 5;'.$username.($user_id+30).'.php?transaction=successful&ref='.$_GET['rreef'].'&type=register');
+                header('Refresh: 5;'.$username.($myId+30).'.php?transaction=successful&ref='.$_GET['rreef'].'&type=register');
             }else{
-                header('Refresh: 5;'.$username.($user_id+30).'.php?done');
+                header('Refresh: 5;'.$username.($myId+30).'.php?done');
             }
         }    
     }
