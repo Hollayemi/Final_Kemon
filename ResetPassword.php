@@ -25,10 +25,8 @@
 				<?php 
 				require_once('functions.php');		
 				?>
-				<!-- <h2 class="signin_signup"><br><span style="">SIGN IN </span><span class="signup"><a href="signup.php">SIGN UP</a></span></h2> -->
-				<h1 class="kemonLog">KE<span class="M">M</span>ON</h1><br>
-				<!-- <img src="./img/myKemon.png" class="kemonLogPic" alt=""> -->
-				<!-- <h3 class="googleLogin">Sign in with Google</h3> -->
+				<!-- <h1 class="kemonLog">KE<span class="M">M</span>ON</h1><br> -->
+				<img src="img/kemon.png" class="kemonLogPic" alt="">
 
 				<div >
 					<form method="POST">

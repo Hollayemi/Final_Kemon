@@ -25,15 +25,14 @@
 				<?php 
 				require_once('functions.php');		
 				?>
-				<!-- <h2 class="signin_signup"><br><span style="">SIGN IN </span><span class="signup"><a href="signup.php">SIGN UP</a></span></h2> -->
-				<h1 class="kemonLog">KE<span class="M">M</span>ON</h1><br>
-				<!-- <img src="./img/myKemon.png" class="kemonLogPic" alt=""> -->
-				<!-- <h3 class="googleLogin">Sign in with Google</h3> -->
+				<!-- <h1 class="kemonLog">KE<span class="M">M</span>ON</h1><br> -->
+				<img src="img/kemon.png" class="kemonLogPic" alt="">
+
 
 				<div >
 					<form method="POST">
 						<div class="inputs centt">
-							<i class="fa fa-user Fa"></i><input type="text" name="Email" value="" placeholder="Email Address">
+							<i class="fa fa-envelope Fa"></i><input type="text" name="Email" value="" placeholder="Email Address">
 						</div>
 						<div class="inputs centt">
 							<i class="fa fa-lock Fa"></i><input type="password" name="Password" value="" placeholder="Password">
@@ -44,7 +43,7 @@
 					</form>
 					<div class="signUpSide">
 						<h3 class="Forpassword"><a href="ResetPassword.php">Forgot password</a></h3>
-						<h3 class="Forpassword"><a href="signup.php">Sign Up</a></h3>
+						<h3 class="Forpassword"><a href="new-signup.php">Sign Up</a></h3>
 					</div>
 					
 				</div>

@@ -1,3 +1,1 @@
-<?php
-include('Myprofile.php'); 
-?>
+<?php include('Myprofile.php'); ?>

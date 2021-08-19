@@ -15,7 +15,7 @@ if(isset($_SESSION['user'])){
         $numOfFiles[]=$numOfFile[$i];
     }
     $_SESSION['numOfFiles'] = (sizeof($numOfFiles));
-
+    $username   =   $myIdFetch['username'];
 }
 else
 {

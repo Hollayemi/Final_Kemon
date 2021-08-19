@@ -30,6 +30,15 @@
             return $result;
         }
 
+        function marketersInfoByShopNick($conn,$shop_nick)
+        {
+            $sql    ="SELECT * FROM marketers WHERE shop_nick=?";
+            $stmt   = $conn->prepare($sql);
+            $stmt->execute([$shop_nick]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+
         //  fetch marketers in assoc
         function ratingStar($conn,$myId)
         {
@@ -90,6 +99,15 @@
         }
 
         function allSubscribers($conn,$myId)
+        {
+            $sql = "SELECT * FROM subscribers WHERE id=?";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$myId]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }
+
+        function allCategories($conn,$myId)
         {
             $sql = "SELECT * FROM subscribers WHERE id=?";
             $stmt = $conn->prepare($sql);
@@ -336,13 +354,13 @@
 
 
         function setRegisteration($conn,$Shop_Name,$shop_nick,$website,$country,$state,$City,$Junction,$Bustop,$VCT,$facebook,
-                                  $whatsapp,$Phone,$Offer,$myId,$longitude,$latitude)
+                                  $whatsapp,$Phone,$Offer,$myId,$longitude,$latitude,$category)
         {
             $OPH=7;
             $CLH=7;
             $sql="INSERT INTO marketers (shop_name,shop_nick,shop_website,opening_hour,closing_hour,country,state,city,junction,
-            bustop,very_close_to,facebook,whatsapp,phone,our_offer,id,longitude,latitude) VALUES (:Shop_Name,:shop_nick,:website,:OPH,:CLH,:country,:states,:City,:Junction,:Bustop,:VCT,
-            :facebook,:whatsapp,:Phone,:Offer,:real_id,:longitude,:latitude)";
+            bustop,very_close_to,facebook,whatsapp,phone,our_offer,id,longitude,latitude,category) VALUES (:Shop_Name,:shop_nick,:website,:OPH,:CLH,:country,:states,:City,:Junction,:Bustop,:VCT,
+            :facebook,:whatsapp,:Phone,:Offer,:real_id,:longitude,:latitude,:category)";
 
             $stmt = $conn->prepare($sql);
 
@@ -365,7 +383,8 @@
                 'Offer'     =>$Offer,
                 'real_id'   =>$myId,
                 'longitude' =>$longitude,
-                'latitude'  =>$latitude
+                'latitude'  =>$latitude,
+                'category'  =>$category
                 ]);
             return true;
         }

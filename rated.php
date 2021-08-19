@@ -1,35 +1,32 @@
 <?php
 
+	// require "indexEngine.php";
+
+	// print_r($distanceArray);
+	// print_r($shopArray);
+
+	// $uoo = array($shopArray[0] => $distanceArray[0], $shopArray[1] => $distanceArray[1]);
+	// asort($uoo);
+	// print_r($uoo);
+	// echo $uoo[$shopArray[0]];
 
 
-$q = intval($_GET['q']);
+	$array1 = array("Post Slider", "Post Slider Wide", "Post Slider");
+    $array2 = array("Tools Sliders", "Tools Sliders", "modules-test");
+    $array3 = array();
 
-$mysqli=mysqli_connect('sql105.epizy.com','epiz_28257429','BHiMYLgFzV3pjb','epiz_28257429_market');
+    $count = count($array1);
 
-if (!$con) {
-  die('Could not connect: ' . mysqli_error($con));
-}
+    for($x = 0; $x < $count; $x++){
+       $array3[$array1[$x].$x] = $array2[$x];
+    }
 
-mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM user WHERE id = '".$q."'";
-$result = mysqli_query($con,$sql);
+    foreach($array3 as $key => $value){
+        $output_key = substr($key, 0, -1);
+        $output_value = $value;
+        echo $output_key.": ".$output_value."<br>";
+    }
 
-
-
-
-
-
-
-
-$sql = "INSERT INTO `crud`( `name`, `email`, `phone`, `city`) 
-	VALUES ('$name','$email','$phone','$city')";
-	if (mysqli_query($con, $sql)) {
-		echo json_encode(array("statusCode"=>200));
-	} 
-	else {
-		echo json_encode(array("statusCode"=>201));
-	}
-	mysqli_close($con);
 ?>
 
 

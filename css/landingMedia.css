@@ -17,8 +17,23 @@
 }
 
 @media screen and (max-width:930px){
+    .SearchForm form input[type="text"]{
+        width:100% ;
+    }
+    .SearchForm{
+        width:80%;
+    }
+    .SearchForm form button{
+        width:200px;
+        height:50px;
+    }
+    .SearchForm form{
+        width: 100% !important;
+        align-items: center;
+        flex-flow: column;
+    }
     header{
-        z-index:30000;
+        z-index:300000;
     }   
     .contentTopH1{
         text-align: center;
@@ -73,11 +88,14 @@
     .forDesktop{
         display: none;
     }
-    header{
-        /* display:none; */
-    }
+    
 }
 @media screen and (max-width:750px){
+    .SearchForm form{
+        /* min-width:400px; */
+        align-items: center;
+        flex-flow: column;
+    }
     .FooterLeft{
         margin-left:20%;
     }
@@ -88,6 +106,11 @@
 @media screen and (max-width:550px){
     .hpt-ru-ff{
         padding:0px;
+    }
+    .SearchForm form{
+        margin-top:50px;
+        align-items: center;
+        flex-flow: column;
     }
     .myStoreBtn{
         height:50px;
@@ -133,5 +156,12 @@
     }
     .cty-note h1{
         font-size:25px;
+    }
+}
+
+
+@media screen and (max-width:400px){
+    .SearchForm{
+        width:95%;
     }
 }

@@ -2,7 +2,7 @@
 
 require_once('session.php');
 $filesFolder = $shop_nick;
-$myProfLink = $shop_nick.($myId+30).".php";
+$myProfLink = $username.($myId+30).".php";
 include('functions.php');
 echo "er";
 echo $_POST['sugu'];

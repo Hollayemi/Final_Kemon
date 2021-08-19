@@ -2,140 +2,228 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kemon-Market</title>
-    <link href="../img/km.png" rel="icon">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+    <title>For Your Business Registration</title>
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/landing.css">
     <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    
-    <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
-    <link rel="stylesheet" href="indexx.css">
-    <link rel="stylesheet" href="css/style.css">
-
+    <link href="lib/ionicons/css/ionicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/landingMedia.css">
 </head>
+<?php
+    include('./indexEngine.php')
+?>
 <body>
-    <div class="nameTop"><h2>KEMON</h2></div>
+    <div class="top-content">
+        <h5>The easiest, fastest and most effective way to get any product</h5>
+    </div>
+    <header id="top" class="forDesktop">
+        <nav>
+            <div class="forMenu">
+                <li><a href="#ourSolu"><i class="fa fa-bars"></i>Menu</a></li>
+            </div>
+            <div class="forKemon">
+                <li><a href="index.php"><i class="fa fa-search"></i></a> <div></div></li>
+                <li class="barKemon"><a href="#what-we-do">KEMON</a> <div></div></li>
+                <li><a href="signin.php">Sign in</a> <div></div></li>
+            </div>
+            <div class="forReg">
+                <li><a href="#contact">Get Now</a> <div></div></li>
+                <!-- <li><i class="fa fa-shopping-basket"></i> <div></div></li> -->
+            </div>
+        </nav>
+        <div class="headerBtum"></div>
+    </header>
 
-    <div class="scrolledHeader" id="scrolledHeader">
-        <div class="leftNameHeader">Kemon market</div>
-        <a href="Register.php" class="regBtnHeader">Get Started</a>
+
+
+    <header id="top" class="forMobile">
+        <nav>
+            <div class="forMenu">
+                <li><a href="#ourSolu"><i class="fa fa-bars"></i></a></li>
+            </div>
+            <div class="forKemon mobileKemon">
+                <li class="barKemon"><a href="#what-we-do">KEMON</a> <div></div></li>
+            </div>
+            <div class="forMenu">
+                <li><a href="index.php"><i class="fa fa-search"></i></a> <div></div></li>
+            </div>
+        </nav>
+        <div class="headerBtum2"></div>
+    </header>
+
+
+
+    <div>
+
     </div>
-    <div class="scrolledFooter" id="scrolledFooter">
-        <a href="Register.php" class="">Get Started for FREE</a>    
-    </div>
-    <main>
-        <div class="inner">
-            <div class="Kem_header">
-                <center>
-                    <form action="index.php?Searchfor" method="GET" autocomplete="off" >
-                        <input type="text" id="search" name="Search_Name" value="" placeholder="Search Kemon"><i class="ion-search myIons"></i><br>
+
+
+    <section>
+        <div class="shopRegistered">
+            <h3>Shop Registered</h3>
+            <div>
+                <h2>55</h2>
+                <h2>55</h2>
+                <h2>55</h2>
+                <h2>55</h2>
+            </div>
+        </div>
+
+        <div class="topContent">
+            <div class="hpt-ru-ff">
+                <h1 class="contentTopH1">
+                    Easy Way To Get Any Product From Your Environment
+                </h1>
+               
+
+                <div class="SearchForm">
+                    <form action="search.php?Searchfor" method="GET" autocomplete="off" >
+                        <input type="text" id="search" name="Search_Name" value="" placeholder="Search Kemon">
                         <input type="text" id="btnLat" name="lat" value="" placeholder="city" style="display:none"></i><br>
                         <input type="text" id="btnLong" name="long" value="" placeholder="city" style="display:none"></i>
-                        <input class="My_src_btn" name='My_src_btn' type="submit" value="Search"></input>
+                        <button class="My_src_btn" name='My_src_btn' type="submit" >Search <i class="ion-search myIons"></i></button>
                     </form>
-                </center>
-            </div>            
-        </div>
-    </main>
-    <br><br><br>
-    <?php
-        include('./indexEngine.php')
-    ?>
-        <section class="myCategory">
-            <h2 class="righrArr">></h2>
-            <h2 class="leftArr"><</h2>
-            <div class="inif">
-                <?php 
-                foreach($allCategory as $cat){
-                ?>
-                    <div class="inner_cat">
-                        <img src="img/sd/<?php echo $cat?>.jpg" alt="">
-                        <form action="" method="GET" >
-                            <input type="text" name="catName" value="<?php echo $cat?>" style="display:none">
-                            <input type="text" class="catLati" name="lat" value="" style="display:none">
-                            <input type="text" class="catLong" name="long" value="" style="display:none">
-                            <button type="submit" name="catSearch"><h5><?php echo substr($cat,0,25)?></h5></button>
-                        </form>
-                    </div>
-                    <?php
-                }
-                    ?>
-            </div>
-        </section>
-        <p style="margin-top:100px"></p>
-        <section>
-            <?php 
-            if(isset($Search)){
-                ?>
-            <h5 class="titleH5"><b>( <?php echo $Search; ?> )</b></h5>
-            <?php
-            }
-            ?>
-            <div class="flexSearched">
-            <?php
-                for($i=0; $i<$arraySize; $i++){
-                ?>
-                    <div class="flexSearchedDiv">
-                        <div class="textInPic">
-                            <div class="searchedPicFrame">
-                                <!-- <div class="blackOverLay"></div> -->
-                                <?php if(isset($picArray[$i])){?>
-                                <div class="scalePic"><img src="<?php echo $picArray[$i]?>" alt=""></div>
-                                <?php }else{
-                                    ?>
-                                    <div class="scalePic"><img src="img/myKemon.png" alt=""></div>
-                                    <?php
-                                } ?>
-                                <div class="myDesc">
-                                    <h5><?php echo round($distanceArray[$i],2)?>KM far away <a href="#">Map Guide</a></h5> 
-                                    <h5>Junction: <?php echo $junctionArray[$i]?></h5> 
-                                    <h5>Bustop: <?php echo $bustopArray[$i]?></h5> 
-                                    <h5><?php $myCateg  =   explode(',',$categoryArray[$i]);
-                                        for($c=0;$c<count($myCateg);$c++){
-                                            // echo $myCateg[$c]."_";
-                                            if($c != (count($myCateg)-1)){
-                                                echo $myCateg[$c]."__";
-                                            }else{
-                                                echo $myCateg[$c]." ";
-                                            }
-                                        }
-                                    ?>                                
-                                </h5> 
-                                    <!-- <h5><?php //echo substr($aboutArray[$i],0,15)."...[more]"?></h5> -->
-                                </div>
-                        </div>
-                    </div>
-                    <?php
-                    
-                                    if( $accountReadyArray[$i] == 1 ){
-                                    echo '<div class="browsedShopName">';
-                                        echo '<a href="'.$linkArray[$i].' "><h4>'.ucwords($shopArray[$i]).'</h4></a>';
-                                        echo '<a href="https://api.whatsapp.com/send?phone='.$whatsappArray[$i].'&text=Hi,%20from%20Kemon-Market.%20My%20name%20is%20"><i class="first fa fa-whatsapp"></i></a>';
-                                        echo '<a href="'.$facebookArray[$i].'"><i class="fa fa-facebook"></i></a><br><br>
-                                    </div>';
-                                    }else{
-                                    echo '<div class="browsedShopName">';
-                                    echo '<h4>'.ucwords($shopArray[$i]).'</h4>';
-                                    echo '<a href="https://api.whatsapp.com/send?phone='.$whatsappArray[$i].'&text=Hi,%20from%20Kemon-Market.%20My%20name%20is%20"><i class="first fa fa-whatsapp"></i></a>';
-                                    echo '<a href="'.$facebookArray[$i].'"><i class="fa fa-facebook"></i></a><br><br>
-                                </div>';
-                                    }
-                                ?>
-                </div>
-                <?php
-                }
-
-                if(isset($resultErr)){
-                    echo $resultErr;
-                }
-                ?>
+                </div>            
             
-            </section>
-</div>
-<?php
-    // include('./kem_footer.php');
-?>
+
+
+
+
+                <div class="social-links-s">
+                    <a href="https://twitter.com/oluwasusi_ola?s=09" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="https://mobile.facebook.com/Stephanyemmitty" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=08147702684&text=Hi,%20from%20Kemon-Market.%20My%20name%20is%20" class="instagram"><i class="fa fa-whatsapp"></i></a>
+                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                </div>
+                <!-- <div class="myStoreBtn">
+                    <a href="Register.php"><h3>Create My Store <i class="fa fa-caret-right"></i></h3></a>
+                </div> -->
+            </div>
+            <div class="leftHeadp">
+                <img src="img/images/PikPng.com_earl-sweatshirt-png_4782381.png" alt="">
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="rt-rer-blue">
+        <h2 class="secTitle">Get An Accessable Website</h2>
+        <div class="drf-yup-tdf">
+            <div class="cty-note">
+                <br><br><br>
+                <h1>Get</h1>
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi iste nihil commodi porro, quos suscipit et natus sunt 
+                    voluptatem laboriosam quisquam quod esse repudiandae odit, quasi tempora nobis aut est!
+                </h4>
+
+            </div>
+
+            <div class="cty-pic">
+                <img src="img/images/kemon-rtj-ted-io2.png" alt="">
+            </div>
+        </div>
+
+        <br><br><br><br><br><br>
+    </section>
+
+
+
+    <section class="rt-rer-yellow">
+        <br>
+        <h2 class="secTitle">Exploy and Modify Themes</h2>
+        <div class="drf-yup-tdf">
+            <div class="cty-note">
+                <br><br><br>
+                <h1>Change Theme</h1>
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi iste nihil commodi porro, quos suscipit et natus sunt 
+                    voluptatem laboriosam quisquam quod esse repudiandae odit, quasi tempora nobis aut est!barKemon
+                </h4>
+
+            </div>
+            <div class="cty-pic">
+                <img src="img/images/explo.png" alt="">
+            </div>
+        </div>
+        <div class="detailSec">
+            <div>
+                <i class="ion-ios-eye"></i>
+                <p><br><b>Preview</b><br><br> Use this to preview the theme in picture, you navigate by the actions button on the pop-up page.</p>
+            </div>
+
+            <div>
+                <i class="ion ion-android-open"></i>
+                <p><br><b>Apply</b><br><br> This is use to change your website theme, new plugins will be installed. Your files will not be affected</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <section class="rt-rer-blue" style="margin-top:-60px;"><br><br>
+        <h2 class="secTitle">Add Pages</h2><br><br><br><br>
+        <div class="drf-yup-tdf">
+            <div class="cty-note">
+
+                <h1>Create New Brand</h1>
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi iste nihil commodi porro, quos suscipit et natus sunt 
+                    voluptatem laboriosam quisquam quod esse repudiandae odit, quasi tempora nobis aut est!
+                </h4>
+                <br><br><br>
+                <h1>Create New Product</h1>
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi iste nihil commodi porro, quos suscipit et natus sunt 
+                    voluptatem laboriosam quisquam quod esse repudiandae odit, quasi tempora nobis aut est!
+                </h4>
+            </div>
+
+            <div class="cty-pic">
+                <img src="img/images/create.png" alt="">
+            </div>
+        </div>
+
+        <div class="detailSec creatSec">
+            <div>
+                <br>
+                <i><img src="img/images/folder.png" alt=""></i>
+                <p><br><b>Brands</b><br><br> Use this to preview the theme in picture, you navigate by the actions button on the pop-up page.</p>
+            </div>
+
+            <div>
+                <br>
+                <i>
+                    <img src="img/images/pages.png" alt="">
+                </i>
+                <p><br><b>Pages</b><br><br> This is use to change your website theme, new plugins will be installed. Your files will not be affected</p>
+            </div>
+
+            <div>
+                <br>
+                <i>
+                    <img src="img/images/deletion.png" alt="">
+                </i>
+                <p><br><b>Delete</b><br><br> This is use to change your website theme, new plugins will be installed. Your files will not be affected</p>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -150,6 +238,49 @@
 
 
 
+    <section class="rt-rer-white rt-rer-yellow">
+        <h2 class="secTitle">Upload contents</h2>
+        <div class="drf-yup-tdf">
+            <div class="cty-note">
+                <h1>Upload</h1>
+                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi iste nihil commodi porro, quos suscipit et natus sunt 
+                    voluptatem laboriosam quisquam quod esse repudiandae odit, quasi tempora nobis aut est!. <br><br>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime quae expedita nihil, cumque soluta sed? Temporibus recusandae sed officia minima,
+                </h4>
+            </div>
+            <div class="cty-pic">
+                <img src="img/images/Upload-k3mon-34-32px.png" alt="">
+            </div>
+        </div>
+
+        
+        
+
+
+        <div class="detailSec detUpload">
+            <div>
+                <br>
+                <i><img src="img/images/price.png" alt=""></i>
+                <p><br><b>Price</b><br><br> Use this to preview the theme in picture, you navigate by the actions button on the pop-up page.</p>
+            </div>
+
+            <div>
+                <br>
+                <i>
+                    <img src="img/images/addText.png" alt="">
+                </i>
+                <p><br><b>Add Text</b><br><br> This is use to change your website theme, new plugins will be installed. Your files will not be affected</p>
+            </div>
+
+            <div>
+                <br>
+                <i>
+                    <img src="img/images/addImage.png" alt="">
+                </i>
+                <p><br><b>Add Image</b><br><br> This is use to change your website theme, new plugins will be installed. Your files will not be affected</p>
+            </div>
+        </div>
+    </section>  
 
 
 
@@ -158,6 +289,52 @@
 
 
 
+    <section>
+        <div class="yet-us-s">
+            <div>
+                <img src="img/banners/banner_news.png" alt="">
+                <h3>Activities</h3>
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati vitae nesciunt molestiae sapiente consequuntur. 
+                    Ea quibusdam repellat, aliquam inventore animi aperi</h5>
+            </div>
+
+            <div>
+                <img src="img/banners/banner_news.png" alt="">
+                <h3>Chances</h3>
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati vitae nesciunt molestiae sapiente consequuntur. 
+                    Ea quibusdam repellat, aliquam inventore animi aperi</h5>
+            </div>
+
+            <div>
+                <img src="img/banners/banner_news.png" alt="">
+                <h3>Inactive Pages</h3>
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati vitae nesciunt molestiae sapiente consequuntur. 
+                    Ea quibusdam repellat, aliquam inventore animi aperi</h5>
+            </div>
+
+            <div>
+                <img src="img/banners/banner_news.png" alt="">
+                <h3>Stars</h3>
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati vitae nesciunt molestiae sapiente consequuntur. 
+                    Ea quibusdam repellat, aliquam inventore animi aperi</h5>
+            </div>
+        </div>
+    </section>
+            
+           
+        
+        
+            <div class="sideAdvert" style="left:-450px;">
+                <h3><b>Savy Shirt Works</b> <i class="hideSideAdvert fa fa-close"></i></h3>
+                
+                <img src="img/images/strong-handsome-man-wearing-a-tshirt-mockup-while-walking-in-the-city-a17664_360x.png" alt="">
+                <div>
+                    <h5>We sell shirt and trouser with polo</h5>
+                    <button>Visit</button>
+                </div>
+            </div>
+      
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
@@ -166,27 +343,75 @@
 
 
 
+    
+    <footer id="footer" class="section-bg">
+
+        <div class="flexFooter">
+          <div class="FooterLeft">
+            <div>
+              <a href="#header" class="scrollto"><img src="img/kemon.png" alt="" class="imgfluidFooter"></a>
+            </div>
+            <div class="social-links-s">
+                <a href="https://twitter.com/oluwasusi_ola?s=09" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://mobile.facebook.com/Stephanyemmitty" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=08147702684&text=Hi,%20from%20Kemon-Market.%20My%20name%20is%20" class="instagram"><i class="fa fa-whatsapp"></i></a>
+                <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+
+
+          <div class="flexFooterContent">
+            <div class="generalRight">
+              <div>
+                  <ul>
+                    <h5>About us</h5>
+                    <a href="terms-and-condition.html">Terms and Conditions</a>
+                    <a href="privacy.html">Privacy policy</a>
+                    <a href="#">About Kemon</a>
+                    <a href="refund-policy.html">Refund Policy</a>
+                    <a href="cookie-policy.html">Cookie policy</a>
+                  </ul>
+              </div>
+
+
+              <div>
+                  <ul>
+                    <h5>Support</h5>
+                    <a href="#">Contact us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Safety Tips</a>
+                  </ul>
+              </div>
+
+              <div>
+                <ul>
+                  <h5>Purchase</h5>
+                  <a href="#">Xtra Space</a>
+                  <a href="#">Xtra Product</a>
+                  <a href="#">Xtra Brand</a>
+                </ul>
+            </div>
+
+            <div>
+                <ul>
+                  <h5>Watch us</h5>
+                  <a href="#">Youtube</a>
+                </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+    <div class="container centt">
+      <div class="copyright">
+        Designed with love by <strong>stephanyemmitty</strong>.
+    </div>
 
 
 
 
 
-
-
-
-
-<section class="indexFooter">
-        <!-- <img src="img/whitedots.png" class="dots" alt=""> -->
-        <center>
-            <p class="indexAbout"><a href="#">Support</a> <a href="privacy.html">Privacy Policy</a>  <a href="./terms-and-condition.html">Terms</a></p>
-            <p class="copyright">&copy; copyright <?php echo date('Y') ?> <strong>Kemon Market</strong></p>
-        </center>
-</section>
-
-<br><br><br>
+    
+    <script src="js/landing.js"></script>
 </body>
 </html>
-<script src="js/index.js"></script>
-</body>
-</html>
-

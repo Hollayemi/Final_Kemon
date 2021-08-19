@@ -55,21 +55,31 @@
         $longitude    = testInput($_POST['longitude']);
         $latitude     = testInput($_POST['latitude']);
 
-        $category = implode(',',$categ);
-        print_r($category);
+        $myVerff  =   marketersInfoByShopNick($conn,$shop_nick);
+        if(sizeof(marketersInfo($conn,$myId)) < 1){
+          
+          if($myVerff['shop_nick'] != $shop_nick){
+            $category = implode(',',$categ);
+              if(!empty($Shop_Name) && !empty($shop_nick) && !empty($country) && !empty($state) && !empty($City) && !empty($Junction)
+              && !empty($Bustop) && !empty($VCT) && !empty($facebook) && !empty($whatsapp) && !empty($Phone) && !empty($Offer) && !empty($longitude) && !empty($latitude)){
+                setRegisteration($conn,$Shop_Name,$shop_nick,$website,$country,$state,$City,$Junction,$Bustop,$VCT,$facebook,
+                $whatsapp,$Phone,$Offer,$myId,$longitude,$latitude,$category);
+              }else{
+                echo $Offer;
+              }
 
-          if(!empty($Shop_Name) && !empty($shop_nick) && !empty($website) && !empty($country) && !empty($state) && !empty($City) && !empty($Junction)
-          && !empty($Bustop) && !empty($VCT) && !empty($facebook) && !empty($whatsapp) && !empty($Phone) && !empty($Offer) && !empty($longitude) && !empty($latitude)){
-            setRegisteration($conn,$Shop_Name,$shop_nick,$website,$country,$state,$City,$Junction,$Bustop,$VCT,$facebook,
-            $whatsapp,$Phone,$Offer,$myId,$longitude,$latitude);
+
+              if(sizeof(allCategories($conn,$myId)) < 1){
+                if(!empty($category)){
+                  registerCategory($conn,$myId,$category);
+                }
+              }
           }else{
-            echo $Offer;
+            echo "try with another fixed name";
           }
-
-
-          if(!empty($category)){
-            registerCategory($conn,$myId,$category);
-          }
+        }else{
+          echo "account already exist";
+        }
     }
 
       if(isset($reg)){

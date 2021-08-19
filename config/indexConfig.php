@@ -25,20 +25,7 @@
         return $result;
     }
 
-    function searchScam($conn,$searchBy,$searchScam,$searchType)
-    {
-        $sql = "SELECT scam_exp,scammer_report,date,storyToken FROM sharestory 
-        WHERE scam_exp LIKE ':searchBy' OR scammer_report LIKE ':searchScam' OR scammer_contact LIKE ':searchType'
-              OR scammer_other_info LIKE ':searchType' OR scammer_email LIKE ':searchType'";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([
-            'searchBy'          =>"%".$searchBy."%",
-            'searchScam'        =>"%".$searchScam."%",
-            'searchType'        =>"%".$searchType."%"
-        ]);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
+  
     function distance($lat1, $lon1, $lat2, $lon2) { 
         $pi80 = M_PI / 180; 
         $lat1 *= $pi80; 
@@ -74,11 +61,13 @@
 
 
 
-        // $lat1   =   6.641735799999999;
-        // $lon1   =   3.369134;
     
-        // $lat2   =   6.730075707109153;
-        // $lon2   =   3.40576171875;
-    
-        // echo distance($lat1, $lon1, $lat2, $lon2);
+    function searchBusinessByShopNick($conn,$shop_nick)
+    {
+        $sql = "SELECT * FROM marketers WHERE shop_nick = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$shop_nick]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
 ?>

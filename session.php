@@ -4,9 +4,12 @@
     if(isset($_SESSION['user'])){
         
         if(isset($_SESSION['user_info_id2'])){
+            
             $user_id = $_SESSION['user_info_id2'];
             $_SESSION['user_info_id'] = $_SESSION['user_info_id2'];
+            $username   =   $myIdFetch['username'];
         }
+        $username   =   $myIdFetch['username'];
 
 
         include('config/main_Handler.php');
