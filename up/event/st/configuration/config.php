@@ -1,5 +1,10 @@
 <?php
-    require_once "db.php";
+     if(!isset($sc)){
+        require_once('../db.php');
+    }else{
+        require_once('../../db.php');
+    }
+
     $curPageName        =           substr($_SERVER["SCRIPT_NAME"],strpos($_SERVER["SCRIPT_NAME"],"/")+1);
     $extr               =           explode('/',$curPageName);
     $genId              =           $extr[3];
@@ -21,6 +26,24 @@
         $data = stripslashes($data); 
         $data = htmlspecialchars($data);
         return $data;
+    }
+
+    function SelectAllPageById($conn,$id)
+    {
+        $sql    ="SELECT * FROM trackk WHERE real_ID=? ORDER BY date DESC";
+        $stmt   = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    function SelectAllPagePictureById($conn,$id)
+    {
+        $sql    ="SELECT picture FROM trackk WHERE real_ID=? ORDER BY date DESC";
+        $stmt   = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
     function marketersInfo($conn,$genId)

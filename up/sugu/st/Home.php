@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="">
-<head>
-    <title>Kemon-Market</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="../v2.3.2/jquery.rateyo.min.css"/>
-    <link rel="stylesheet" href="st/css/mycss.css"/>
+<head>  
+    
+  <?php 
+      session_start(); 
+      include('Configuration/config.php'); 
+  ?>
+  <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.css">
     <?php
         $name     ="home";
         $nameHome = "set";
-        session_start();
-        include('st/Configuration/config.php');
-        include('st/in-session.php');
-        include('st/layout/styles/layout.css.php');
-        include('st/layout/styles/framework.css.php');
-        include("st/dropdown.php");
+        
+        include('in-session.php');
+        include('css/style.css.php');
+        echo "</style>";
+        include("dropdown.php");
         // if(require_once('../../functions.php')){
         //   rating($_SESSION['in-shop_name']);
         // }
-      
-    ?><br>
+    ?>
+
+    <title>Kemon-Market</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../lib/v2.3.2/jquery.rateyo.min.css"/>
+    <link rel="stylesheet" href="../<?php echo $webTemp ?>/css/mycss.css"/>
+    
     <script>document.cookie = "_quex224My= "+screen.width</script>
-    <script type="text/javascript" src="st/v2.3.2/jquery.min.js"></script>
-    <script type="text/javascript" src="st/v2.3.2/jquery.rateyo.js"></script>
-    <script type="text/javascript" src="st/js/main.js"></script>
-    <link rel="stylesheet" href="st/font-awesome.min.css">
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/v2.3.2/jquery.rateyo.js"></script>
+    <script type="text/javascript" src="../<?php echo $webTemp ?>/js/main.js"></script>
 </head>
 <body id="top">
   
@@ -437,4 +443,4 @@
       </div>
   </div>
 </div>
-<?php include('st/pages_footer.php'); ?>
+<?php include('pages_footer.php'); ?>

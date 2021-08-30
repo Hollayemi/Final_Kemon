@@ -64,17 +64,18 @@
           </div>
           <div class="col-lg-7 col-md-6">
             <div class="about-content">
-              <h2>Payment</h2>
-              <!-- <h3>Odio sed id eos et laboriosam consequatur eos earum soluta.</h3> -->
-              <p>Make your payment here to continue your registration. <br> You can register your business without making any payment but you won't be able to edit your profile, until you make a payment.</p>
-              <p>Moreover, if you've registered your business, no picture of yours will be loaded when your Business is being searched. Only your Business name,
-                 nearest junction and other features will be shown.</p>
-              <p>Also, if no payment is made, you won't be able get your personal webpage.</p><br>
-              
+            <div class="abt">
+                    <h2 ><span><div></div>ABOUT</span></h2>
+                </div>
+              <h3>showcasing the services you render</h3>
+              <p>Kemon-market is a showcasing website, we present the products and services offered by a company or small business to the customer, 
+                reinforcing the perception of the brand. <br><br>... A showcase site is a site characterized by a simple layout but specifically 
+                designed to clearly show your products or your business at its best</p>
+              <p></p><br>
               <ul>
-                <li id="payNow"><i class="ion-android-checkmark-circle"></i> A free webpage.</li>
-                <li><i class="ion-android-checkmark-circle"></i> Edit Profile.</li>
-                <li><i class="ion-android-checkmark-circle"></i> Customise your page</li>
+                <li id="payNow"><i class="ion-android-checkmark-circle"></i> Responsiveness</li>
+                <li><i class="ion-android-checkmark-circle"></i> Searchability.</li>
+                <li><i class="ion-android-checkmark-circle"></i> Predictability</li>
               </ul>
               <?php 
                 $myMarket=(marketersInfo($conn,$myId));
@@ -91,7 +92,9 @@
       <section>
           <div class="agent-Username wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
               <div class="agentInputClass" > 
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam accusantium consequatur sequi in unde obcaecati reiciendis nihil? Voluptatibus perspiciatis accusantium repellat natus. Rem, impedit natus exercitationem quos blanditiis expedita quam.
+                  Enter a referral code (i.e agent username). It is case sensitive, 
+                  meaning you can't use upper case letters where we have lower case letters (for example: AB123 &#8800; ab123). <br><br> 
+                  It expires, also you can deactivate an agent after activation. <br><br> 
                   <?php 
                     if(isset($_COOKIE['Code-Agent'])){
                       echo '<br><button class="btn btn-outline-info Set_showAgnpop top forPointer" data-toggle="modal" data-target="#Deactivate">Click to Deactivate</button>';
@@ -103,55 +106,62 @@
                     ?>
               </div>
               <div  class="trending-pic">
-                <div class="agnStroke stroke1"></div>
-                <div class="agnStroke stroke2"></div>
-                <div class="agnStroke stroke3"></div>
-                <div class="agnStroke stroke4"></div>
-                <img src="img/agn.png" alt="">
-                  <!-- <img src="pic/ad/agenta.png"  alt=""> -->
+                <img src="img/refer-agn-ds.jpg" alt="">
+                  <div class="coverpic centt"><h4>Activate Agent</h4></div>
               </div>
           </div>
       </section>
-      <section class="agentAnimate">
-        <div class="bigBox wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
-            <img src="img/bgr-eve-lyn.png" style="width:100%;height:100%" alt="">
-            <div class="smallBox smallBox1">
-              <img src="img/agent-call-ioe-phone.PNG" alt="">
-            </div>
-            <div class="smallBox smallBox2">
-              <img src="img/evelyn.png" alt="">
-            </div>
-            <div class="smallBox smallBox3">
-              <img src="img/gbengene.jpg" alt="">
-            </div>
-            <div class="smallBox smallBox4">
-              <img src="img/simple.png" alt="">
-            </div>
-        </div>
 
+      <section class="">
+          <div class="agentAnimate">
+            <div class="bigBox wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                <img src="img/bgr-eve-lyn.png" style="width:100%;height:100%" alt="">
+                <div class="smallBox smallBox1">
+                  <img src="img/agent-call-ioe-phone.PNG" alt="">
+                </div>
+                <div class="smallBox smallBox2">
+                  <img src="img/evelyn.png" alt="">
+                </div>
+                <div class="smallBox smallBox3">
+                  <img src="img/gbengene.jpg" alt="">
+                </div>
+                <div class="smallBox smallBox4">
+                  <img src="img/simple.png" alt="">
+                </div>
+            </div>
+          </div>
       </section>
   </section>
+
   <section id="Registration_all">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#e9ecf1 " fill-opacity="1" d="M0,288L30,272C60,256,120,224,180,202.7C240,181,300,171,360,160C420,149,480,139,540,149.3C600,160,660,192,720,208C780,224,840,224,900,234.7C960,245,1020,267,1080,240C1140,213,1200,139,1260,144C1320,149,1380,235,1410,277.3L1440,320L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
+      </svg>
+        <div class="agentInputClass nir-ew" > 
+          <h2>Get Your <br> <span> <div></div> STORE</span></h2>
+          <h5>We collect informations about the business you are implying to showcase. </h5>
+             
+            <button class='top sliderNext' data-toggle='modal' data-target='#popReg'><i class='fa fa-sign'></i>Click To Register</li>
+        </div>
         <div class="slideshow-container">
-            <div class="mySlides fadess">
-              <img src="img/banners/banner_resources.png" style="width:100%">
+            <div class="mySlides fadess centt">
+              <img src="img/banners/banner_resources.png" >
               <div class="text"><h2>Digital Companies Identify <br> Key Customer <br> Connections</h2></div>
             </div>
             
-            <div class="mySlides fadess">
-              <img src="img/banners/banner_thank_you.png" style="width:100%">
+            <div class="mySlides fadess centt">
+              <img src="img/banners/banner_thank_you.png" >
               <div class="text"><h2>Empowering CFOs with Real-Time <br> Insights into Business <br> Performance</h2></div>
             </div>
             
-            <div class="mySlides fadess">
-              <img src="img/banners/scam-using-wechat5514.jpg" style="width:100%">
+            <div class="mySlides fadess centt">
+              <img src="img/banners/scam-using-wechat5514.jpg">
               <div class="text"><h2>Business Integration & Automation<br> Intelligence <br> Performance</h2></div>
             </div>
             
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-            <button class='top sliderNext' data-toggle='modal' data-target='#popReg'><i class='fa fa-sign'></i>Click To Register</li>
             
         </div>
         <br>
@@ -349,15 +359,12 @@
           </div>
 
           <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1">
-            <h4>Become An Agent</h4>
+            <h4>What Is A Referral Link And How Does It Work?</h4>
             <p>
-             Delectus alias ut incidunt delectus nam placeat in consequatur. Sed cupiditate quia ea quis. Voluptas nemo qui aut distinctio. Cumque fugit earum est quam officiis numquam. Ducimus corporis autem at blanditiis beatae incidunt sunt. 
-            </p>
-            <p>
-              Voluptas saepe natus quidem blanditiis. Non sunt impedit voluptas mollitia beatae. Qui esse molestias. Laudantium libero nisi vitae debitis. Dolorem cupiditate est perferendis iusto.
-            </p>
-            <p>
-              Eum quia in. Magni quas ipsum a. Quis ex voluptatem inventore sint quia modi. Numquam est aut fuga mollitia exercitationem nam accusantium provident quia.
+            A Referral Links is simply a unique combination of numbers, letters, or both attached to a link which are used as an identifier to identify the referral.
+                    <br><br><br>
+            Referral codes, in this type of application, are used to track the origin of a referral. The reason a business uses a referral code is so they can connect the referrals to the people who sent them in. 
+
             </p>
           </div>
           
@@ -781,7 +788,7 @@
             <a data-toggle="collapse" class="collapsed" href="#faq1">How do I change my login credentials ? <i class="ion-android-remove"></i></a>
             <div id="faq1" class="collapse" data-parent="#faq-list">
               <p>
-                  Your credentials can be changed in your profile if it has been activated. In otherwords, if you haven't make your payment you can't change any of your login details. After making your payment, consider your account activated then you can find the link in your Profile 
+                  Your credentials can be changed in our sign in page or <a href="ResetPassword.php"> click here to reset pasword.</a> Thereafter, we will send you a link to reset your password. 
               </p>
             </div>
           </li>

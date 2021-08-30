@@ -54,37 +54,34 @@ function copyFolder($FromDir, $toDir){
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMPT;
 use PHPMailer\PHPMailer\Exception; 
-function MyMailer($subject,$to,$message){
+function MyMailer($subject,$to,$message,$token){
         require 'Mailer2/PHPMailer.php';
         require 'Mailer2/Exception.php';
         require 'Mailer2/SMTP.php';
-       
+        $mail = new PHPMailer(true);
+        $email  ='stephanyemmitty@gmail.com';
+        try{
+            $mail->isSMTP();
+            $mail->Host = 'smtp.ionos.com';
+            $mail->SMTPAuth = true;
+            $mail->SMTPDebug  = 0;
+            $mail->Username   = "support@kemon-market.com";                    
+            $mail->Password   = "kemonSupport0123";                    
+            $mail->AddEmbeddedImage('img/kemon.png','myImg');          
+            $mail->AddEmbeddedImage('img/chatStep.PNG','me');   
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         
+            $mail->Port       = 587;
 
-        $mail = new PHPMailer();
-        $mail->isSMTP();                                           
-        $mail->Host       = 'smtp.gmail.com';                    
-        $mail->SMTPAuth   = true;                                   
-        $mail->Username   = 'stephanyemmitty@gmail.com';               
-        $mail->Password   = 'sholly0123';                              
-        $mail->Port       = 587;                                   
-        $mail->AddEmbeddedImage('img/myKemon.png','myImg');
+            $mail->setFrom("support@kemon-market.com",'Kemon Market');
+            $mail->addAddress('stephanyemmitty@gmail.com');
 
-        $mail->SMPTSecure = 'tls';  
-
-        $mail->setFrom('stephanyemmitty@gmail.com', 'Stephen Olayemi');
-        $mail->addAddress($to);
-        $mail->addReplyTo('stephanyemmitty@gmail.com');
-
-        
-        $mail->isHTML(true);
-        $mail->Subject = $subject;
-        $mail->Body    = $message;
-        
-        if($mail->send()){
-            echo 'Message has been sent';
-
-        } else{
-            echo  "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body = $message;
+            if($mail->send()){
+            }
+        }catch(Exception $e){
+            echo displayMessage('danger','Oops something went wrong! please try again');
         }
 
 }

@@ -51,14 +51,12 @@ if(!empty($myId)){
                 mkdir('../up/'.$shop_nick.'/cp');
                 mkdir('../up/'.$shop_nick.'/pg');
                 mkdir('../up/'.$shop_nick.'/tb');
-                mkdir('../up/'.$shop_nick.'/st');
                 mkdir('../up/'.$shop_nick.'/usersTeam');
 
                 $eventType = "Creation";
                 $myAction = "Created";
                 $activity = "Your store has been created and ready for modification";
                 updateActivite($conn,$eventType,$myAction,$myId,$activity);
-
                 $eventType = "Verification";
                 $myAction = "Verified";
                 $activity = "Payment has been accepted. Note, your account is not accessible. 
@@ -67,11 +65,10 @@ if(!empty($myId)){
 
 
                 $NewPageFile  =  '../up/'.$shop_nick.'/'.$shop_nick.'.php';
-                $contents ="<?php include('st/Home.php')?>";            
+                $contents ="<?php include('../sugu/st/Home.php')?>";            
                 if(file_put_contents($NewPageFile,$contents)){ }
 
                 if(require_once('../functions.php')){
-                    copyFolder("../up/sugu/st","../up/".$shop_nick."/st");
                     copyFolder("../img/profile","../up/".$shop_nick);
                 }
                 
@@ -88,7 +85,6 @@ if(!empty($myId)){
                 echo "unexpected err";
             }
         }else{
-
             if(isset($_GET['subscription_was_successfulpaid'])){
                 header('Refresh: 5;'.$username.($myId+30).'.php?transaction=successful&ref='.$_GET['rreef']);
             }elseif(isset($_GET['successfullypaid'])){

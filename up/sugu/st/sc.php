@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="">
-<head>
-<title>Kemon-Market</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<?php
+  <head>
+    <title>Kemon-Market</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <?php
         $sc = "tru";
         session_start();
-        include_once('configuration/config.php');
-        include('in-session.php');
-        include('../st/layout/styles/layout.css.php');
-        include('../st/layout/styles/framework.css.php');
-        include("../st/dropdown.php");
+        require_once('configuration/config.php');
+        require_once('in-session.php');
+        require_once('css/style.css.php');
+        echo "</style>";
+        require_once("dropdown.php");
     ?><br>
-    <link rel="stylesheet" href="../st/font-awesome.min.css">
-    <link rel="stylesheet" href="../st/css/mycss.css">
+    <link rel="stylesheet" href="../../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../<?php echo $webTemp ?>/st/css/mycss.css">
 
 </head>
 <body id="top">
@@ -57,7 +57,7 @@
     if(isset($_COOKIE['_quex224My'])){
       if($_COOKIE['_quex224My'] < 751 && isset($_SESSION['user_info_id'])){
         echo "<h2 class='rate_review' id='rateUs'>Rate us</h2>";
-        include("../st/sec.php");
+        include("st/sec.php");
         ?>
         <div class="rateyo-readonly-widg myRater" style="block"><h4 id="ratingVeri"></h4></div>
       <form action="" method="POST">
@@ -70,7 +70,6 @@
         <?php
       }
     }
-    
     ?>
     <div class="one_half">
       <ul class="nospace clear">

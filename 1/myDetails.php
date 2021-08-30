@@ -146,7 +146,7 @@
                       
 
                       <form action="../action.php" method="POST" class=" ddam centt_col" style="display:none;">
-                        <input type="text" value="<?php echo $allPage?>" name="deleteSelectedPage" style="visibility:hidden; visimility" >
+                        <input type="text" value="<?php echo $allPage?>" name="deleteSelectedPage" style="visibility:hidden;" >
                         <button type='post' name='deleteSelectedPageBtn'id="sadEL" >
                           <span class="material-icons" title="delete page">delete</span>
                         </button>

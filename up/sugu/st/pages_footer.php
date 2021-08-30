@@ -198,10 +198,10 @@ function repeatFooter($numTimes,$footerLinkName,$footerLink){
 <?php
 if(isset($nameHome)){
 ?>
-    <script type="text/javascript" src="st/jquery.min.js"></script>
-    <script type="text/javascript" src="../v2.3.2/jquery.rateyo.js"></script>
-    <script src="st/layout/scripts/jquery.backtotop.js"></script>
-    <script src="st/layout/scripts/jquery.mobilemenu.js"></script>
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/v2.3.2/jquery.rateyo.js"></script>
+    <script src="../lib/jquery.backtotop.js"></script>
+    <script src="../lib/jquery.mobilemenu.js"></script>
     <script src="../lib/wow/wow.js"></script>
     <script src="../lib/venobox/venobox.js"></script>
     <script src="../lib/venobox/venobox.min.js"></script>
@@ -209,17 +209,16 @@ if(isset($nameHome)){
 <?php
 }else{
 ?>
-    <script type="text/javascript" src="../st/jquery.min.js"></script>
-    <script type="text/javascript" src="../st/v2.3.2/jquery.rateyo.js"></script>
-    <script src="../st/layout/scripts/jquery.backtotop.js"></script>
-    <script src="../st/layout/scripts/jquery.mobilemenu.js"></script>
-
+    <script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../lib/v2.3.2/jquery.rateyo.js"></script>
+    <script src="../../lib/jquery.backtotop.js"></script>
+    <script src="../../lib/jquery.mobilemenu.js"></script>
 <?php
 }
 ?>
   <script>
     if(localStorage.getItem('rate') != null){
-      document.querySelector('.myRater').style.display="none"
+      // document.querySelector('.myRater').style.display="none"
     }else{
       document.querySelector('.myRater').style.display="block"
     }

@@ -1,5 +1,9 @@
 <?php
-    require_once "db.php";
+    if(isset($sc)){
+        require_once "../../db.php";
+    }else{
+        require_once "../db.php";
+    }
     $curPageName        =           substr($_SERVER["SCRIPT_NAME"],strpos($_SERVER["SCRIPT_NAME"],"/")+1);
     $extr               =           explode('/',$curPageName);
     $genId              =           $extr[3];

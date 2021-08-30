@@ -145,7 +145,8 @@ if(isset($_POST['faqSub'])){
       <div class="settinSecInfo"><h4>Basic settings</h4></div>
       <div>    
     <form action="" method="POST" name=myForm enctype="multipart/form-data" class="formSetting">
-        <button type="submit" name="submitProf" class="settSaveIconDiv" style="display:none"><i class="fa fa-save fa-2x settSaveIcon"></i></button>
+        <button type="submit" name="submitProf" id="myProfSave" style="display:none; top:-1000%"></button>
+        <label for="myProfSave" class="settSaveIconDiv" style="display:none;"><i class="fa fa-save fa-2x settSaveIcon" style="top:200px;"></i></label>
             <div class="settinSec">
                 <div>
                     <div class="editLabel"><h3>Business</h3></div><div class="settinInput"><input type="text" class="shopName" id="shopName" disabled="true"  name="shopName" value='<?php echo $myShopName ?>'></div>

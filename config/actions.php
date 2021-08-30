@@ -54,6 +54,7 @@
         return $row;
     }
 
+
     // forgot password
     function forgot_password($conn,$token,$email)
     {
@@ -63,22 +64,24 @@
         return true;
     }
 
+
     //reset password
-    function resetPassword($conn,$email,$token)
+    function resetPassword($conn,$token)
     {
-        $sql = "SELECT id FROM users WHERE email =:email AND token =:token AND token !=''";
+        $sql = "SELECT * FROM users WHERE token =?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute(['email'=>$email,'token'=>$token]);
+        $stmt->execute([$token]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row;
     }
 
+
     // Update Password
-    function updatePassword($conn,$pass,$email)
+    function updatePassword($conn,$token,$password)
     {
-        $sql = 'UPDATE users SET token="", password=:pass WHERE email=:email';
+        $sql = 'UPDATE users SET token=?,password=? WHERE token=?';
         $stmt = $conn->prepare($sql);
-        $stmt->execute(['pass'=>$pass,'email'=>$email]);
+        $stmt->execute([$token,$password,$token]);
         return true;
     
     }

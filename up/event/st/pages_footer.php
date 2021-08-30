@@ -1,23 +1,26 @@
 <?php
 
-  
 $footerLink = array();
 $footerLinkName = array();
 
 
-for($k=0; $k<count($allPages); $k++){
-  $footerLi = $allPages[$k];
-  $FN = $allPages[$k];
-  $FNa = explode('-',$FN);
+for($k=0; $k<count($allMyReadyTabArr); $k++){
+  
+  $FNa = explode('-',$allMyReadyTabArr[$k]);
   
   $footerNa = ucwords(strtolower($FNa[1]));
   
 
   if(!in_array($footerNa,$footerLinkName)){
-      $footerLink[]= $footerLi.".php";
+      if(isset($nameHome)){
+        $footerLink[]= "tb/".$allMyReadyTabArr[$k].".php";
+      }else{
+        $footerLink[]= "../tb/".$allMyReadyTabArr[$k].".php";
+      }
       $footerLinkName[]= $footerNa;
   }
 }
+
 
 
 
@@ -147,9 +150,9 @@ for($k=0; $k<count($allPages); $k++){
   <script src="../../lib/wow/wow.min.js"></script>
   <script src="../../lib/venobox/venobox.min.js"></script>
   <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="../st/js/main.js"></script>
-  <script src="../st/js/setup.js"></script>
-<script type="text/javascript" src="../../v2.3.2/jquery.rateyo.js"></script>
+  <script src="../../<?php echo $webTemp ?>/st/js/main.js"></script>
+  <script src="../../<?php echo $webTemp ?>/st/js/setup.js"></script>
+<script type="text/javascript" src="../../lib/v2.3.2/jquery.rateyo.js"></script>
   <script>
 
 // function hexToRgb(hex) {

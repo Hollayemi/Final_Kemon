@@ -11,7 +11,11 @@
     <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
     <link href="lib/ionicons/css/ionicons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/landingMedia.css">
+    <meta content="Kemon,Kemon-market,Online business,showcasing,store,online store,business registrantion,registration,Business,legit money,
+                    agent, near place, buy, sell, product, brand" name="keywords">
+    <meta content="This is a platform that helps in showcasing your products online. You can also get search for any product from the nearest store." name="description">
 </head>
+
 <?php
     include('./indexEngine.php')
 ?>
@@ -25,12 +29,12 @@
                 <li><a href="#ourSolu"><i class="fa fa-bars"></i>Menu</a></li>
             </div>
             <div class="forKemon">
-                <li><a href="index.php"><i class="fa fa-search"></i></a> <div></div></li>
+                <li><a href="search.php"><i class="fa fa-search"></i></a> <div></div></li>
                 <li class="barKemon"><a href="#what-we-do">KEMON</a> <div></div></li>
                 <li><a href="signin.php">Sign in</a> <div></div></li>
             </div>
             <div class="forReg">
-                <li><a href="#contact">Get Now</a> <div></div></li>
+                <li><a href="new-signup.php">Sign Up</a> <div></div></li>
                 <!-- <li><i class="fa fa-shopping-basket"></i> <div></div></li> -->
             </div>
         </nav>
@@ -71,14 +75,11 @@
                 <h2>55</h2>
             </div>
         </div>
-
         <div class="topContent">
             <div class="hpt-ru-ff">
                 <h1 class="contentTopH1">
                     Easy Way To Get Any Product From Your Environment
                 </h1>
-               
-
                 <div class="SearchForm">
                     <form action="search.php?Searchfor" method="GET" autocomplete="off" >
                         <input type="text" id="search" name="Search_Name" value="" placeholder="Search Kemon">
@@ -86,7 +87,7 @@
                         <input type="text" id="btnLong" name="long" value="" placeholder="city" style="display:none"></i>
                         <button class="My_src_btn" name='My_src_btn' type="submit" >Search <i class="ion-search myIons"></i></button>
                     </form>
-                </div>            
+                </div>         
             
 
 
@@ -118,15 +119,15 @@
 
 
 
-
-    <section class="rt-rer-blue">
+   <section class="rt-rer-blue">
         <h2 class="secTitle">Get An Accessable Website</h2>
         <div class="drf-yup-tdf">
             <div class="cty-note">
                 <br><br><br>
                 <h1>Get</h1>
-                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi iste nihil commodi porro, quos suscipit et natus sunt 
-                    voluptatem laboriosam quisquam quod esse repudiandae odit, quasi tempora nobis aut est!
+                <h4>it is very easy to get a responsive website in Kemon-market. 
+                    You can post photos and offers to your profile to show what 
+                    makes your business unique and we make your your webpage easy to access and browse through
                 </h4>
 
             </div>
@@ -148,8 +149,8 @@
             <div class="cty-note">
                 <br><br><br>
                 <h1>Change Theme</h1>
-                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi iste nihil commodi porro, quos suscipit et natus sunt 
-                    voluptatem laboriosam quisquam quod esse repudiandae odit, quasi tempora nobis aut est!barKemon
+                <h4>
+                    You can change
                 </h4>
 
             </div>
@@ -160,7 +161,7 @@
         <div class="detailSec">
             <div>
                 <i class="ion-ios-eye"></i>
-                <p><br><b>Preview</b><br><br> Use this to preview the theme in picture, you navigate by the actions button on the pop-up page.</p>
+                <p><br><b>Preview</b><br><br> Use this to preview the theme in picture, you navigate by the action buttons on the pop-up page.</p>
             </div>
 
             <div>
@@ -185,8 +186,8 @@
             <div class="cty-note">
 
                 <h1>Create New Brand</h1>
-                <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi iste nihil commodi porro, quos suscipit et natus sunt 
-                    voluptatem laboriosam quisquam quod esse repudiandae odit, quasi tempora nobis aut est!
+                <h4>
+                    It is very easy to set up a brand on kemon, you can manipulate your brand after creation. They serves as the 
                 </h4>
                 <br><br><br>
                 <h1>Create New Product</h1>
@@ -413,5 +414,12 @@
 
     
     <script src="js/landing.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>
+
+
+<!-- https://www.figma.com/file/fRD7yyRq7KrUbkim9NdzQT/Kemon-market-chart -->
+<!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" 
+src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FfRD7yyRq7KrUbkim9NdzQT%2FKemon-market-chart" 
+allowfullscreen></iframe> -->

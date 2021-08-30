@@ -3,6 +3,7 @@
     if(!empty(marketersInfo($conn,$myIdFetch['id']))){
         $marketersInfo      =   marketersInfo($conn,$myIdFetch['id']);
         $shop_nick          =   $marketersInfo['shop_nick'];
+        $webType            =   $marketersInfo['webType'];
     }
 
     $_SESSION['year1'] = 25000;
@@ -23,9 +24,9 @@
             $Newpagename =  ucwords(strtolower($CreatePageName));
             $NewPageFile  =  '../up/'.$shop_nick.'/pg/'.$Newpagename . ".php";
             $contents ="<?php  
+            require_once('../webTemp.php');
             $"."name"." = '$Newpagename';
-            include('../st/sc.php'); 
-            // include('../st/pages_footer.php'); 
+            include('../../".$webType."/st/sc.php'); 
             ?>
               ";
             if(!in_array($NewPageFile,$countPagess)){
@@ -66,11 +67,12 @@
               $NewTabnameSmall = strtolower($CreateTabName);
               $NewTabFile  =  '../up/'.$shop_nick.'/tb/'.strtolower($selectedTab).'-'.strtolower($NewTabname). ".php";
               $contents ="<?php  
+              require_once('../webTemp.php');
               $"."sc = 'uiii';
               $"."name = '$NewTabnameSmall';
               $"."namePage = '$selectedTab';
               $"."tab = 'true';
-            include('../st/pagebody.php');  
+              include('../../".$webType."/st/pagebody.php'); 
         ?>";
 
         if(!in_array($NewTabFile,$countTabss)){

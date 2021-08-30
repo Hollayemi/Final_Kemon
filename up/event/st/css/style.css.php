@@ -663,9 +663,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 #about {
   <?php
     if(!isset($sc)){
-        echo 'background: url("st/img/about-bg.jpg");';
+        echo 'background: url("../'.$webTemp.'/st/img/about-bg.jpg");';
     }else{
-        echo 'background: url("../st/img/about-bg.jpg");';
+      echo 'background: url("../../'.$webTemp.'/st/img/about-bg.jpg");';
     }
   ?>
   background-size: cover;

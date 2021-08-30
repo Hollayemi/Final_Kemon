@@ -403,9 +403,10 @@
                     ?>
                     
                     <div class="pages_info">
-                          <h4 class="Delete-h4 Delete-h4-small">Delete section</h4>
+                          <!-- <h4 class="Delete-h4 Delete-h4-small">Delete section</h4> -->
                           <br>
                             <form action="../action.php" method="POST" class="centt_col">
+                                  <h4>Delete section</h4>
                                   <select class="select-css" name="deleteSelectedPage">
                                   <option  selected="selected" class="select" style='line-height:5px;color:blue;width:15px'>select brand name</option>
                                   <?php
@@ -436,8 +437,9 @@
                   </div>
                   <div></div>
                   <div class="updatePages">
-                        <h4 class="Delete-h4 cr_brand">Create a Brand</h4>
+                        <!-- <h4 class="Delete-h4 cr_brand">Create a Brand</h4> -->
                         <form action="<?php echo $_SERVER['PHP_SELF'].'?view=modify' ?>" method="POST" class="centt_col">
+                              <h4>Create a Brand</h4>
                               <input type="text"  class="editInput2 " name="CreatePageName"><br>
                               <a href="#" class="centt_col"><button name="CreatePage" type="submit" class="updatePagesBtn" onclick="switchPage('modify')">Create</button></a>
                         </form>
@@ -499,6 +501,7 @@
             <div class="flexin-1">
             <h4 class="cr-h4">Create a Product</h4>
               <form action="<?php echo $_SERVER['PHP_SELF'].'?view=modify' ?>" method="POST" class="centt_col">
+                    <h4>Create a Product</h4>
                     <select class="select-css" name="selectedTab">
                             <option  selected="selected" disabled class="select" style='line-height:20px;color:blue'>Select Brand</option>
                             <?php
@@ -517,7 +520,6 @@
               echo "<span id='blab-sec' style='display:none'><img id='blah2' src='#' display='none' class='tot_num2 tum'> <span ></span></span>";
             ?>
             <div class="flexin-2">
-              <h5 class="cr-h5">Compose Email</h5>
                 <form action="" method="POST" id="uploader" class="centt_col"><br><br>
                     <input type="text" name="sub" class="editInput3 text-marg" id="amount" placeholder="Subject"><br>
                     <textarea name="cnt" id="myPageCaption"  class=" textarea" placeholder="Description" style="border:none;width:80%; height:150px;resize:none;outline:none"></textarea><br>

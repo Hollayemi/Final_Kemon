@@ -1,8 +1,9 @@
 <?php
+  require_once('../webTemp.php');
   session_start();
   include_once('configuration/config.php');
   include_once('configuration/initialize.php');
-  include('../st/in-session.php');
+  include('in-session.php');
 ?>
 <!DOCTYPE html>
 <html lang="">
@@ -10,17 +11,17 @@
     <title>Kemon-Market</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="../../v2.3.2/jquery.rateyo.min.css"/>
+    <link rel="stylesheet" href="../../lib/v2.3.2/jquery.rateyo.min.css"/>
     <?php
-          include('../st/layout/styles/layout.css.php');
-          include('../st/layout/styles/framework.css.php');
+          include('css/style.css.php');
+          echo "</style>";
     ?><br>
-    <link rel="stylesheet" href="../st/font-awesome.min.css">
-    <link rel="stylesheet" href="../st/css/mycss.css">
+    <link rel="stylesheet" href="../../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../<?php echo $webTemp ?>/st/css/mycss.css">
     <script>document.cookie = "_quex224My = "+screen.width</script>
   </head>
   <?php 
-      include("../st/dropdown.php");
+      include("dropdown.php");
   ?>
   <body id="top" class="top" style="overflow:auto">
          

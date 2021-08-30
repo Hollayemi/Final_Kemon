@@ -1,7 +1,8 @@
 <?php  
               $sc = 'uiii';
+              require_once('../webTemp.php');
               $name = 'cars';
               $namePage = 'automobile';
               $tab = 'true';
-            include('../st/pagebody.php');  
+              include('../../'.$webTemp.'/st/pagebody.php');  
         ?>

@@ -4,26 +4,26 @@ $allMyReadyPageArr =  array();
 $allMyReadyTabArr =  array();
 
 
-$allPages    =   SelectAllPage($conn);
+$allPages    =   SelectAllPageById($conn,$id);
+    for($a=0;$a<count($allPages); $a++){
+        $allPage    =   explode('-',$allPages[$a]['page']);
+        
+        
+        if( !in_array($allPages,$myTabbs)){
+            $myTabbs[]  =   $allPages[$a]['page'];
+        }
 
-for($a=0;$a<count($allPages); $a++){
-    $allPage    =   explode('-',$allPages[$a]);
-    
-    if( !in_array($allPages,$myTabbs)){
-        $myTabbs[]  =   $allPages;
+        if( !in_array($allPage[0],$allMyReadyPageArr)){
+            $allMyReadyPageArr[]  =   $allPage[0];
+        }
+
+    }
+    for($a=0;$a<count($myTabbs); $a++){
+        if( !in_array($myTabbs[$a],$allMyReadyTabArr)){
+            $allMyReadyTabArr[]  =   $myTabbs[$a];
+        }
     }
 
-    if( !in_array($allPage[0],$allMyReadyPageArr)){
-        $allMyReadyPageArr[]  =   $allPage[0];
-    }
-
-}
-
-for($a=0;$a<count($myTabbs[0]); $a++){
-    if( !in_array($myTabbs[0][$a],$allMyReadyTabArr)){
-        $allMyReadyTabArr[]  =   $myTabbs[0][$a];
-    }
-}
 
 
 

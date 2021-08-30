@@ -210,27 +210,21 @@ if(isset($collectquerry['counting'])){
     }
 }
        
-        
+$agentLink  =   "https://kemon-market.com/get.php?ref=".ucwords($collectquerry['referralLink']);
 ?>
 <section class="myAgn">
        <div class="AgnFlexin">
             <div class="agnInfo">
 
-                <div class="agnInfo1">
-                    <h3>Agent Options</h3>
-                    <h5 style="margin-left:10px;font-size:18px">Agent Profile</h5>
-                    <h5 style="margin-left:10px;font-size:18px">Change details</h5>
-                </div>
                 <div class="agnInfo2">
                     <h5>Referral link</h5>
-                    <a target="_blank" href="http://localhost/dashboard/Kemon/agent/<?php echo $collectquerry['referralLink'].'.php'?>" title="http://localhost/dashboard/Kemon_market/agent/<?php echo $collectquerry['referralLink'].'.php'?>">Visit Link</a>
-                    <input type="text" value="<?php echo 'https://Kemon/agent/'.ucwords($collectquerry['referralLink']).'.com'?>"readonly  id="copyElement" style="border:none; width:100%;margin-bottom:20px">
+                    <a target="_blank" href="<?php echo $agentLink ?>" title="<?php echo $agentLink ?>">Visit Link</a>
+                    <input type="text" value="<?php echo $agentLink ?>"readonly  id="copyElement" style="border:none; width:100%;margin-bottom:20px">
                     <button onclick="copyToClipboard()" class="shareGra1"><h6><i style="color:#fff" class="fa fa-copy share_fa"></i> Copy to clipboard</h5></button><br><br>
                     <h5>Share On:</h5>
                     <div class='socMedia'>
-                        <a href=""><h5 class="shareGra2"><i class=" fa fa-facebook share_fa"></i></h5></a>
-                        <a style="" href="https://api.whatsapp.com/send?text= Hello%20Guys,%20my%20name%20is%20(....).%20Please%20register%20your%20business%20with%20kemon-%20market%20using%20this%20link%20<?php echo 'https://Kemon-Market/'.ucwords($collectquerry['referralLink']).'.com'?>"><h5 class="shareGra3"><i class=" fa fa-whatsapp share_fa"></i></h5></a>
-                        <a style="" href=""><h5 class="shareGra4"><i class=" fa fa-instagram share_fa"></i></h5></a>
+                        <a style="" href="https://api.whatsapp.com/send?text= Hello%20Guys,%20my%20name%20is%20<?php echo $collectquerry['agnUsername'] ?>,%20I%20want%20to%20invite%20you%20to%20register%20your%20business%20with%20kemon-%20market%20using%20this%20link%20<?php echo $agentLink ?>"><h5 class="shareGra3"><i class=" fa fa-whatsapp share_fa"></i></h5></a>
+                        <div class="fb-share-button" data-href="<?php echo $agentLink ?>" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkemon-market.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                     </div><br>
                     <h4>Click to Withdraw</h4>
                     <form action="resetPayment.php" method="POST">

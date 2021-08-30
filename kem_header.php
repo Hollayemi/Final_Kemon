@@ -4,8 +4,16 @@
   <meta charset="utf-8">
   <title>Kemon-Market</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+  <meta content="Kemon,Kemon-market,Online business,showcasing,store,online store,business registrantion,registration,Business,legit money,
+  agent, near place, buy, sell, product, brand" name="keywords">
+  
+  <meta content="This is a platform that helps in showcasing your products online. You can also get search for any product from the nearest store." name="description">
+
+  <meta property="og:url"           content="https://www.kemon-market.com" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Kemon-Market" />
+  <meta property="og:description"   content="Kemon-market helps in showcasing your product to " />
+  <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
   <link href="img/km.png" rel="icon">
 
   <!-- Google Fonts -->
@@ -20,6 +28,13 @@
   <link href="lib/ionicons/css/ionicons.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- facebook sharer -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0&appId=201688678534772&autoLogAppEvents=1" nonce="wOIS2gIf"></script>
+  <!-- facebook sharer -->
+
+
   <script src="https://js.paystack.co/v1/inline.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
   <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
@@ -38,6 +53,7 @@
   if(file_put_contents($MyProf,$contents))
 
     if(isset($_POST['regBusiness'])){
+
         $Shop_Name    = testInput($_POST['Shop_Name']);
         $shop_nick    = testInput($_POST['aka']);
         $website      = testInput($_POST['website']);
@@ -113,7 +129,7 @@
     <div class="Mycontainer" style="width:100%">
       <div class="logo float-left" style="margin-left:5%">
         <!-- <h1 class="text-light"><a href="index.php" class="scrollto"><span>Ke<span style="color:skyblue">M</span>on</span></a></h1> -->
-        <a href="#header" class="scrollto"><img src="img/myKemon.png" alt="" style="width:130px; height:100px" class="imgfluid"></a>
+        <a href="#header" class="scrollto"><img src="img/kemon.png" alt="" class="imgfluid"></a>
       </div>
       <nav class="main-nav float-right d-none d-lg-block margin-rt">
         <ul>

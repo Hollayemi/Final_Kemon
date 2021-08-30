@@ -9,10 +9,13 @@
 }
 .agentAnimate{
     display:none;
+    justify-content: space-between;
     box-shadow: -2px 10px 20px 5px rgba(0, 0, 0, 0.19);
     width:300px;
     margin-left:calc(50% - 150px);
 }
+
+
 .smallBox{
     position:absolute;
     width:50px;

@@ -156,6 +156,7 @@ body{
     transition:.5s;
     animation: loginStatus 1s ease-in .5s;
     animation-fill-mode: forwards;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.2);
 }
 @keyframes loginStatus{
     0%{top:-400px;opacity:0;}100%{top:0px;opacity:1;}

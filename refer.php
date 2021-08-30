@@ -17,8 +17,8 @@
         }else{
             header('Location:Register.php?_vagent=abs');
         }
-    }elseif(isset($_SESSION['referralCookie']) && !isset($_COOKIE['Agent'])){
-            $deriveCode = $_SESSION['referralCookie'];
+    }elseif(isset($_COOKIE['referredAgn']) && !isset($_COOKIE['Agent'])){
+            $deriveCode = $_COOKIE['referredAgn'];
             // echo $deriveCode;
             
             $details = allAgentById($conn,$myId);
@@ -30,12 +30,11 @@
                 header('Location:Register.php');
             }
 
-    }elseif(isset($_SESSION['referralCookie']) && isset($_COOKIE['Agent'])){
-             $deriveCode = $_SESSION['referralCookie'];
+    }elseif(isset($_COOKIE['referredAgn']) && isset($_COOKIE['Agent'])){
+             $deriveCode = $_COOKIE['referredAgn'];
              
              $details = allAgentById($conn,$myId);
              if(isset($details['agnPic'])){
-                
          }else{
             header('Location:Register.php?_vagent=abs');
         }

@@ -77,26 +77,30 @@
 
 
 <script>
-var letsChat = document.querySelector(".letsChat")
-            var chatPhone = document.querySelector(".chatPhone")
-            var iPhoneButton = document.querySelector(".iPhoneButton")
+    var letsChat = document.querySelector(".letsChat")
+    var chatPhone = document.querySelector(".chatPhone")
+    var iPhoneButton = document.querySelector(".iPhoneButton")
             
-            letsChat.addEventListener("click",function(){
-              if(letsChat.style.display=="block"){
-                letsChat.style.display="none" 
-                chatPhone.style.display="block"
-                
-                }else{
-                  
-                }
-            });
+    letsChat.addEventListener("click",function(){
+      if(chatPhone.style.display=="none"){
+        letsChat.style.right="-48px" 
+        letsChat.style.borderRadius="5px" 
+        letsChat.style.height="100px" 
+        chatPhone.style.display="block"
+        
+        }else{
+          
+        }
+    });
 
 
-            iPhoneButton.addEventListener('click',function(){
-                letsChat.style.display="block" 
-                chatPhone.style.display="none"
-            })
-    </script>
+        iPhoneButton.addEventListener('click',function(){
+            letsChat.style.right="0px"
+            letsChat.style.borderRadius="50%" 
+            letsChat.style.height="50px" 
+            chatPhone.style.display="none"
+        })
+</script>
 
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 

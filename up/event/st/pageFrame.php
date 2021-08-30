@@ -41,7 +41,7 @@
             position:relative;
           }
           .cap-td{
-              width:80%;
+              width:90%;
           }
           .pic-td{
             width:80%;
